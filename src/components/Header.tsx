@@ -45,15 +45,15 @@ const Header = () => {
   }, [isPrototypePage]);
 
   return (
-    <header className={`fixed w-full backdrop-blur-sm shadow-md ${isPrototypePage ? 'z-10' : 'z-50'} transition-shadow duration-300 ease-in-out sticky top-0`} style={{ backgroundColor: 'rgba(236, 237, 227, 0.97)' }}>
+    <header className={`fixed w-full backdrop-blur-sm shadow-md ${isPrototypePage ? 'z-10' : 'z-50'} transition-shadow duration-300 ease-in-out sticky top-0`} style={{ backgroundColor: '#F8F5F0' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center py-4 md:justify-start md:space-x-10">
           {/* Logo */}
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <a href="/" className="flex items-center">
               <img 
-                src="/assets/images/global/logos/lg-development/lg_logo.png" 
-                alt="LG Development Logo" 
+                src="/assets/images/global/logos/lg-logo.png" 
+                alt="Capital Match Logo" 
                 className="h-16 w-auto object-contain"
               />
             </a>
@@ -171,9 +171,10 @@ const Header = () => {
       {/* Mobile menu */}
       <div
         className={cn(
-          "md:hidden absolute top-[72px] inset-x-0 bg-lg-background shadow-lg transition-all duration-300 ease-in-out",
+          "md:hidden absolute top-[72px] inset-x-0 shadow-lg transition-all duration-300 ease-in-out",
           mobileMenuOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0 overflow-hidden"
         )}
+        style={{ backgroundColor: '#F8F5F0' }}
       >
         <div className="px-4 pt-2 pb-4 space-y-4">
           {isPrototypePage ? (
