@@ -1,0 +1,62 @@
+:root {
+  /* Primary colors */
+  --color-primary: #275E91;
+  --color-secondary: #7A8D79;
+  --color-highlight: #C9D4DC;
+  
+  /* Text and background colors */
+  --color-text: #1C1C1C;
+  --color-background: #ECEDE3;
+  --color-footer: #F5F5EF;
+  
+  /* Status/indicator colors */
+  --color-success: #2E7D32;
+  --color-warning: #F57C00;
+  --color-error: #C62828;
+  
+  /* Additional colors */
+  --color-accent: #5B7B9C;
+  
+  /* Typography */
+  --font-headers: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  
+  /* Font sizes */
+  --font-size-xl: 32px;
+  --font-size-lg: 24px;
+  --font-size-md: 20px;
+  --font-size-regular: 16px;
+  --font-size-sm: 14px;
+  --font-size-xs: 12px;
+  
+  /* Line heights */
+  --line-height-headings: 1.2;
+  --line-height-body: 1.5;
+  --line-height-small: 1.4;
+  
+  /* Spacing */
+  --spacing-tiny: 4px;
+  --spacing-small: 8px;
+  --spacing-medium: 16px;
+  --spacing-large: 24px;
+  --spacing-xlarge: 32px;
+  --spacing-huge: 48px;
+  
+  /* Border radius */
+  --border-radius-default: 4px;
+  --border-radius-card: 8px;
+  
+  /* Shadows */
+  --shadow-card: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-card-hover: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  
+  /* Transitions */
+  --transition-fast: 150ms;
+  --transition-standard: 250ms;
+  --transition-slow: 400ms;
+  
+  /* Easing */
+  --ease-standard: ease-in-out;
+  --ease-in: ease-in;
+  --ease-out: ease-out;
+}
