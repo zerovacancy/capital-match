@@ -2,7 +2,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Building2, ChevronDown } from "lucide-react";
-import PlatformVisualization from './visualization/PlatformVisualization';
+import PlatformVisualization from '@/components/visualization/PlatformVisualization';
 
 const HeroSection = () => {
   const scrollToCapabilities = () => {
