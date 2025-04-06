@@ -24,7 +24,7 @@ const Header = () => {
       // Find the section closest to the top of the viewport
       let current = "";
       sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
+        const sectionTop = (section as HTMLElement).offsetTop;
         if (window.scrollY >= sectionTop - 100) {
           current = section.getAttribute('id') || "";
         }
