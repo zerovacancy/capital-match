@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -112,7 +113,7 @@ export function RelationshipTrend({ lpId, className }: RelationshipTrendProps) {
                     dot={{
                       r: 4,
                       strokeWidth: 1,
-                      fill: (entry) => entry.event ? '#275E91' : 'white',
+                      fill: "#275E91",
                       stroke: '#275E91'
                     }}
                     activeDot={{ r: 6 }}

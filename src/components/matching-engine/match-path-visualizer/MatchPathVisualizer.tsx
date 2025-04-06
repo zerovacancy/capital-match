@@ -1,3 +1,4 @@
+
 import React, { useRef, useEffect, useState } from 'react';
 import { useMatchPathVisualizer } from './useMatchPathVisualizer';
 import { MatchPathVisualizerProps } from './MatchPathVisualizer.types';
@@ -77,11 +78,12 @@ export const MatchPathVisualizer: React.FC<MatchPathVisualizerProps> = ({
     paths.forEach((path, index) => {
       // Reset the animation
       path.classList.remove('animate-path');
-      void path.offsetWidth; // Trigger reflow
-      path.classList.add('animate-path');
       
-      // Stagger the animations
-      (path as SVGPathElement).style.animationDelay = `${index * 100}ms`;
+      // Use setTimeout instead of offsetWidth to force a reflow
+      setTimeout(() => {
+        path.classList.add('animate-path');
+        (path as SVGPathElement).style.animationDelay = `${index * 100}ms`;
+      }, 0);
     });
   }, [connectionPaths, animated]);
 
