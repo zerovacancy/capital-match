@@ -114,7 +114,7 @@ export function InvestmentHistory({ lpId, className }: InvestmentHistoryProps) {
                     </div>
                     <div className="ml-auto">
                       <Badge variant="outline" className="text-xs font-mono">
-                        {formatCurrency(item.amount, { notation: 'compact' })}
+                        {formatCurrency(item.amount)}
                       </Badge>
                     </div>
                   </div>
