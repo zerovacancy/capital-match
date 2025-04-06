@@ -283,50 +283,69 @@ const CapabilitiesSection = () => {
 
   return (
     <section id="capabilities" className="section-container overflow-hidden relative py-20">
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-[#275E91]/5 to-transparent blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-[#7A8D79]/5 to-transparent blur-3xl"></div>
+      {/* Enhanced Background decoration with Section Highlight */}
+      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-[#275E91]/10 to-[#C9D4DC]/5 blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-[#7A8D79]/10 to-[#C9D4DC]/10 blur-3xl"></div>
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNDOUQ0REMiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0aC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptMC02aC0yVjhoMnY0em0wIDMwaC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptLTYgMTJoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0eiIvPjwvZz48L2c+PC9zdmc+')] opacity-30"></div>
       
-      <div className="mb-12 text-center relative z-10">
-        <h2 className="section-title mb-4">Core Capabilities</h2>
-        <p className="section-subtitle mx-auto max-w-3xl">
+      <div className="mb-16 text-center relative z-10">
+        <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#C9D4DC]/20 text-[#275E91] mb-4 border border-[#275E91]/10 text-sm font-medium">
+          Platform Features
+        </div>
+        <h2 className="section-title text-[#275E91] mb-4">Core Capabilities</h2>
+        <div className="w-24 h-1 bg-gradient-to-r from-[#275E91] to-[#7A8D79] mx-auto rounded-full mb-6"></div>
+        <p className="section-subtitle mx-auto text-[#1C1C1C]">
           Our platform leverages advanced AI to streamline the capital matching process
           with these powerful capabilities tailored to LG Development's specific needs.
         </p>
       </div>
+      
+      {/* Background pattern with Highlight Background */}
+      <div className="absolute inset-x-0 top-1/3 h-1/3 bg-[#ECEDE3]/30 -z-10 skew-y-3 transform"></div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 relative z-10">
         {capabilities.map((capability, index) => (
           <Card 
             key={index} 
             className={cn(
-              "h-full overflow-hidden transition-all duration-300 relative group border-transparent rounded-2xl",
+              "h-full overflow-hidden transition-all duration-500 relative group border-transparent rounded-2xl",
               "bg-white/70 backdrop-blur-md shadow-lg hover:shadow-xl",
-              "hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(39,94,145,0.2)]",
+              "hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(201,212,220,0.4)]",
               activeCard === index ? 
                 "ring-2 ring-[#275E91]/60 shadow-xl translate-y-[-2px]" : 
-                "border border-gray-100/60",
+                "border border-[#C9D4DC]/20",
               "before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-br before:from-white/80 before:to-white/40 before:backdrop-blur-sm"
             )}
             onClick={() => setActiveCard(index === activeCard ? null : index)}
+            data-aos="fade-up"
+            data-aos-delay={index * 100}
+            data-aos-duration="800"
           >
-            {/* Premium glow effect on hover and active */}
+            {/* Enhanced glow effect with C9D4DC Section Highlight on hover */}
             <div 
               className={cn(
-                "absolute -inset-0.5 bg-gradient-to-br rounded-2xl opacity-0 transition-all duration-300 -z-10",
-                "group-hover:opacity-30 blur-md",
-                capability.color, 
+                "absolute -inset-0.5 bg-gradient-to-br rounded-2xl opacity-0 transition-all duration-500 -z-10",
+                "group-hover:opacity-40 blur-md",
+                index % 2 === 0 ? "from-[#275E91]/30 to-[#C9D4DC]/40" : "from-[#7A8D79]/30 to-[#C9D4DC]/40", 
+                activeCard === index ? "opacity-50" : ""
+              )}
+            ></div>
+            
+            {/* Enhanced background gradient with Section Highlight */}
+            <div 
+              className={cn(
+                "absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t transition-all duration-500",
+                "from-[#C9D4DC]/20 to-transparent",
+                "opacity-0 group-hover:opacity-30",
                 activeCard === index ? "opacity-40" : ""
               )}
             ></div>
             
-            {/* Background gradient */}
+            {/* Subtle pattern overlay */}
             <div 
               className={cn(
-                "absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t transition-all duration-300",
-                capability.glowColor,
-                "opacity-0 group-hover:opacity-20",
-                activeCard === index ? "opacity-30" : ""
+                "absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiM0RjVENzUiIGZpbGwtb3BhY2l0eT0iMC4wMiI+PHBhdGggZD0iTTM2IDM0aC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptMC02aC0yVjhoMnY0em0wIDMwaC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptLTYgMTJoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0eiIvPjwvZz48L2c+PC9zdmc+')]",
+                "opacity-0 group-hover:opacity-100 transition-all duration-500"
               )}
             ></div>
             
@@ -334,55 +353,68 @@ const CapabilitiesSection = () => {
             <div className="relative z-10">
               <CardHeader className="pt-6 pb-3">
                 <div className={cn(
-                  "w-20 h-20 rounded-2xl flex items-center justify-center mb-5 transition-all duration-300 transform", 
+                  "w-20 h-20 rounded-2xl flex items-center justify-center mb-5 transition-all duration-500 transform", 
                   "shadow-md group-hover:shadow-lg group-hover:scale-110",
                   "bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm",
+                  "relative overflow-hidden",
                   activeCard === index ? "scale-110" : "",
-                  capability.color.includes("275E91") ? "border-[#275E91]/10 border" : "border-[#7A8D79]/10 border"
+                  index % 2 === 0 ? "border-[#275E91]/10 border" : "border-[#7A8D79]/10 border"
                 )}>
-                  {capability.icon}
+                  <div className="absolute inset-0 bg-[#C9D4DC]/0 group-hover:bg-[#C9D4DC]/10 transition-colors duration-500"></div>
+                  <div className="absolute -inset-0.5 blur-md rounded-2xl bg-gradient-to-br opacity-0 group-hover:opacity-20 transition-opacity duration-500 -z-10"
+                    style={{
+                      background: index % 2 === 0 
+                        ? 'linear-gradient(135deg, rgba(39, 94, 145, 0.3), rgba(201, 212, 220, 0.3))'
+                        : 'linear-gradient(135deg, rgba(122, 141, 121, 0.3), rgba(201, 212, 220, 0.3))'
+                    }}
+                  ></div>
+                  <div className="relative z-10">
+                    {capability.icon}
+                  </div>
+                  <div className="absolute -bottom-1 -right-1 w-8 h-8 rounded-tl-xl bg-[#C9D4DC]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
-                <CardTitle className="text-[22px] font-semibold bg-clip-text text-transparent bg-gradient-to-br from-[#275E91] to-[#275E91]/80 font-display">
+                <CardTitle className="text-[22px] font-bold text-[#275E91] font-display tracking-tight transition-colors duration-300 group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#275E91] group-hover:to-[#275E91]/80">
                   {capability.title}
                 </CardTitle>
               </CardHeader>
               
               <CardContent className="pb-5">
-                <CardDescription className="text-base text-[#4F5D75]/90 mb-5 leading-relaxed">
+                <CardDescription className="text-base text-[#1C1C1C] mb-5 leading-relaxed line-height-1-5 relative pl-3">
+                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#275E91]/20 rounded-full"></div>
                   {capability.description}
                 </CardDescription>
                 
-                {/* Benefits list - with improved styling */}
+                {/* Enhanced Benefits list with Primary Blue iconography */}
                 <div className="mb-5">
-                  <h4 className="text-sm font-semibold text-[#275E91] mb-3 flex items-center">
+                  <h4 className="text-sm font-semibold text-[#275E91] mb-3 flex items-center font-display tracking-tight">
                     <span className="w-1 h-4 bg-gradient-to-b from-[#275E91] to-[#7A8D79] rounded-full mr-2 flex-shrink-0"></span>
                     Key Benefits
                   </h4>
                   <ul className="space-y-2.5 pl-1">
                     {capability.benefits.map((benefit, i) => (
-                      <li key={i} className="text-sm flex items-center group">
+                      <li key={i} className="text-sm flex items-start group">
                         <span className={cn(
-                          "w-5 h-5 rounded-full mr-2 flex-shrink-0 flex items-center justify-center",
-                          "bg-gradient-to-br from-gray-50 to-gray-100 shadow-sm",
-                          "group-hover:from-blue-50 group-hover:to-blue-100 transition-colors duration-300"
+                          "w-5 h-5 rounded-full mr-2 flex-shrink-0 flex items-center justify-center mt-0.5",
+                          "bg-gradient-to-br from-white to-[#C9D4DC]/30 shadow-sm border border-[#C9D4DC]/30",
+                          "group-hover:border-[#275E91]/20 group-hover:from-[#C9D4DC]/20 group-hover:to-white transition-all duration-300"
                         )}>
-                          <span className="w-1.5 h-1.5 bg-[#7A8D79] rounded-full group-hover:scale-110 transition-transform"></span>
+                          <span className="w-1.5 h-1.5 bg-[#275E91] rounded-full group-hover:scale-110 transition-transform"></span>
                         </span>
-                        <span className="text-[#4F5D75] font-medium">{benefit}</span>
+                        <span className="text-[#1C1C1C] font-medium leading-relaxed group-hover:text-[#275E91] transition-colors duration-300">{benefit}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
                 
-                {/* Expand/collapse indicator with improved interaction */}
+                {/* Enhanced Expand/collapse indicator with Section Highlight hover effects */}
                 <div className="mt-4 mb-3 flex justify-center">
                   <button
                     className={cn(
                       "flex items-center justify-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300",
-                      "hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[#275E91]/30 focus:ring-offset-1",
+                      "hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[#C9D4DC]/50 focus:ring-offset-1 group",
                       activeCard === index ? 
                         "bg-[#275E91]/10 text-[#275E91] border border-[#275E91]/20" : 
-                        "bg-gray-50 text-[#4F5D75] hover:bg-[#275E91]/5 hover:text-[#275E91] border border-gray-200"
+                        "bg-[#C9D4DC]/10 text-[#1C1C1C] hover:bg-[#C9D4DC]/20 hover:text-[#275E91] border border-[#C9D4DC]/20 hover:border-[#275E91]/20"
                     )}
                     onClick={(e) => {
                       e.stopPropagation(); // To prevent card click event
@@ -391,44 +423,56 @@ const CapabilitiesSection = () => {
                   >
                     {activeCard === index ? (
                       <>
-                        View less
+                        <span>View less</span>
                         <ChevronRight className="h-4 w-4 transition-transform duration-300 transform rotate-90" />
                       </>
                     ) : (
                       <>
-                        View more
-                        <ChevronRight className="h-4 w-4 transition-transform duration-300" />
+                        <span>View more</span>
+                        <div className="relative">
+                          <ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+                          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div className="absolute -inset-1 bg-[#275E91]/20 rounded-full blur-sm"></div>
+                          </div>
+                        </div>
                       </>
                     )}
                   </button>
                 </div>
                 
-                {/* Expandable content with backdrop overlay */}
+                {/* Enhanced expandable content with Section Highlight background */}
                 <div 
                   className={cn(
                     "transition-all duration-500 overflow-hidden rounded-lg relative",
-                    "bg-gradient-to-br from-white/80 to-gray-50/40 backdrop-blur-sm border",
+                    "bg-gradient-to-br from-white/90 to-[#C9D4DC]/20 backdrop-blur-sm border",
                     activeCard === index ? 
-                      "max-h-[500px] opacity-100 mb-5 border-[#275E91]/20 shadow-lg" : 
+                      "max-h-[500px] opacity-100 mb-5 border-[#C9D4DC]/40 shadow-lg" : 
                       "max-h-0 opacity-0 mb-0 border-transparent"
                   )}
                   style={{
                     transitionProperty: "max-height, opacity, margin, border"
                   }}
                 >
-                  {/* Semi-transparent backdrop for depth */}
+                  {/* Enhanced semi-transparent backdrop for depth with Section Highlight */}
                   <div className={cn(
-                    "absolute inset-0 bg-gradient-to-b from-[#275E91]/5 to-[#7A8D79]/5 transition-opacity duration-500",
+                    "absolute inset-0 bg-gradient-to-b from-[#C9D4DC]/10 to-white/0 transition-opacity duration-500",
                     activeCard === index ? "opacity-100" : "opacity-0"
+                  )}></div>
+                  
+                  {/* Subtle pattern overlay */}
+                  <div className={cn(
+                    "absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNDOUQ0REMiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0aC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptMC02aC0yVjhoMnY0em0wIDMwaC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptLTYgMTJoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0eiIvPjwvZz48L2c+PC9zdmc+')]",
+                    "opacity-30 transition-opacity duration-500",
+                    activeCard === index ? "opacity-30" : "opacity-0"
                   )}></div>
                   
                   {/* Expandable content container */}
                   <div className="relative">
-                    {/* Performance Metrics Section */}
-                    <div className="border-b border-gray-100">
+                    {/* Enhanced Performance Metrics Section with Primary Blue accents */}
+                    <div className="border-b border-[#C9D4DC]/20">
                       <div className="flex items-center justify-between px-4 py-3 bg-[#275E91]/5">
                         <h4 className="text-sm font-semibold text-[#275E91] flex items-center">
-                          <span className="w-1 h-4 bg-gradient-to-b from-[#275E91] to-[#7A8D79] rounded-full mr-2"></span>
+                          <span className="w-1 h-4 bg-gradient-to-b from-[#275E91] to-[#C9D4DC] rounded-full mr-2"></span>
                           Performance Metrics
                         </h4>
                         <ChevronRight className="h-4 w-4 text-[#275E91] transform rotate-90" />
@@ -439,24 +483,27 @@ const CapabilitiesSection = () => {
                           {capability.metrics.map((metric, i) => (
                             <div 
                               key={i} 
-                              className="text-center p-3 rounded-md bg-white shadow-sm border border-gray-50 hover:shadow transition-shadow duration-300"
+                              className="text-center p-3 rounded-md bg-white shadow-sm border border-[#C9D4DC]/20 hover:shadow-md hover:border-[#275E91]/20 transition-all duration-300 group"
                             >
-                              <p className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-br from-[#275E91] to-[#7A8D79]">
-                                {metric.value}
-                              </p>
-                              <p className="text-xs text-[#4F5D75] font-medium mt-1">{metric.label}</p>
-                              <p className="text-[10px] text-gray-400 mt-1">{metric.description}</p>
+                              <div className="relative">
+                                <p className="text-lg font-bold text-[#275E91] group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-br group-hover:from-[#275E91] group-hover:to-[#275E91]/80 transition-colors duration-500">
+                                  {metric.value}
+                                </p>
+                                <div className="absolute -z-10 inset-0 opacity-0 group-hover:opacity-100 blur-md bg-[#275E91]/10 transition-opacity duration-500"></div>
+                              </div>
+                              <p className="text-xs text-[#1C1C1C] font-medium mt-1">{metric.label}</p>
+                              <p className="text-[10px] text-[#1C1C1C]/70 mt-1">{metric.description}</p>
                             </div>
                           ))}
                         </div>
                       </div>
                     </div>
                     
-                    {/* Visualization Section */}
+                    {/* Enhanced Visualization Section with Section Highlight background */}
                     <div>
-                      <div className="flex items-center justify-between px-4 py-3 bg-[#275E91]/5 border-b border-gray-100">
+                      <div className="flex items-center justify-between px-4 py-3 bg-[#275E91]/5 border-b border-[#C9D4DC]/20">
                         <h4 className="text-sm font-semibold text-[#275E91] flex items-center font-display">
-                          <span className="w-1 h-4 bg-gradient-to-b from-[#275E91] to-[#7A8D79] rounded-full mr-2"></span>
+                          <span className="w-1 h-4 bg-gradient-to-b from-[#275E91] to-[#C9D4DC] rounded-full mr-2"></span>
                           {index === 0 ? "Investor Profile" : 
                            index === 1 ? "Financial Analysis" :
                            index === 2 ? "Matching Process" : "Reporting Output"}
@@ -464,24 +511,28 @@ const CapabilitiesSection = () => {
                         <ChevronRight className="h-4 w-4 text-[#275E91] transform rotate-90" />
                       </div>
                       
-                      <div className="p-3 bg-white">
-                        <div className="h-[180px] overflow-y-auto custom-scrollbar">
+                      <div className="p-3 bg-white relative overflow-hidden group">
+                        {/* Add subtle background pattern */}
+                        <div className="absolute inset-0 bg-[#C9D4DC]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div className="absolute -right-6 -top-6 w-16 h-16 rounded-full bg-[#275E91]/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        
+                        <div className="h-[180px] overflow-y-auto custom-scrollbar relative">
                           {renderVisualization(index)}
                         </div>
                       </div>
                     </div>
                     
-                    {/* Collapse section */}
-                    <div className="px-4 py-3 bg-gray-50/50 border-t border-gray-100 flex justify-center">
+                    {/* Enhanced Collapse section with Section Highlight background */}
+                    <div className="px-4 py-3 bg-[#C9D4DC]/10 border-t border-[#C9D4DC]/20 flex justify-center">
                       <button
-                        className="flex items-center justify-center gap-1.5 text-xs text-[#4F5D75] hover:text-[#275E91] transition-colors"
+                        className="flex items-center justify-center gap-1.5 text-xs text-[#1C1C1C] hover:text-[#275E91] transition-all duration-300 px-3 py-1 rounded-full hover:bg-white/80 hover:shadow-sm group"
                         onClick={(e) => {
                           e.stopPropagation();
                           setActiveCard(null);
                         }}
                       >
-                        Collapse
-                        <ChevronRight className="h-3 w-3 transform rotate-90 -scale-y-100" />
+                        <span>Collapse</span>
+                        <ChevronRight className="h-3 w-3 transform rotate-90 -scale-y-100 transition-transform duration-300 group-hover:rotate-180" />
                       </button>
                     </div>
                   </div>

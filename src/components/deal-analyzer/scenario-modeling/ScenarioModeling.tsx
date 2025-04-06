@@ -250,25 +250,42 @@ export function ScenarioModeling({ deal, className }: ScenarioModelingProps) {
                 ))}
               </div>
               
-              <Card className="bg-primary/5 border border-primary/10">
-                <CardHeader className="py-3 px-4">
-                  <CardTitle className="text-sm">
+              <Card className="bg-lg-background border border-lg-highlight/30 shadow-md">
+                <CardHeader className="py-3 px-4 bg-lg-highlight/10">
+                  <CardTitle className="text-sm text-lg-blue font-semibold">
                     Projected Returns with Current Parameters
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="py-0 px-4 pb-4">
-                  <div className="grid grid-cols-3 gap-4">
+                <CardContent className="py-3 px-4 pb-4">
+                  <div className="grid grid-cols-3 gap-6">
                     <div className="space-y-1">
-                      <p className="text-xs text-muted-foreground">IRR</p>
-                      <p className="text-xl font-bold">{formatMetric(currentProjectedMetrics.irr, 'percent')}</p>
+                      <div className="flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#275E91" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                        </svg>
+                        <p className="text-xs text-lg-text font-semibold">IRR</p>
+                      </div>
+                      <p className="text-xl font-bold text-lg-blue">{formatMetric(currentProjectedMetrics.irr, 'percent')}</p>
                     </div>
-                    <div className="space-y-1">
-                      <p className="text-xs text-muted-foreground">Equity Multiple</p>
-                      <p className="text-xl font-bold">{formatMetric(currentProjectedMetrics.equityMultiple, 'multiple')}</p>
+                    <div className="space-y-1 border-l border-lg-highlight/20 pl-4">
+                      <div className="flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#275E91" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="m6 9 6 6 6-6" />
+                        </svg>
+                        <p className="text-xs text-lg-text font-semibold">Equity Multiple</p>
+                      </div>
+                      <p className="text-xl font-bold text-lg-blue">{formatMetric(currentProjectedMetrics.equityMultiple, 'multiple')}</p>
                     </div>
-                    <div className="space-y-1">
-                      <p className="text-xs text-muted-foreground">Cash on Cash</p>
-                      <p className="text-xl font-bold">{formatMetric(currentProjectedMetrics.cashOnCash, 'percent')}</p>
+                    <div className="space-y-1 border-l border-lg-highlight/20 pl-4">
+                      <div className="flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#275E91" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <circle cx="12" cy="12" r="10"/>
+                          <path d="M12 8v8"/>
+                          <path d="M8 12h8"/>
+                        </svg>
+                        <p className="text-xs text-lg-text font-semibold">Cash on Cash</p>
+                      </div>
+                      <p className="text-xl font-bold text-lg-blue">{formatMetric(currentProjectedMetrics.cashOnCash, 'percent')}</p>
                     </div>
                   </div>
                 </CardContent>
@@ -426,154 +443,251 @@ export function ScenarioModeling({ deal, className }: ScenarioModelingProps) {
                     </div>
                   </div>
                   
-                  <Card>
-                    <CardHeader className="py-3 px-4">
-                      <CardTitle className="text-sm">Key Metrics Comparison</CardTitle>
+                  <Card className="border border-lg-highlight/30 shadow-md">
+                    <CardHeader className="py-3 px-4 bg-lg-highlight/10 border-b border-lg-highlight/20">
+                      <CardTitle className="text-sm text-lg-blue font-semibold flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#275E91" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                          <path d="M15 2H9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z"/>
+                        </svg>
+                        Key Metrics Comparison
+                      </CardTitle>
                     </CardHeader>
                     <CardContent className="px-4 pb-4">
-                      <Table>
-                        <TableHeader>
-                          <TableRow>
-                            <TableHead>Metric</TableHead>
-                            <TableHead>Baseline</TableHead>
-                            <TableHead>Current</TableHead>
-                            <TableHead>Impact</TableHead>
-                          </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                          <TableRow>
-                            <TableCell className="font-medium">IRR</TableCell>
-                            <TableCell>{formatMetric(comparison.baselineScenario.projectedMetrics.irr, 'percent')}</TableCell>
-                            <TableCell>{formatMetric(comparison.updatedScenario.projectedMetrics.irr, 'percent')}</TableCell>
-                            <TableCell className={deltaColor(comparison.deltaMetrics.irr)}>
-                              {formatDelta(comparison.deltaMetrics.irr, '%')}
-                            </TableCell>
-                          </TableRow>
-                          <TableRow>
-                            <TableCell className="font-medium">Equity Multiple</TableCell>
-                            <TableCell>{formatMetric(comparison.baselineScenario.projectedMetrics.equityMultiple, 'multiple')}</TableCell>
-                            <TableCell>{formatMetric(comparison.updatedScenario.projectedMetrics.equityMultiple, 'multiple')}</TableCell>
-                            <TableCell className={deltaColor(comparison.deltaMetrics.equityMultiple)}>
-                              {formatDelta(comparison.deltaMetrics.equityMultiple, 'x')}
-                            </TableCell>
-                          </TableRow>
-                          <TableRow>
-                            <TableCell className="font-medium">Cash on Cash</TableCell>
-                            <TableCell>{formatMetric(comparison.baselineScenario.projectedMetrics.cashOnCash, 'percent')}</TableCell>
-                            <TableCell>{formatMetric(comparison.updatedScenario.projectedMetrics.cashOnCash, 'percent')}</TableCell>
-                            <TableCell className={deltaColor(comparison.deltaMetrics.cashOnCash)}>
-                              {formatDelta(comparison.deltaMetrics.cashOnCash, '%')}
-                            </TableCell>
-                          </TableRow>
-                          <TableRow>
-                            <TableCell className="font-medium">ROI</TableCell>
-                            <TableCell>{formatMetric(comparison.baselineScenario.projectedMetrics.roi, 'percent')}</TableCell>
-                            <TableCell>{formatMetric(comparison.updatedScenario.projectedMetrics.roi, 'percent')}</TableCell>
-                            <TableCell className={deltaColor(comparison.deltaMetrics.roi)}>
-                              {formatDelta(comparison.deltaMetrics.roi, '%')}
-                            </TableCell>
-                          </TableRow>
-                          <TableRow>
-                            <TableCell className="font-medium">NPV</TableCell>
-                            <TableCell>{formatMetric(comparison.baselineScenario.projectedMetrics.npv, 'currency')}</TableCell>
-                            <TableCell>{formatMetric(comparison.updatedScenario.projectedMetrics.npv, 'currency')}</TableCell>
-                            <TableCell className={deltaColor(comparison.deltaMetrics.npv)}>
-                              {formatDelta(comparison.deltaMetrics.npv, '')}
-                            </TableCell>
-                          </TableRow>
-                          <TableRow>
-                            <TableCell className="font-medium">Payback Period</TableCell>
-                            <TableCell>{formatMetric(comparison.baselineScenario.projectedMetrics.paybackPeriod, 'time')}</TableCell>
-                            <TableCell>{formatMetric(comparison.updatedScenario.projectedMetrics.paybackPeriod, 'time')}</TableCell>
-                            <TableCell className={
-                              comparison.deltaMetrics.paybackPeriod < 0 ? 'text-green-600' : 
-                              comparison.deltaMetrics.paybackPeriod > 0 ? 'text-red-600' : 
-                              'text-gray-600'
-                            }>
-                              {comparison.deltaMetrics.paybackPeriod > 0 
-                                ? `+${formatMetric(comparison.deltaMetrics.paybackPeriod, 'time')}` 
-                                : comparison.deltaMetrics.paybackPeriod < 0 
-                                ? `-${formatMetric(Math.abs(comparison.deltaMetrics.paybackPeriod), 'time')}` 
-                                : '0m'}
-                            </TableCell>
-                          </TableRow>
-                        </TableBody>
-                      </Table>
+                      <div className="bg-lg-background rounded-md p-0.5">
+                        <Table>
+                          <TableHeader>
+                            <TableRow className="bg-lg-highlight/10 border-b-lg-highlight/30">
+                              <TableHead className="text-lg-text font-semibold">Metric</TableHead>
+                              <TableHead className="text-lg-text font-semibold">Baseline</TableHead>
+                              <TableHead className="text-lg-text font-semibold">Current</TableHead>
+                              <TableHead className="text-lg-text font-semibold">Impact</TableHead>
+                            </TableRow>
+                          </TableHeader>
+                          <TableBody>
+                            <TableRow className="border-b-lg-highlight/10 hover:bg-lg-highlight/5">
+                              <TableCell className="font-medium text-lg-text">
+                                <div className="flex items-center gap-1.5">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#275E91" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                                  </svg>
+                                  <span>IRR</span>
+                                </div>
+                              </TableCell>
+                              <TableCell className="text-lg-text">{formatMetric(comparison.baselineScenario.projectedMetrics.irr, 'percent')}</TableCell>
+                              <TableCell className="font-medium text-lg-blue">{formatMetric(comparison.updatedScenario.projectedMetrics.irr, 'percent')}</TableCell>
+                              <TableCell className={deltaColor(comparison.deltaMetrics.irr) === 'text-green-600' ? 'text-lg-success' : deltaColor(comparison.deltaMetrics.irr) === 'text-red-600' ? 'text-lg-error' : 'text-lg-text'}>
+                                {formatDelta(comparison.deltaMetrics.irr, '%')}
+                              </TableCell>
+                            </TableRow>
+                            <TableRow className="border-b-lg-highlight/10 hover:bg-lg-highlight/5">
+                              <TableCell className="font-medium text-lg-text">
+                                <div className="flex items-center gap-1.5">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#275E91" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="m6 9 6 6 6-6" />
+                                  </svg>
+                                  <span>Equity Multiple</span>
+                                </div>
+                              </TableCell>
+                              <TableCell className="text-lg-text">{formatMetric(comparison.baselineScenario.projectedMetrics.equityMultiple, 'multiple')}</TableCell>
+                              <TableCell className="font-medium text-lg-blue">{formatMetric(comparison.updatedScenario.projectedMetrics.equityMultiple, 'multiple')}</TableCell>
+                              <TableCell className={deltaColor(comparison.deltaMetrics.equityMultiple) === 'text-green-600' ? 'text-lg-success' : deltaColor(comparison.deltaMetrics.equityMultiple) === 'text-red-600' ? 'text-lg-error' : 'text-lg-text'}>
+                                {formatDelta(comparison.deltaMetrics.equityMultiple, 'x')}
+                              </TableCell>
+                            </TableRow>
+                            <TableRow className="border-b-lg-highlight/10 hover:bg-lg-highlight/5">
+                              <TableCell className="font-medium text-lg-text">
+                                <div className="flex items-center gap-1.5">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#275E91" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M12 8v8"/>
+                                    <path d="M8 12h8"/>
+                                  </svg>
+                                  <span>Cash on Cash</span>
+                                </div>
+                              </TableCell>
+                              <TableCell className="text-lg-text">{formatMetric(comparison.baselineScenario.projectedMetrics.cashOnCash, 'percent')}</TableCell>
+                              <TableCell className="font-medium text-lg-blue">{formatMetric(comparison.updatedScenario.projectedMetrics.cashOnCash, 'percent')}</TableCell>
+                              <TableCell className={deltaColor(comparison.deltaMetrics.cashOnCash) === 'text-green-600' ? 'text-lg-success' : deltaColor(comparison.deltaMetrics.cashOnCash) === 'text-red-600' ? 'text-lg-error' : 'text-lg-text'}>
+                                {formatDelta(comparison.deltaMetrics.cashOnCash, '%')}
+                              </TableCell>
+                            </TableRow>
+                            <TableRow className="border-b-lg-highlight/10 hover:bg-lg-highlight/5">
+                              <TableCell className="font-medium text-lg-text">
+                                <div className="flex items-center gap-1.5 group relative">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#275E91" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
+                                  </svg>
+                                  <span>ROI</span>
+                                  <div className="absolute bottom-full left-0 mb-1 hidden group-hover:block">
+                                    <div className="bg-lg-footer text-lg-text text-xs p-2 rounded shadow-lg max-w-[180px] z-20">
+                                      Return on Investment - total return relative to initial investment
+                                    </div>
+                                  </div>
+                                </div>
+                              </TableCell>
+                              <TableCell className="text-lg-text">{formatMetric(comparison.baselineScenario.projectedMetrics.roi, 'percent')}</TableCell>
+                              <TableCell className="font-medium text-lg-blue">{formatMetric(comparison.updatedScenario.projectedMetrics.roi, 'percent')}</TableCell>
+                              <TableCell className={deltaColor(comparison.deltaMetrics.roi) === 'text-green-600' ? 'text-lg-success' : deltaColor(comparison.deltaMetrics.roi) === 'text-red-600' ? 'text-lg-error' : 'text-lg-text'}>
+                                {formatDelta(comparison.deltaMetrics.roi, '%')}
+                              </TableCell>
+                            </TableRow>
+                            <TableRow className="border-b-lg-highlight/10 hover:bg-lg-highlight/5">
+                              <TableCell className="font-medium text-lg-text">
+                                <div className="flex items-center gap-1.5 group relative">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#275E91" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M3 3v18h18"/>
+                                    <path d="m19 9-5 5-4-4-3 3"/>
+                                  </svg>
+                                  <span>NPV</span>
+                                  <div className="absolute bottom-full left-0 mb-1 hidden group-hover:block">
+                                    <div className="bg-lg-footer text-lg-text text-xs p-2 rounded shadow-lg max-w-[180px] z-20">
+                                      Net Present Value - current value of all future cash flows
+                                    </div>
+                                  </div>
+                                </div>
+                              </TableCell>
+                              <TableCell className="text-lg-text">{formatMetric(comparison.baselineScenario.projectedMetrics.npv, 'currency')}</TableCell>
+                              <TableCell className="font-medium text-lg-blue">{formatMetric(comparison.updatedScenario.projectedMetrics.npv, 'currency')}</TableCell>
+                              <TableCell className={deltaColor(comparison.deltaMetrics.npv) === 'text-green-600' ? 'text-lg-success' : deltaColor(comparison.deltaMetrics.npv) === 'text-red-600' ? 'text-lg-error' : 'text-lg-text'}>
+                                {formatDelta(comparison.deltaMetrics.npv, '')}
+                              </TableCell>
+                            </TableRow>
+                            <TableRow className="hover:bg-lg-highlight/5">
+                              <TableCell className="font-medium text-lg-text">
+                                <div className="flex items-center gap-1.5 group relative">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#275E91" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                  </svg>
+                                  <span>Payback Period</span>
+                                  <div className="absolute bottom-full left-0 mb-1 hidden group-hover:block">
+                                    <div className="bg-lg-footer text-lg-text text-xs p-2 rounded shadow-lg max-w-[180px] z-20">
+                                      Time required to recover the initial investment
+                                    </div>
+                                  </div>
+                                </div>
+                              </TableCell>
+                              <TableCell className="text-lg-text">{formatMetric(comparison.baselineScenario.projectedMetrics.paybackPeriod, 'time')}</TableCell>
+                              <TableCell className="font-medium text-lg-blue">{formatMetric(comparison.updatedScenario.projectedMetrics.paybackPeriod, 'time')}</TableCell>
+                              <TableCell className={
+                                comparison.deltaMetrics.paybackPeriod < 0 ? 'text-lg-success' : 
+                                comparison.deltaMetrics.paybackPeriod > 0 ? 'text-lg-error' : 
+                                'text-lg-text'
+                              }>
+                                {comparison.deltaMetrics.paybackPeriod > 0 
+                                  ? `+${formatMetric(comparison.deltaMetrics.paybackPeriod, 'time')}` 
+                                  : comparison.deltaMetrics.paybackPeriod < 0 
+                                  ? `-${formatMetric(Math.abs(comparison.deltaMetrics.paybackPeriod), 'time')}` 
+                                  : '0m'}
+                              </TableCell>
+                            </TableRow>
+                          </TableBody>
+                        </Table>
+                      </div>
                     </CardContent>
                   </Card>
                   
-                  <Card>
-                    <CardHeader className="py-3 px-4">
-                      <CardTitle className="text-sm">Parameter Changes from Baseline</CardTitle>
+                  <Card className="border border-lg-highlight/30 shadow-md">
+                    <CardHeader className="py-3 px-4 bg-lg-highlight/10 border-b border-lg-highlight/20">
+                      <CardTitle className="text-sm text-lg-blue font-semibold flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#275E91" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                          <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                        </svg>
+                        Parameter Changes from Baseline
+                      </CardTitle>
                     </CardHeader>
-                    <CardContent className="px-4 pb-4">
-                      {scenarioParams.map(param => {
-                        const baselineValue = comparison.baselineScenario.params[param.id];
-                        const currentValue = param.value;
-                        const percentChange = baselineValue !== 0 
-                          ? ((currentValue - baselineValue) / baselineValue) * 100
-                          : 0;
-                        
-                        // Only show parameters that have changed from baseline
-                        if (baselineValue === currentValue) return null;
-                        
-                        return (
-                          <div key={param.id} className="flex justify-between items-center py-2 border-b last:border-0">
-                            <div className="flex items-center gap-1">
-                              <span className="text-sm">{param.name}</span>
-                              <Badge 
-                                variant="outline" 
-                                className={cn(
-                                  "ml-2 text-xs",
-                                  param.impact === "high" ? "border-red-500 text-red-500" : 
-                                  param.impact === "medium" ? "border-amber-500 text-amber-500" : 
-                                  "border-blue-500 text-blue-500"
-                                )}
-                              >
-                                {param.impact} impact
-                              </Badge>
+                    <CardContent className="px-4 py-3 bg-lg-background">
+                      <div className="space-y-1">
+                        {scenarioParams.map(param => {
+                          const baselineValue = comparison.baselineScenario.params[param.id];
+                          const currentValue = param.value;
+                          const percentChange = baselineValue !== 0 
+                            ? ((currentValue - baselineValue) / baselineValue) * 100
+                            : 0;
+                          
+                          // Only show parameters that have changed from baseline
+                          if (baselineValue === currentValue) return null;
+                          
+                          return (
+                            <div key={param.id} className="flex justify-between items-center py-3 border-b border-lg-highlight/20 last:border-0">
+                              <div className="flex items-center gap-1.5">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#275E91" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                                </svg>
+                                <span className="text-sm font-medium text-lg-text">{param.name}</span>
+                                <Badge 
+                                  variant="outline" 
+                                  className={cn(
+                                    "ml-2 text-xs",
+                                    param.impact === "high" ? "border-lg-error text-lg-error" : 
+                                    param.impact === "medium" ? "border-lg-warning text-lg-warning" : 
+                                    "border-lg-blue text-lg-blue"
+                                  )}
+                                >
+                                  {param.impact} impact
+                                </Badge>
+                              </div>
+                              <div className="space-y-1.5 bg-lg-highlight/5 p-2 rounded-md">
+                                <div className="flex justify-between text-xs">
+                                  <span className="mr-8 text-lg-text font-medium">Baseline: </span>
+                                  <span className="text-lg-text">{param.unit === '$' 
+                                    ? formatCurrency(baselineValue) 
+                                    : `${baselineValue}${param.unit}`}
+                                  </span>
+                                </div>
+                                <div className="flex justify-between text-xs">
+                                  <span className="mr-8 text-lg-text font-medium">Current: </span>
+                                  <span className="text-lg-blue font-semibold">{param.unit === '$' 
+                                    ? formatCurrency(currentValue) 
+                                    : `${currentValue}${param.unit}`}
+                                  </span>
+                                </div>
+                                <div className="flex justify-between text-xs">
+                                  <span className="mr-8 text-lg-text font-medium">Change: </span>
+                                  <span className={
+                                    percentChange > 0 ? 'text-lg-success font-medium' : 
+                                    percentChange < 0 ? 'text-lg-error font-medium' : 
+                                    'text-lg-text'
+                                  }>
+                                    {percentChange > 0 ? '+' : ''}{percentChange.toFixed(1)}%
+                                  </span>
+                                </div>
+                              </div>
                             </div>
-                            <div className="space-y-1">
-                              <div className="flex justify-between text-xs">
-                                <span className="mr-8 text-muted-foreground">Baseline: </span>
-                                <span>{param.unit === '$' 
-                                  ? formatCurrency(baselineValue) 
-                                  : `${baselineValue}${param.unit}`}
-                                </span>
-                              </div>
-                              <div className="flex justify-between text-xs">
-                                <span className="mr-8 text-muted-foreground">Current: </span>
-                                <span className="font-medium">{param.unit === '$' 
-                                  ? formatCurrency(currentValue) 
-                                  : `${currentValue}${param.unit}`}
-                                </span>
-                              </div>
-                              <div className="flex justify-between text-xs">
-                                <span className="mr-8 text-muted-foreground">Change: </span>
-                                <span className={
-                                  percentChange > 0 ? 'text-green-600' : 
-                                  percentChange < 0 ? 'text-red-600' : 
-                                  'text-gray-600'
-                                }>
-                                  {percentChange.toFixed(1)}%
-                                </span>
-                              </div>
-                            </div>
+                          );
+                        })}
+                        {!scenarioParams.some(param => {
+                          const baselineValue = comparison.baselineScenario.params[param.id];
+                          return baselineValue !== param.value;
+                        }) && (
+                          <div className="py-4 text-center text-sm text-lg-text/70">
+                            No parameter changes from baseline scenario
                           </div>
-                        );
-                      })}
+                        )}
+                      </div>
                     </CardContent>
                   </Card>
                 </>
               ) : (
-                <div className="flex flex-col items-center justify-center py-12 space-y-4 text-center">
-                  <div className="rounded-full bg-muted p-3">
-                    <ChevronRightIcon className="h-6 w-6 text-muted-foreground" />
+                <div className="flex flex-col items-center justify-center py-12 space-y-4 text-center bg-lg-background rounded-lg border border-lg-highlight/20">
+                  <div className="rounded-full bg-lg-highlight/20 p-4">
+                    <ChevronRightIcon className="h-7 w-7 text-lg-blue" />
                   </div>
-                  <h3 className="text-lg font-medium">No Comparison Available</h3>
-                  <p className="text-sm text-muted-foreground max-w-[300px]">
+                  <h3 className="text-lg font-medium text-lg-blue">No Comparison Available</h3>
+                  <p className="text-sm text-lg-text max-w-[320px]">
                     Select a different scenario or modify parameters to compare with the baseline scenario.
                   </p>
+                  <div className="mt-2">
+                    <Button
+                      variant="outline"
+                      className="border-lg-blue text-lg-blue hover:bg-lg-highlight/10"
+                      onClick={() => setActiveTab("parameters")}
+                    >
+                      Adjust Parameters
+                    </Button>
+                  </div>
                 </div>
               )}
             </div>
@@ -645,7 +759,7 @@ export function ScenarioModeling({ deal, className }: ScenarioModelingProps) {
             <Button 
               onClick={handleCreateScenario}
               disabled={!newScenarioName.trim()}
-              className="bg-[#275E91] hover:bg-[#275E91]/90"
+              className="bg-lg-blue hover:bg-lg-blue-hover text-white"
             >
               Save Scenario
             </Button>

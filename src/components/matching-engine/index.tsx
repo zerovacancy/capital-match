@@ -32,10 +32,10 @@ export function MatchingEngine() {
   const sortedMatches = [...filteredMatches].sort((a, b) => b.confidenceScore - a.confidenceScore);
 
   return (
-    <div className="bg-card rounded-lg border shadow-sm flex flex-col h-full">
-      <div className="p-4 border-b">
-        <h2 className="text-2xl font-bold">Matching Algorithm</h2>
-        <p className="text-muted-foreground">Match deals with appropriate LPs based on criteria alignment</p>
+    <div className="bg-lg-background rounded-lg border border-lg-blue/20 shadow-md flex flex-col h-full" style={{ boxShadow: '0 4px 12px rgba(39, 94, 145, 0.08)' }}>
+      <div className="p-4 border-b border-lg-highlight/30">
+        <h2 className="h2 text-lg-blue">Matching Algorithm</h2>
+        <p className="text-lg-text">Match deals with appropriate LPs based on criteria alignment</p>
       </div>
       
       <div className="p-4 grid grid-cols-12 gap-4 h-[calc(100%-4rem)]">
@@ -49,7 +49,7 @@ export function MatchingEngine() {
             
             <div className="flex flex-col">
               <div className="flex justify-between mb-1">
-                <span className="text-sm">Confidence Threshold: {confidenceThreshold}%</span>
+                <span className="text-sm font-medium text-lg-blue">Confidence Threshold: {confidenceThreshold}%</span>
                 <Select value={filter} onValueChange={setFilter}>
                   <SelectTrigger className="w-[150px] h-8">
                     <SelectValue placeholder="Filter" />

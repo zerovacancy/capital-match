@@ -153,42 +153,51 @@ export function MarketComparisonChart({ deal, className }: MarketComparisonChart
           </TabsContent>
           <TabsContent value="table" className="m-0 p-0">
             <div className="p-4 space-y-4">
-              <div className="text-sm font-medium">
+              <div className="text-lg-blue font-semibold mb-3 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#275E91" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M3 3v18h18"/>
+                  <path d="m19 9-5 5-4-4-3 3"/>
+                </svg>
                 {deal.location} Market Metrics
               </div>
-              <div className="grid grid-cols-3 text-sm font-medium border-b pb-2">
+              <div className="grid grid-cols-3 text-sm font-semibold bg-lg-highlight/10 py-2 px-2 rounded-md mb-2 text-lg-text">
                 <div>Metric</div>
                 <div className="text-center">Market Value</div>
                 <div className="text-center">Performance</div>
               </div>
-              <div className="space-y-3">
-                {metricItems.map((item) => (
-                  <div key={item.id} className="grid grid-cols-3 text-sm items-center">
+              <div className="space-y-2.5">
+                {metricItems.map((item, index) => (
+                  <div 
+                    key={item.id} 
+                    className={`grid grid-cols-3 text-sm items-center py-2 ${
+                      index < metricItems.length - 1 ? "border-b border-lg-highlight/20" : ""
+                    }`}
+                  >
                     <div className="flex items-center gap-1">
-                      {item.name}
+                      <span className="text-lg-text font-medium">{item.name}</span>
                       <TooltipProvider>
                         <UITooltip>
                           <TooltipTrigger asChild>
-                            <InfoIcon size={14} className="text-muted-foreground cursor-help" />
+                            <InfoIcon size={14} className="text-lg-blue cursor-help" />
                           </TooltipTrigger>
-                          <TooltipContent side="right">
-                            <p className="max-w-[200px]">{item.description}</p>
-                            <p className="mt-1 text-xs">
+                          <TooltipContent side="right" className="bg-lg-footer border-lg-highlight">
+                            <p className="max-w-[200px] text-lg-text">{item.description}</p>
+                            <p className="mt-1 text-xs text-lg-text">
                               Benchmark: {item.benchmark}{item.unit}
                             </p>
                           </TooltipContent>
                         </UITooltip>
                       </TooltipProvider>
                     </div>
-                    <div className="text-center font-medium">
+                    <div className="text-center font-medium text-lg-blue">
                       {item.value}{item.unit}
                     </div>
                     <div className="flex justify-center">
                       <Badge 
                         className={
-                          item.performance === 'above' ? 'bg-green-500 hover:bg-green-600' :
-                          item.performance === 'below' ? 'bg-red-500 hover:bg-red-600' :
-                          'bg-yellow-500 hover:bg-yellow-600'
+                          item.performance === 'above' ? 'bg-lg-success hover:bg-lg-success/90 text-white' :
+                          item.performance === 'below' ? 'bg-lg-error hover:bg-lg-error/90 text-white' :
+                          'bg-lg-warning hover:bg-lg-warning/90 text-white'
                         }
                       >
                         {item.performance === 'above' ? 'Above Average' :

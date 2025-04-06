@@ -7,74 +7,82 @@
 
 @layer base {
   :root {
-    --background: 210 33% 99%;
-    --foreground: 222 47% 11%;
+    /* Updated values based on our color palette */
+    --background: 60 9% 91%; /* #ECEDE3 */
+    --foreground: 0 0% 11%; /* #1C1C1C */
 
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 0 0% 11%; /* #1C1C1C */
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 0 0% 11%; /* #1C1C1C */
 
-    --primary: 215 71% 15%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 208 41% 36%; /* #275E91 */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 120 10% 52%; /* #7A8D79 */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 206 17% 82%; /* #C9D4DC */
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 199 57% 45%;
+    --accent: 208 41% 36%; /* #275E91 */
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 67% 47%; /* #C62828 */
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 215 71% 15%;
+    --success: 122 47% 34%; /* #2E7D32 */
+    --warning: 30 100% 48%; /* #F57C00 */
+
+    --border: 0 0% 82%; /* #D0D0D0 */
+    --input: 0 0% 82%; /* #D0D0D0 */
+    --ring: 208 41% 36%; /* #275E91 */
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 60 33% 95%; /* #F5F5EF */
+    --sidebar-foreground: 0 0% 11%; /* #1C1C1C */
+    --sidebar-primary: 208 41% 36%; /* #275E91 */
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 120 10% 52%; /* #7A8D79 */
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 82%; /* #D0D0D0 */
+    --sidebar-ring: 208 41% 36%; /* #275E91 */
   }
 
   .dark {
-    --background: 222 47% 11%;
-    --foreground: 210 40% 98%;
+    /* Dark mode using our color palette */
+    --background: 0 0% 15%; /* Darker version of text color */
+    --foreground: 60 9% 95%; /* Lighter version of background */
 
-    --card: 222 47% 11%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 20%;
+    --card-foreground: 60 9% 95%;
 
-    --popover: 222 47% 11%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 20%;
+    --popover-foreground: 60 9% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222 47% 11%;
+    --primary: 208 41% 46%; /* Lighter version of Primary Blue */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 120 10% 62%; /* Lighter version of Secondary Green */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 206 17% 35%; /* Darker version of Section Highlight */
+    --muted-foreground: 60 9% 95%;
 
-    --accent: 199 57% 45%;
+    --accent: 208 41% 46%; /* Lighter version of Primary Blue */
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 67% 57%; /* Lighter version of Error */
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --success: 122 47% 44%; /* Lighter version of Success */
+    --warning: 30 100% 58%; /* Lighter version of Warning */
+
+    --border: 0 0% 35%; /* Darker border */
+    --input: 0 0% 35%;
+    --ring: 208 41% 46%;
   }
 }
 
@@ -84,25 +92,127 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply font-sans leading-relaxed;
+    background-color: #ECEDE3; /* Main background color */
+    color: #1C1C1C; /* Text color */
+  }
+
+  /* Typography System */
+  h1, .h1 {
+    @apply font-display text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-lg-text leading-tight;
+    letter-spacing: -0.02em;
+    color: #275E91; /* Primary Blue */
+  }
+
+  h2, .h2 {
+    @apply font-display text-3xl sm:text-4xl font-bold tracking-tight leading-tight;
+    letter-spacing: -0.01em;
+    color: #275E91; /* Primary Blue */
+  }
+
+  h3, .h3 {
+    @apply font-display text-2xl sm:text-3xl font-semibold tracking-tight leading-snug;
+    letter-spacing: -0.01em;
+    color: #275E91; /* Primary Blue */
+  }
+
+  h4, .h4 {
+    @apply font-display text-xl sm:text-2xl font-semibold tracking-tight leading-snug;
+    color: #275E91; /* Primary Blue */
+  }
+
+  h5, .h5 {
+    @apply font-display text-lg font-medium tracking-tight leading-snug;
+    color: #1C1C1C; /* Text color */
+  }
+
+  h6, .h6 {
+    @apply font-display text-base font-medium tracking-tight;
+    color: #1C1C1C; /* Text color */
+  }
+
+  p {
+    @apply font-sans text-base leading-relaxed;
+    line-height: 1.5;
+    color: #1C1C1C; /* Text color */
+  }
+
+  .large-text {
+    @apply text-lg leading-relaxed;
+    color: #1C1C1C; /* Text color */
+  }
+
+  .small-text {
+    @apply text-sm leading-relaxed;
+    color: #1C1C1C; /* Text color */
+  }
+
+  .caption {
+    @apply text-xs;
+    color: #4F5D75; /* Using the gray color for caption text */
   }
 }
 
 @layer components {
+  /* Enhanced section containers with responsive behavior */
   .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-24;
+    background-color: #ECEDE3; /* Main background color */
   }
   
+  /* Mobile-friendly section with better spacing */
+  .section-container-mobile {
+    @apply max-w-7xl mx-auto px-4 py-8 sm:py-12;
+    background-color: #ECEDE3; /* Main background color */
+  }
+  
+  /* Enhanced section title with better responsive behavior */
   .section-title {
-    @apply text-3xl md:text-4xl font-bold text-[#275E91] mb-4 font-display tracking-tight;
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 font-display tracking-tight;
+    letter-spacing: -0.01em;
+    color: #275E91; /* Primary Blue */
   }
   
+  /* Enhanced section subtitle with better responsive behavior */
   .section-subtitle {
-    @apply text-xl text-[#4F5D75] mb-8 max-w-3xl font-sans;
+    @apply text-base sm:text-lg md:text-xl mb-6 sm:mb-10 max-w-3xl font-sans leading-relaxed;
+    line-height: 1.5;
+    color: #1C1C1C; /* Text color */
+  }
+  
+  /* Section dividers with Section Highlight color */
+  .section-divider {
+    @apply w-full h-px my-8 sm:my-12 md:my-16;
+    background-color: #C9D4DC; /* Section Highlight */
+  }
+  
+  /* Responsive grid layouts */
+  .responsive-grid-2 {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8;
+  }
+  
+  .responsive-grid-3 {
+    @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8;
+  }
+  
+  .responsive-grid-4 {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8;
+  }
+  
+  /* Touch-friendly spacing for mobile */
+  .mobile-spacing {
+    @apply py-3 px-4 sm:py-2 sm:px-3;
+  }
+  
+  /* Mobile-first container with proper spacing */
+  .mobile-container {
+    @apply px-4 py-4 sm:px-6 sm:py-6;
   }
   
   .feature-card {
-    @apply bg-white rounded-lg shadow-lg p-6 transition-all duration-300 hover:shadow-xl border border-gray-100;
+    @apply rounded-lg shadow-lg p-6 transition-all duration-300 hover:shadow-xl border;
+    background-color: white;
+    border-color: #D0D0D0; /* Border color */
   }
   
   .timeline-item {
@@ -110,23 +220,234 @@
   }
   
   .timeline-marker {
-    @apply w-8 h-8 rounded-full bg-[#7A8D79] flex items-center justify-center text-white font-bold;
+    @apply w-8 h-8 rounded-full flex items-center justify-center text-white font-bold;
+    background-color: #7A8D79; /* Secondary Green */
   }
   
   .timeline-connector {
-    @apply w-1 h-16 bg-[#275E91]/20 mx-auto;
+    @apply w-1 h-16 mx-auto;
+    background-color: rgba(39, 94, 145, 0.2); /* Primary Blue with opacity */
   }
   
+  /* Enhanced button styles with accessibility improvements */
+  
+  /* Primary button - Primary Blue */
   .btn-primary {
-    @apply px-6 py-3 bg-[#275E91] text-white rounded-md font-semibold hover:bg-[#275E91]/90 transition-colors;
+    @apply px-6 py-3 text-white rounded-md font-semibold transition-all duration-300 relative;
+    background-color: #275E91; /* Primary Blue */
+    min-height: 44px; /* Larger touch target for mobile */
   }
   
+  .btn-primary:hover {
+    background-color: #1A4D80; /* Primary Blue hover */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(39, 94, 145, 0.2);
+  }
+  
+  .btn-primary:active {
+    background-color: #134770; /* Primary Blue active */
+    transform: translateY(0);
+  }
+  
+  .btn-primary:focus-visible {
+    outline: 2px solid #5B7B9C;
+    outline-offset: 2px;
+  }
+  
+  /* Secondary button - Secondary Green */
   .btn-secondary {
-    @apply px-6 py-3 bg-white text-[#275E91] rounded-md font-semibold border border-[#275E91] hover:bg-[#275E91]/5 transition-colors;
+    @apply px-6 py-3 bg-white rounded-md font-semibold border transition-all duration-300 relative;
+    color: #7A8D79; /* Secondary Green */
+    border-color: #7A8D79; /* Secondary Green */
+    min-height: 44px; /* Larger touch target for mobile */
+  }
+  
+  .btn-secondary:hover {
+    background-color: rgba(122, 141, 121, 0.05); /* Secondary Green with opacity */
+    color: #697B68; /* Secondary Green hover */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(122, 141, 121, 0.1);
+  }
+  
+  .btn-secondary:active {
+    background-color: rgba(122, 141, 121, 0.1);
+    transform: translateY(0);
+  }
+  
+  .btn-secondary:focus-visible {
+    outline: 2px solid #7A8D79;
+    outline-offset: 2px;
+  }
+  
+  /* Tertiary button - Section Highlight */
+  .btn-tertiary {
+    @apply px-6 py-3 rounded-md font-semibold transition-all duration-300 relative;
+    color: #1C1C1C; /* Text */
+    background-color: #C9D4DC; /* Section Highlight */
+    min-height: 44px; /* Larger touch target for mobile */
+  }
+  
+  .btn-tertiary:hover {
+    background-color: #B8C6D1; /* Slightly darker Section Highlight */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(201, 212, 220, 0.2);
+  }
+  
+  .btn-tertiary:active {
+    background-color: #A7B8C5;
+    transform: translateY(0);
+  }
+  
+  .btn-tertiary:focus-visible {
+    outline: 2px solid #275E91;
+    outline-offset: 2px;
+  }
+  
+  /* Mobile-friendly buttons with proper touch targets */
+  .btn-mobile {
+    @apply w-full py-3 px-4 rounded-md flex items-center justify-center gap-2;
+    min-height: 50px; /* Larger touch target for mobile */
+  }
+  
+  /* Icon button with proper focus states */
+  .btn-icon {
+    @apply rounded-full p-2 transition-all duration-300 relative inline-flex items-center justify-center;
+    background-color: transparent;
+    color: #275E91; /* Primary Blue */
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .btn-icon:hover {
+    background-color: rgba(39, 94, 145, 0.1);
+  }
+  
+  .btn-icon:focus-visible {
+    outline: 2px solid #275E91;
+    outline-offset: 2px;
   }
   
   .gradient-bg {
-    @apply bg-gradient-to-br from-[#275E91] via-[#7A8D79] to-[#C9D4DC];
+    background: linear-gradient(to bottom right, #275E91, #7A8D79, #C9D4DC);
+  }
+  
+  /* Section with highlight background */
+  .section-highlight {
+    background-color: #C9D4DC; /* Section Highlight color */
+  }
+  
+  /* Footer section */
+  .footer-bg {
+    background-color: #F5F5EF; /* Footer Background */
+  }
+  
+  /* Enhanced form elements with focus states */
+  
+  /* Standard input with proper focus and hover states */
+  .input-standard {
+    @apply px-4 py-2 rounded-md border transition-all duration-300;
+    min-height: 44px;
+    background-color: white;
+    border-color: #C9D4DC; /* Section Highlight */
+    color: #1C1C1C; /* Text */
+  }
+  
+  .input-standard:hover {
+    border-color: #275E91; /* Primary Blue */
+  }
+  
+  .input-standard:focus {
+    border-color: #275E91; /* Primary Blue */
+    outline: 2px solid rgba(39, 94, 145, 0.3);
+    outline-offset: 1px;
+    box-shadow: 0 0 0 1px rgba(39, 94, 145, 0.1);
+  }
+  
+  /* Standard input label with proper spacing */
+  .input-label {
+    @apply block text-sm font-medium mb-1 sm:text-base;
+    color: #1C1C1C; /* Text */
+  }
+  
+  /* Input with icon */
+  .input-with-icon {
+    @apply pl-10 pr-4 py-2 rounded-md border transition-all duration-300;
+    min-height: 44px;
+    background-color: white;
+    border-color: #C9D4DC; /* Section Highlight */
+    color: #1C1C1C; /* Text */
+  }
+  
+  .input-icon-container {
+    @apply absolute left-0 top-0 h-full flex items-center justify-center pl-3;
+    color: #275E91; /* Primary Blue */
+  }
+  
+  /* Checkbox and radio styled consistently */
+  .checkbox-container {
+    @apply relative flex items-center gap-2;
+  }
+  
+  .checkbox-input {
+    @apply h-5 w-5 rounded border-2 text-[#275E91] transition-all duration-200;
+    border-color: #C9D4DC; /* Section Highlight */
+  }
+  
+  .checkbox-input:focus-visible {
+    outline: 2px solid rgba(39, 94, 145, 0.3);
+    outline-offset: 1px;
+  }
+  
+  .checkbox-label {
+    @apply text-sm font-medium text-[#1C1C1C] select-none;
+  }
+  
+  /* Styles for select elements */
+  .select-standard {
+    @apply h-11 w-full appearance-none rounded-md border px-4 pr-10 py-2;
+    border-color: #C9D4DC; /* Section Highlight */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23275E91' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+  }
+  
+  .select-standard:focus {
+    border-color: #275E91; /* Primary Blue */
+    outline: 2px solid rgba(39, 94, 145, 0.3);
+    outline-offset: 1px;
+  }
+  
+  /* Enhanced status indicators with more ARIA-friendly design */
+  
+  .status-success {
+    color: #2E7D32; /* Success color */
+  }
+  
+  .status-warning {
+    color: #F57C00; /* Warning color */
+  }
+  
+  .status-error {
+    color: #C62828; /* Error color */
+  }
+  
+  .bg-status-success {
+    background-color: #E8F5E9; /* Light Success background */
+    color: #2E7D32; /* Success text */
+    @apply flex items-center gap-1.5 py-1 px-2 rounded;
+  }
+  
+  .bg-status-warning {
+    background-color: #FFF3E0; /* Light Warning background */
+    color: #F57C00; /* Warning text */
+    @apply flex items-center gap-1.5 py-1 px-2 rounded;
+  }
+  
+  .bg-status-error {
+    background-color: #FFEBEE; /* Light Error background */
+    color: #C62828; /* Error text */
+    @apply flex items-center gap-1.5 py-1 px-2 rounded;
   }
 
   /* Typewriter effect */
@@ -206,6 +527,16 @@
   .animate-float {
     animation: float 3s ease-in-out infinite;
   }
+  
+  /* Animation for progress bars */
+  @keyframes progress-bar {
+    0% { width: 0; }
+    100% { width: 100%; }
+  }
+  
+  .animate-progress-bar {
+    animation: progress-bar 1.5s ease-in-out;
+  }
 
   /* Connection animations */
   @keyframes grow {
@@ -216,5 +547,93 @@
   @keyframes grow-reverse {
     0% { width: 0%; right: 0; }
     100% { width: 100%; right: 0; }
+  }
+  
+  /* Accessibility utilities */
+  .focusable {
+    @apply outline-none transition-all duration-200;
+  }
+  
+  .focusable:focus-visible {
+    @apply outline-none ring-2 ring-[#275E91] ring-offset-2;
+  }
+  
+  /* Screen reader only text (visually hidden but accessible to screen readers) */
+  .sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+  }
+  
+  /* Skip to main content link - appears on focus for keyboard users */
+  .skip-to-content {
+    @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:w-auto focus:h-auto focus:p-4 focus:m-0 focus:overflow-auto focus:whitespace-normal;
+    @apply bg-white text-[#275E91] border border-[#275E91] rounded-md;
+  }
+  
+  /* Touch-friendly interactive elements with minimum size for touch targets */
+  .touch-target {
+    @apply min-h-11 min-w-11 flex items-center justify-center;
+  }
+  
+  /* Mobile-friendly tables with responsive behavior */
+  .table-responsive {
+    @apply w-full;
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Utility for visually hiding elements on mobile */
+  .hide-on-mobile {
+    @apply hidden sm:block;
+  }
+  
+  /* Utility for visually hiding elements on desktop */
+  .hide-on-desktop {
+    @apply block sm:hidden;
+  }
+  
+  /* Simplified data presentation for mobile */
+  .data-mobile {
+    @apply text-lg text-[#275E91] font-bold;
+  }
+  
+  .data-mobile-label {
+    @apply text-xs uppercase tracking-wider text-[#1C1C1C] font-medium;
+  }
+  
+  /* Mobile-first card with proper spacing and touch targets */
+  .mobile-card {
+    @apply p-4 sm:p-6 rounded-lg bg-white shadow-md;
+    border: 1px solid #C9D4DC; /* Section Highlight */
+  }
+  
+  /* Focus outline for interactive elements */
+  .focus-outline {
+    @apply outline-none;
+  }
+  
+  .focus-outline:focus-visible {
+    outline: 2px solid #5B7B9C; /* Primary Blue variant */
+    outline-offset: 2px;
+  }
+  
+  /* Consistent hover styles for interactive elements */
+  .hover-highlight {
+    @apply transition-all duration-200;
+  }
+  
+  .hover-highlight:hover {
+    @apply bg-[#275E91]/5;
+  }
+  
+  /* Micro-interaction for clickable items */
+  .click-effect {
+    @apply transition-transform duration-100;
+  }
+  
+  .click-effect:active {
+    transform: scale(0.98);
   }
 }

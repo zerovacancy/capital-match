@@ -42,9 +42,9 @@ export const MatchPathVisualizer: React.FC<MatchPathVisualizerProps> = ({
 
   // Mapping for strength to color
   const strengthColorMap = {
-    strong: '#22c55e', // green for strong matches
-    moderate: '#f59e0b', // yellow/orange for moderate matches
-    weak: '#ef4444', // red for weak matches
+    strong: '#2E7D32', // Strong/Success color for strong matches
+    moderate: '#F57C00', // Warning color for moderate matches
+    weak: '#C62828', // Error color for weak matches
   };
 
   // Generate the SVG path for a connection
@@ -236,11 +236,11 @@ export const MatchPathVisualizer: React.FC<MatchPathVisualizerProps> = ({
                       className="h-full transition-all duration-500 ease-out"
                       style={{ 
                         width: `${simulatedConfidenceScore}%`,
-                        backgroundColor: simulatedConfidenceScore > 80 
-                          ? '#22c55e' 
+                        backgroundImage: simulatedConfidenceScore > 80 
+                          ? 'linear-gradient(to right, #7A8D79, #2E7D32)' 
                           : simulatedConfidenceScore > 60 
-                            ? '#f59e0b' 
-                            : '#ef4444'
+                            ? 'linear-gradient(to right, #7A8D79, #F57C00)' 
+                            : 'linear-gradient(to right, #F57C00, #C62828)'
                       }}
                     />
                   </div>
@@ -250,16 +250,16 @@ export const MatchPathVisualizer: React.FC<MatchPathVisualizerProps> = ({
               
               <div className="flex items-center gap-1">
                 <div className="flex items-center gap-1 mr-3">
-                  <div className="w-3 h-3 rounded-full bg-[#22c55e]" />
-                  <span className="text-xs">Strong</span>
+                  <div className="w-3 h-3 rounded-full bg-lg-success shadow-sm" />
+                  <span className="text-xs font-medium">Strong</span>
                 </div>
                 <div className="flex items-center gap-1 mr-3">
-                  <div className="w-3 h-3 rounded-full bg-[#f59e0b]" />
-                  <span className="text-xs">Moderate</span>
+                  <div className="w-3 h-3 rounded-full bg-lg-warning shadow-sm" />
+                  <span className="text-xs font-medium">Moderate</span>
                 </div>
                 <div className="flex items-center gap-1">
-                  <div className="w-3 h-3 rounded-full bg-[#ef4444]" />
-                  <span className="text-xs">Weak</span>
+                  <div className="w-3 h-3 rounded-full bg-lg-error shadow-sm" />
+                  <span className="text-xs font-medium">Weak</span>
                 </div>
               </div>
             </div>
@@ -267,14 +267,14 @@ export const MatchPathVisualizer: React.FC<MatchPathVisualizerProps> = ({
           
           {/* Simulation Panel - only shown when simulationMode is true */}
           {simulationMode && deal && lp && (
-            <div className="w-72 bg-[#C9D4DC] rounded-md p-4 transition-all duration-300">
-              <h4 className="font-semibold text-[#1C1C1C] mb-4">Adjust Deal Parameters</h4>
+            <div className="w-72 bg-lg-highlight rounded-md p-4 transition-all duration-300 shadow-md">
+              <h4 className="font-semibold text-lg-blue mb-4">Adjust Deal Parameters</h4>
               
               {/* IRR Slider */}
               <div className="mb-4">
                 <div className="flex justify-between mb-1">
-                  <Label htmlFor="irr-slider" className="text-sm">IRR (%)</Label>
-                  <span className="text-sm font-medium">{simulationParams.irr.toFixed(1)}%</span>
+                  <Label htmlFor="irr-slider" className="text-sm font-medium text-lg-text">IRR (%)</Label>
+                  <span className="text-sm font-bold text-lg-blue">{simulationParams.irr.toFixed(1)}%</span>
                 </div>
                 <Slider
                   id="irr-slider"
@@ -335,12 +335,15 @@ export const MatchPathVisualizer: React.FC<MatchPathVisualizerProps> = ({
               
               {/* Optimization Suggestions */}
               {suggestedOptimizations.length > 0 && (
-                <Alert className="mt-4 bg-white">
-                  <h5 className="font-semibold text-sm mb-1">Suggested Optimizations</h5>
+                <Alert className="mt-4 bg-white border border-lg-green/30">
+                  <h5 className="font-semibold text-sm mb-1 text-lg-blue">Suggested Optimizations</h5>
                   <AlertDescription className="text-xs">
-                    <ul className="list-disc pl-4 space-y-1 mt-1">
+                    <ul className="space-y-1.5 mt-1">
                       {suggestedOptimizations.map((suggestion, index) => (
-                        <li key={index}>{suggestion}</li>
+                        <li key={index} className="flex items-start">
+                          <div className="w-1.5 h-1.5 rounded-full bg-lg-green mt-1 mr-2 flex-shrink-0"></div>
+                          <span className="text-lg-text">{suggestion}</span>
+                        </li>
                       ))}
                     </ul>
                   </AlertDescription>

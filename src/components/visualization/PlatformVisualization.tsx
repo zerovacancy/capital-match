@@ -93,11 +93,17 @@ const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({ className
         className
       )}
     >
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#275E91] to-[#7A8D79] opacity-95" />
+      {/* Enhanced background gradient with Primary Blue to Section Highlight */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#275E91] to-[#C9D4DC] opacity-95" />
       
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJWOGgydjR6bTAgMzBoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0tNiAxMmgtMnYtNGgydjR6bTAtNmgtMnYtNGgydjR6bTAtNmgtMnYtNGgydjR6bTAtNmgtMnYtNGgydjR6bTAtNmgtMnYtNGgydjR6bTAtNmgtMnYtNGgydjR6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-20" />
+      {/* Enhanced grid pattern overlay */}
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xNSI+PHBhdGggZD0iTTM2IDM0aC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptMC02aC0yVjhoMnY0em0wIDMwaC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptLTYgMTJoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0eiIvPjwvZz48L2c+PC9zdmc+=')] opacity-25" />
+      
+      {/* Add subtle highlights and patterns */}
+      <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-white/10 to-transparent"></div>
+      <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-[#275E91]/30 to-transparent"></div>
+      <div className="absolute top-10 right-10 w-20 h-20 rounded-full bg-[#275E91]/30 blur-xl"></div>
+      <div className="absolute bottom-10 left-10 w-20 h-20 rounded-full bg-[#C9D4DC]/30 blur-xl"></div>
       
       {/* Content container */}
       <div className="absolute inset-0 flex flex-col items-center text-white p-6 md:p-8">
@@ -165,11 +171,14 @@ const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({ className
             </div>
           </div>
           
-          {/* Connection line 1 */}
+          {/* Enhanced connection line 1 with Primary Blue highlights */}
           <div className="flex-1 flex items-center justify-center">
-            <div className="w-full h-0.5 bg-white/20 relative">
+            <div className="w-full h-1 bg-white/20 relative rounded-full overflow-hidden shadow-inner">
               {connection1Active && (
-                <div className="absolute left-0 top-0 h-full bg-white animate-[grow_3s_ease-in-out_infinite]"></div>
+                <>
+                  <div className="absolute left-0 top-0 h-full bg-gradient-to-r from-white to-[#275E91] animate-[grow_3s_ease-in-out_infinite]"></div>
+                  <div className="absolute left-0 top-0 h-full w-full bg-[#275E91]/20 animate-pulse"></div>
+                </>
               )}
             </div>
           </div>
@@ -180,26 +189,31 @@ const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({ className
             animationStep >= 2 ? "opacity-100" : "opacity-70"
           )}>
             <div className={cn(
-              "w-20 h-20 md:w-24 md:h-24 rounded-lg bg-[#C9D4DC]/20 mb-2 flex items-center justify-center relative overflow-hidden transition-all duration-300",
-              animationStep === 2 ? "ring-2 ring-white scale-110" : ""
+              "w-20 h-20 md:w-24 md:h-24 rounded-lg bg-[#C9D4DC]/30 mb-2 flex items-center justify-center relative overflow-hidden transition-all duration-300 shadow-lg",
+              animationStep === 2 ? "ring-2 ring-[#275E91] scale-110" : ""
             )}>
-              <div className="absolute inset-0 bg-gradient-to-br from-[#275E91]/30 to-[#7A8D79]/30"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-[#275E91]/40 to-[#C9D4DC]/30"></div>
+              <div className="absolute inset-0 z-0 opacity-30">
+                <div className="absolute top-0 left-0 w-full h-10 bg-gradient-to-b from-white/20 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-t from-[#275E91]/30 to-transparent"></div>
+              </div>
               <LineChart className={cn(
-                "w-10 h-10 md:w-12 md:h-12 text-white transition-all duration-500 transform",
-                aiProcessing ? "scale-110" : ""
+                "w-10 h-10 md:w-12 md:h-12 text-white transition-all duration-500 transform relative z-10",
+                aiProcessing ? "scale-110 drop-shadow-lg" : ""
               )} />
               
-              {/* Processing animation */}
+              {/* Enhanced processing animation with Primary Blue highlights */}
               {aiProcessing && (
                 <>
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-full h-full rounded-lg border border-white/20 animate-[pulse_2s_ease-in-out_infinite]"></div>
+                    <div className="w-full h-full rounded-lg border border-[#275E91]/40 animate-[pulse_2s_ease-in-out_infinite]"></div>
                   </div>
+                  <div className="absolute inset-0 bg-[#275E91]/10 animate-pulse opacity-50"></div>
                   <div className="absolute inset-y-2 inset-x-2 grid grid-cols-3 grid-rows-3 gap-1 z-10 opacity-70">
                     {[...Array(9)].map((_, i) => (
                       <div 
                         key={i}
-                        className="bg-white/20 rounded-sm"
+                        className={`${i % 3 === 0 ? 'bg-[#275E91]/40' : 'bg-white/30'} rounded-sm shadow-inner`}
                         style={{
                           animationName: 'pulse',
                           animationDuration: '1.5s',
@@ -209,6 +223,9 @@ const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({ className
                         }}
                       ></div>
                     ))}
+                  </div>
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div className="w-8 h-8 rounded-full bg-[#275E91]/20 animate-ping"></div>
                   </div>
                 </>
               )}
@@ -248,11 +265,14 @@ const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({ className
             </div>
           </div>
           
-          {/* Connection line 2 */}
+          {/* Enhanced connection line 2 with Primary Blue highlights */}
           <div className="flex-1 flex items-center justify-center">
-            <div className="w-full h-0.5 bg-white/20 relative">
+            <div className="w-full h-1 bg-white/20 relative rounded-full overflow-hidden shadow-inner">
               {connection2Active && (
-                <div className="absolute right-0 top-0 h-full bg-white animate-[grow-reverse_3s_ease-in-out_infinite]"></div>
+                <>
+                  <div className="absolute right-0 top-0 h-full bg-gradient-to-l from-white to-[#275E91] animate-[grow-reverse_3s_ease-in-out_infinite]"></div>
+                  <div className="absolute right-0 top-0 h-full w-full bg-[#275E91]/20 animate-pulse"></div>
+                </>
               )}
             </div>
           </div>
@@ -322,38 +342,47 @@ const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({ className
           </div>
         </div>
         
-        {/* Status Text */}
-        <div className="mt-4 h-8">
-          <p className={cn(
-            "text-sm font-medium transition-all duration-1000",
-            animationStep === 0 ? "opacity-100" : "opacity-0 absolute"
-          )}>
-            Initializing platform matching...
-          </p>
-          <p className={cn(
-            "text-sm font-medium transition-all duration-1000",
-            animationStep === 1 ? "opacity-100" : "opacity-0 absolute"
-          )}>
-            Processing investor criteria and preferences...
-          </p>
-          <p className={cn(
-            "text-sm font-medium transition-all duration-1000",
-            animationStep === 2 ? "opacity-100" : "opacity-0 absolute"
-          )}>
-            Running match algorithm with 128 parameters...
-          </p>
-          <p className={cn(
-            "text-sm font-medium transition-all duration-1000",
-            animationStep === 3 ? "opacity-100" : "opacity-0 absolute"
-          )}>
-            Calculating risk profile and match strength...
-          </p>
-          <p className={cn(
-            "text-sm font-medium transition-all duration-1000",
-            animationStep === 4 ? "opacity-100" : "opacity-0 absolute"
-          )}>
-            Match found! 98% alignment with investor criteria
-          </p>
+        {/* Enhanced Status Text with Primary Blue highlights */}
+        <div className="mt-4 h-10 relative">
+          <div className="absolute inset-x-0 -top-6 h-6 bg-gradient-to-b from-transparent to-[#275E91]/10"></div>
+          <div className="bg-[#C9D4DC]/20 px-4 py-2 rounded-md shadow-inner relative overflow-hidden">
+            <div className="absolute inset-0 bg-[#275E91]/5"></div>
+            <p className={cn(
+              "text-sm font-medium transition-all duration-1000 relative z-10 flex items-center justify-center gap-2",
+              animationStep === 0 ? "opacity-100" : "opacity-0 absolute inset-0"
+            )}>
+              <span className="inline-block w-2 h-2 bg-[#C9D4DC] rounded-full animate-pulse"></span>
+              Initializing platform matching...
+            </p>
+            <p className={cn(
+              "text-sm font-medium transition-all duration-1000 relative z-10 flex items-center justify-center gap-2",
+              animationStep === 1 ? "opacity-100" : "opacity-0 absolute inset-0"
+            )}>
+              <span className="inline-block w-2 h-2 bg-[#275E91] rounded-full animate-pulse"></span>
+              Processing investor criteria and preferences...
+            </p>
+            <p className={cn(
+              "text-sm font-medium transition-all duration-1000 relative z-10 flex items-center justify-center gap-2",
+              animationStep === 2 ? "opacity-100" : "opacity-0 absolute inset-0"
+            )}>
+              <span className="inline-block w-2 h-2 bg-[#275E91] rounded-full animate-pulse"></span>
+              Running match algorithm with <span className="text-[#275E91] font-bold">128</span> parameters...
+            </p>
+            <p className={cn(
+              "text-sm font-medium transition-all duration-1000 relative z-10 flex items-center justify-center gap-2",
+              animationStep === 3 ? "opacity-100" : "opacity-0 absolute inset-0"
+            )}>
+              <span className="inline-block w-2 h-2 bg-[#7A8D79] rounded-full animate-pulse"></span>
+              Calculating risk profile and match strength...
+            </p>
+            <p className={cn(
+              "text-sm font-medium transition-all duration-1000 relative z-10 flex items-center justify-center gap-2",
+              animationStep === 4 ? "opacity-100" : "opacity-0 absolute inset-0"
+            )}>
+              <span className="inline-block w-2 h-2 bg-[#2E7D32] rounded-full animate-pulse"></span>
+              Match found! <span className="text-[#2E7D32] font-bold">98%</span> alignment with investor criteria
+            </p>
+          </div>
         </div>
       </div>
     </div>

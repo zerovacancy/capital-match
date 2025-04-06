@@ -2,6 +2,7 @@
   width: 100%;
   margin: 0 auto;
   text-align: center;
+  background-color: #ECEDE3; /* Main background color */
 }
 
 /* Custom animations */
@@ -36,13 +37,13 @@
 .section-title {
   font-size: 2.25rem;
   font-weight: 700;
-  color: #2d3748;
+  color: #275E91; /* Primary Blue */
   margin-bottom: 1rem;
 }
 
 .section-subtitle {
   font-size: 1.125rem;
-  color: #718096;
+  color: #1C1C1C; /* Text color */
   max-width: 40rem;
 }
 
@@ -58,20 +59,57 @@
 
 /* Button styles */
 .btn-primary {
-  background-color: #4f46e5;
+  background-color: #275E91; /* Primary Blue */
   color: white;
 }
 
 .btn-primary:hover {
-  background-color: #4338ca;
+  background-color: #1A4D80; /* Primary Blue hover */
+}
+
+.btn-primary:active {
+  background-color: #134770; /* Primary Blue active */
 }
 
 .btn-secondary {
-  color: #4f46e5;
-  border-color: #4f46e5;
+  color: #7A8D79; /* Secondary Green */
+  border-color: #7A8D79; /* Secondary Green */
+}
+
+.btn-secondary:hover {
+  background-color: rgba(122, 141, 121, 0.05); /* Secondary Green with opacity */
+  color: #697B68; /* Secondary Green hover */
 }
 
 /* Gradient backgrounds */
 .gradient-bg {
-  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  background: linear-gradient(135deg, #275E91 0%, #7A8D79 50%, #C9D4DC 100%);
+}
+
+/* Status indicators */
+.status-success {
+  color: #2E7D32; /* Success color */
+}
+
+.status-warning {
+  color: #F57C00; /* Warning color */
+}
+
+.status-error {
+  color: #C62828; /* Error color */
+}
+
+.bg-status-success {
+  background-color: #E8F5E9; /* Light Success background */
+  color: #2E7D32; /* Success text */
+}
+
+.bg-status-warning {
+  background-color: #FFF3E0; /* Light Warning background */
+  color: #F57C00; /* Warning text */
+}
+
+.bg-status-error {
+  background-color: #FFEBEE; /* Light Error background */
+  color: #C62828; /* Error text */
 }

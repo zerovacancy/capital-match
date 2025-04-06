@@ -39,7 +39,7 @@ const TimelineSection = () => {
 
   return (
     <section id="timeline" className="section-container">
-      <div className="mb-12 text-center">
+      <div className="mb-16 text-center">
         <h2 className="section-title">Implementation Timeline</h2>
         <p className="section-subtitle mx-auto">
           Our strategic roadmap for developing and deploying the AI Assistant platform.
@@ -64,14 +64,14 @@ const TimelineSection = () => {
                 {/* Content card */}
                 <div className="bg-white rounded-lg shadow-md p-6 border border-gray-100 h-full">
                   <div className="text-xs font-semibold text-lg-accent mb-2">{step.phase}</div>
-                  <h3 className="text-lg font-bold text-lg-blue-dark mb-2 font-display">{step.title}</h3>
-                  <p className="text-sm text-lg-gray mb-4">{step.description}</p>
+                  <h3 className="text-xl font-bold text-lg-blue-dark mb-3 font-display tracking-tight">{step.title}</h3>
+                  <p className="text-base text-lg-gray mb-4 leading-relaxed">{step.description}</p>
                   <div className="mb-4">
                     <ul className="text-xs space-y-1">
                       {step.tasks.map((task, i) => (
                         <li key={i} className="flex items-start">
                           <span className="w-1.5 h-1.5 bg-lg-blue rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
-                          <span className="text-lg-gray-dark">{task}</span>
+                          <span className="text-lg-gray-dark leading-relaxed">{task}</span>
                         </li>
                       ))}
                     </ul>
@@ -99,14 +99,14 @@ const TimelineSection = () => {
                 {/* Content card */}
                 <div className="bg-white rounded-lg shadow-md p-6 border border-gray-100">
                   <div className="text-xs font-semibold text-lg-accent mb-2">{step.phase}</div>
-                  <h3 className="text-lg font-bold text-lg-blue-dark mb-2 font-display">{step.title}</h3>
-                  <p className="text-sm text-lg-gray mb-4">{step.description}</p>
+                  <h3 className="text-xl font-bold text-lg-blue-dark mb-3 font-display tracking-tight">{step.title}</h3>
+                  <p className="text-base text-lg-gray mb-4 leading-relaxed">{step.description}</p>
                   <div className="mb-4">
                     <ul className="text-xs space-y-1">
                       {step.tasks.map((task, i) => (
                         <li key={i} className="flex items-start">
                           <span className="w-1.5 h-1.5 bg-lg-blue rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
-                          <span className="text-lg-gray-dark">{task}</span>
+                          <span className="text-lg-gray-dark leading-relaxed">{task}</span>
                         </li>
                       ))}
                     </ul>

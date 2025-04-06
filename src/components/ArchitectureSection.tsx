@@ -33,7 +33,7 @@ const ArchitectureSection = () => {
 
   return (
     <section id="architecture" className="section-container bg-gray-50">
-      <div className="mb-12 text-center">
+      <div className="mb-16 text-center">
         <h2 className="section-title">Platform Architecture</h2>
         <p className="section-subtitle mx-auto">
           A modern, scalable design built for security, performance, and integration with existing systems.
@@ -51,7 +51,7 @@ const ArchitectureSection = () => {
               className="w-full h-auto object-contain"
             />
           </div>
-          <div className="mt-4 text-sm text-lg-gray-dark text-center max-w-3xl mx-auto">
+          <div className="mt-6 text-base text-lg-gray text-center max-w-3xl mx-auto leading-relaxed">
             <p>Our comprehensive architecture integrates data sources, security layers, and AI components through a scalable, multi-tiered approach.</p>
           </div>
         </div>

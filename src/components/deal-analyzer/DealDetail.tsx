@@ -38,8 +38,8 @@ export function DealDetail({ deal }: DealDetailProps) {
           <TabsContent value="overview" className="pt-4">
             <div className="space-y-4">
               <div>
-                <h3 className="text-lg font-semibold">{deal.name}</h3>
-                <p className="text-sm text-muted-foreground">{deal.location}</p>
+                <h3 className="h3">{deal.name}</h3>
+                <p className="small-text text-lg-gray">{deal.location}</p>
                 <div className="flex gap-2 mt-2">
                   <Badge className={marketColor()}>{deal.market}</Badge>
                   <Badge className={typeColor()}>{deal.type}</Badge>
@@ -47,7 +47,7 @@ export function DealDetail({ deal }: DealDetailProps) {
               </div>
               
               <div>
-                <h4 className="text-sm font-semibold mb-1">Project Timeline</h4>
+                <h4 className="h4 mb-1">Project Timeline</h4>
                 <div className="relative pt-6">
                   <div className="absolute top-0 left-0 right-0 h-2 bg-muted rounded-full">
                     <div className="absolute inset-y-0 left-0 w-3 h-3 -ml-0.5 -mt-0.5 rounded-full bg-green-500 border border-white shadow-sm"></div>
@@ -84,7 +84,7 @@ export function DealDetail({ deal }: DealDetailProps) {
               <div className="grid grid-cols-2 gap-4">
                 <Card>
                   <CardHeader className="py-2 px-4">
-                    <CardTitle className="text-sm">Key Highlights</CardTitle>
+                    <CardTitle className="h5">Key Highlights</CardTitle>
                   </CardHeader>
                   <CardContent className="py-2 px-4">
                     <ul className="list-disc pl-4 text-sm space-y-1">
@@ -97,7 +97,7 @@ export function DealDetail({ deal }: DealDetailProps) {
                 
                 <Card>
                   <CardHeader className="py-2 px-4">
-                    <CardTitle className="text-sm">Risk Factors</CardTitle>
+                    <CardTitle className="h5">Risk Factors</CardTitle>
                   </CardHeader>
                   <CardContent className="py-2 px-4">
                     <ul className="list-disc pl-4 text-sm space-y-1">
@@ -116,7 +116,7 @@ export function DealDetail({ deal }: DealDetailProps) {
               <div className="grid grid-cols-2 gap-4">
                 <Card>
                   <CardHeader className="py-2 px-4">
-                    <CardTitle className="text-sm">Return Metrics</CardTitle>
+                    <CardTitle className="h5">Return Metrics</CardTitle>
                   </CardHeader>
                   <CardContent className="py-2 px-4">
                     <div className="space-y-4">
@@ -164,7 +164,7 @@ export function DealDetail({ deal }: DealDetailProps) {
                 
                 <Card>
                   <CardHeader className="py-2 px-4">
-                    <CardTitle className="text-sm">Capital Structure</CardTitle>
+                    <CardTitle className="h5">Capital Structure</CardTitle>
                   </CardHeader>
                   <CardContent className="py-2 px-4">
                     <div className="space-y-2">
@@ -204,67 +204,93 @@ export function DealDetail({ deal }: DealDetailProps) {
               
               <Card>
                 <CardHeader className="py-2 px-4">
-                  <CardTitle className="text-sm">Key Financial Metrics Comparison</CardTitle>
+                  <CardTitle className="h5">Key Financial Metrics Comparison</CardTitle>
                 </CardHeader>
                 <CardContent className="py-2 px-4">
-                  <div className="space-y-3">
+                  <div className="space-y-5 p-2 bg-lg-background rounded-lg">
                     <div>
-                      <h4 className="text-xs font-semibold text-muted-foreground mb-1">IRR vs. Portfolio Average</h4>
-                      <div className="grid grid-cols-2 gap-2">
-                        <div>
-                          <div className="flex justify-between text-xs mb-1">
-                            <span>This Deal</span>
-                            <span>{deal.financialMetrics.projectedIRR}%</span>
+                      <div className="flex items-center gap-2 mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#275E91" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                        </svg>
+                        <h4 className="text-lg-text font-semibold">IRR vs. Portfolio Average</h4>
+                      </div>
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="bg-lg-highlight/5 p-2 rounded-md">
+                          <div className="flex justify-between items-center text-sm mb-1">
+                            <span className="text-lg-text font-medium">This Deal</span>
+                            <span className="text-lg-blue font-bold">{deal.financialMetrics.projectedIRR}%</span>
                           </div>
-                          <div className="w-full bg-muted rounded-full h-2">
+                          <div className="w-full bg-lg-highlight/30 rounded-full h-2.5 shadow-inner">
                             <div 
-                              className="bg-primary h-2 rounded-full" 
+                              className="bg-lg-blue h-2.5 rounded-full" 
                               style={{ width: `${(deal.financialMetrics.projectedIRR / 25) * 100}%` }}>
                             </div>
                           </div>
                         </div>
-                        <div>
-                          <div className="flex justify-between text-xs mb-1">
-                            <span>Portfolio Average</span>
-                            <span>17.5%</span>
+                        <div className="bg-lg-highlight/5 p-2 rounded-md">
+                          <div className="flex justify-between items-center text-sm mb-1">
+                            <span className="text-lg-text font-medium">Portfolio Average</span>
+                            <span className="text-lg-text font-bold">17.5%</span>
                           </div>
-                          <div className="w-full bg-muted rounded-full h-2">
+                          <div className="w-full bg-lg-highlight/30 rounded-full h-2.5 shadow-inner">
                             <div 
-                              className="bg-gray-500 h-2 rounded-full" 
+                              className="bg-lg-green h-2.5 rounded-full" 
                               style={{ width: `${(17.5 / 25) * 100}%` }}>
                             </div>
                           </div>
                         </div>
                       </div>
+                      <div className="mt-1.5 text-xs text-lg-text/80 flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#275E91" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <circle cx="12" cy="12" r="10"/>
+                          <path d="M12 16v-4"/>
+                          <path d="M12 8h.01"/>
+                        </svg>
+                        <span>Internal Rate of Return - annualized return on investment over holding period</span>
+                      </div>
                     </div>
                     
                     <div>
-                      <h4 className="text-xs font-semibold text-muted-foreground mb-1">Equity Multiple vs. Portfolio Average</h4>
-                      <div className="grid grid-cols-2 gap-2">
-                        <div>
-                          <div className="flex justify-between text-xs mb-1">
-                            <span>This Deal</span>
-                            <span>{deal.financialMetrics.projectedEM}x</span>
+                      <div className="flex items-center gap-2 mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#275E91" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="m6 9 6 6 6-6" />
+                        </svg>
+                        <h4 className="text-lg-text font-semibold">Equity Multiple vs. Portfolio Average</h4>
+                      </div>
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="bg-lg-highlight/5 p-2 rounded-md">
+                          <div className="flex justify-between items-center text-sm mb-1">
+                            <span className="text-lg-text font-medium">This Deal</span>
+                            <span className="text-lg-blue font-bold">{deal.financialMetrics.projectedEM}x</span>
                           </div>
-                          <div className="w-full bg-muted rounded-full h-2">
+                          <div className="w-full bg-lg-highlight/30 rounded-full h-2.5 shadow-inner">
                             <div 
-                              className="bg-primary h-2 rounded-full" 
+                              className="bg-lg-blue h-2.5 rounded-full" 
                               style={{ width: `${(deal.financialMetrics.projectedEM / 3) * 100}%` }}>
                             </div>
                           </div>
                         </div>
-                        <div>
-                          <div className="flex justify-between text-xs mb-1">
-                            <span>Portfolio Average</span>
-                            <span>1.95x</span>
+                        <div className="bg-lg-highlight/5 p-2 rounded-md">
+                          <div className="flex justify-between items-center text-sm mb-1">
+                            <span className="text-lg-text font-medium">Portfolio Average</span>
+                            <span className="text-lg-text font-bold">1.95x</span>
                           </div>
-                          <div className="w-full bg-muted rounded-full h-2">
+                          <div className="w-full bg-lg-highlight/30 rounded-full h-2.5 shadow-inner">
                             <div 
-                              className="bg-gray-500 h-2 rounded-full" 
+                              className="bg-lg-green h-2.5 rounded-full" 
                               style={{ width: `${(1.95 / 3) * 100}%` }}>
                             </div>
                           </div>
                         </div>
+                      </div>
+                      <div className="mt-1.5 text-xs text-lg-text/80 flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#275E91" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <circle cx="12" cy="12" r="10"/>
+                          <path d="M12 16v-4"/>
+                          <path d="M12 8h.01"/>
+                        </svg>
+                        <span>Ratio of total equity returned to total equity invested over the life of the investment</span>
                       </div>
                     </div>
                   </div>
@@ -277,7 +303,7 @@ export function DealDetail({ deal }: DealDetailProps) {
             <div className="space-y-4">
               <Card>
                 <CardHeader className="py-2 px-4">
-                  <CardTitle className="text-sm">Strategic Alignment</CardTitle>
+                  <CardTitle className="h5">Strategic Alignment</CardTitle>
                 </CardHeader>
                 <CardContent className="py-2 px-4">
                   <div className="space-y-3">
@@ -306,12 +332,12 @@ export function DealDetail({ deal }: DealDetailProps) {
               <div className="grid grid-cols-2 gap-4">
                 <Card>
                   <CardHeader className="py-2 px-4">
-                    <CardTitle className="text-sm">Geographic Strategy</CardTitle>
+                    <CardTitle className="h5">Geographic Strategy</CardTitle>
                   </CardHeader>
                   <CardContent className="py-2 px-4">
                     <div className="space-y-2">
                       <div>
-                        <h4 className="text-xs font-semibold text-muted-foreground">Core Market (Chicago)</h4>
+                        <h4 className="h6">Core Market (Chicago)</h4>
                         <div className="w-full bg-muted rounded-full h-2.5 mt-1">
                           <div className="bg-primary h-2.5 rounded-full" style={{ 
                             width: `${deal.location.includes('Chicago') ? '100%' : '0%'}` 
@@ -320,7 +346,7 @@ export function DealDetail({ deal }: DealDetailProps) {
                       </div>
                       
                       <div>
-                        <h4 className="text-xs font-semibold text-muted-foreground">Strategic Expansion Markets</h4>
+                        <h4 className="h6">Strategic Expansion Markets</h4>
                         <div className="w-full bg-muted rounded-full h-2.5 mt-1">
                           <div className="bg-primary h-2.5 rounded-full" style={{ 
                             width: `${["Denver", "Charlotte", "Raleigh", "Nashville"].some(city => 
@@ -342,7 +368,7 @@ export function DealDetail({ deal }: DealDetailProps) {
                 
                 <Card>
                   <CardHeader className="py-2 px-4">
-                    <CardTitle className="text-sm">Product Strategy</CardTitle>
+                    <CardTitle className="h5">Product Strategy</CardTitle>
                   </CardHeader>
                   <CardContent className="py-2 px-4">
                     <div className="space-y-2">
@@ -366,12 +392,12 @@ export function DealDetail({ deal }: DealDetailProps) {
               
               <Card>
                 <CardHeader className="py-2 px-4">
-                  <CardTitle className="text-sm">Impact on Strategic KPIs</CardTitle>
+                  <CardTitle className="h5">Impact on Strategic KPIs</CardTitle>
                 </CardHeader>
                 <CardContent className="py-2 px-4">
                   <div className="space-y-3">
                     <div>
-                      <h4 className="text-xs font-semibold text-muted-foreground">Revenue Growth (30% YOY Target)</h4>
+                      <h4 className="h6">Revenue Growth (30% YOY Target)</h4>
                       <div className="flex items-center gap-2 mt-1">
                         <div className="w-full bg-muted rounded-full h-2.5">
                           <div 
@@ -390,7 +416,7 @@ export function DealDetail({ deal }: DealDetailProps) {
                     </div>
                     
                     <div>
-                      <h4 className="text-xs font-semibold text-muted-foreground">Q2 Capital Goal ($5M Target)</h4>
+                      <h4 className="h6">Q2 Capital Goal ($5M Target)</h4>
                       <div className="flex items-center gap-2 mt-1">
                         <div className="w-full bg-muted rounded-full h-2.5">
                           <div 

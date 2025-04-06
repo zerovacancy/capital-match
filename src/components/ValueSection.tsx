@@ -46,7 +46,7 @@ const ValueSection = () => {
 
   return (
     <section id="value" className="section-container">
-      <div className="mb-12 text-center">
+      <div className="mb-16 text-center">
         <h2 className="section-title">Value Proposition</h2>
         <p className="section-subtitle mx-auto">
           The tangible benefits and ROI our AI platform delivers to LG Development and its investment partners.
@@ -56,16 +56,16 @@ const ValueSection = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
           <div className="bg-white rounded-lg shadow-lg border border-gray-100 p-6 h-full">
-            <h3 className="text-xl font-bold text-lg-blue-dark mb-6 font-display">Performance Metrics</h3>
+            <h3 className="h3 mb-6">Performance Metrics</h3>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               {metrics.map((metric, index) => (
                 <div key={index} className="relative">
                   <div className="flex items-center mb-2">
                     <div className="mr-2">{metric.icon}</div>
-                    <h4 className="font-semibold text-lg-blue">{metric.title}</h4>
+                    <h4 className="h5 text-lg-blue">{metric.title}</h4>
                   </div>
-                  <p className="text-sm text-lg-gray mb-3">{metric.description}</p>
+                  <p className="small-text mb-3">{metric.description}</p>
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-xs text-lg-gray-dark">0%</span>
                     <span className="text-2xl font-bold text-lg-blue">{metric.value}</span>
@@ -80,7 +80,7 @@ const ValueSection = () => {
         
         <div>
           <div className="bg-white rounded-lg shadow-lg border border-gray-100 p-6 h-full">
-            <h3 className="text-xl font-bold text-lg-blue-dark mb-6 font-display">Key Benefits</h3>
+            <h3 className="h3 mb-6">Key Benefits</h3>
             
             <ul className="space-y-4">
               {benefits.map((benefit, index) => (
@@ -92,8 +92,8 @@ const ValueSection = () => {
             </ul>
             
             <div className="mt-8 p-4 rounded-lg bg-lg-blue/5 border border-lg-blue/10">
-              <h4 className="font-semibold text-lg-blue mb-2 font-display">ROI Projection</h4>
-              <p className="text-sm text-lg-gray mb-3">
+              <h4 className="h5 mb-2">ROI Projection</h4>
+              <p className="small-text mb-3">
                 Based on current metrics, projected ROI within the first year of implementation:
               </p>
               <div className="text-3xl font-bold text-lg-accent text-center">

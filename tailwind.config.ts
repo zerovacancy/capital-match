@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -64,17 +63,49 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				lg: {
+					// Primary Colors
 					blue: {
-						DEFAULT: '#0A2342',
-						light: '#1D3557',
-						dark: '#041A35'
+						DEFAULT: '#275E91',
+						hover: '#1A4D80',
+						active: '#134770'
 					},
+					green: {
+						DEFAULT: '#7A8D79', 
+						hover: '#697B68',
+						active: '#586957'
+					},
+					highlight: '#C9D4DC',
+					
+					// Text and Background Colors
+					text: '#1C1C1C',
+					background: '#ECEDE3',
+					footer: '#F5F5EF',
+					
+					// Status/Indicator Colors
+					success: {
+						DEFAULT: '#2E7D32',
+						light: '#E8F5E9'
+					},
+					warning: {
+						DEFAULT: '#F57C00',
+						light: '#FFF3E0'
+					},
+					error: {
+						DEFAULT: '#C62828',
+						light: '#FFEBEE'
+					},
+					
+					// Additional UI Colors
+					border: '#D0D0D0',
+					disabled: 'rgba(28, 28, 28, 0.5)',
+					
+					// Backward compatibility with existing code
 					gray: {
 						DEFAULT: '#4F5D75',
 						light: '#8D99AE',
 						dark: '#2B2D42'
 					},
-					accent: '#3D84A8'
+					accent: '#275E91'
 				}
 			},
 			fontFamily: {

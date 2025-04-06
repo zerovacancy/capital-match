@@ -9,8 +9,8 @@ export function Dashboard() {
   return (
     <div className="bg-card rounded-lg border shadow-sm flex flex-col h-full">
       <div className="p-4 border-b">
-        <h2 className="text-2xl font-bold">Capital Raise Dashboard</h2>
-        <p className="text-muted-foreground">Monitor capital commitments and fundraising progress</p>
+        <h2 className="h2">Capital Raise Dashboard</h2>
+        <p>Monitor capital commitments and fundraising progress</p>
       </div>
       
       <div className="p-4 grid grid-cols-1 md:grid-cols-3 gap-4 overflow-y-auto h-[calc(100%-4rem)]">
