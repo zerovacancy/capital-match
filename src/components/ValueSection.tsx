@@ -71,7 +71,7 @@ const ValueSection = () => {
                     <span className="text-2xl font-bold text-lg-blue">{metric.value}</span>
                     <span className="text-xs text-lg-gray-dark">100%</span>
                   </div>
-                  <Progress value={metric.progress} className="h-2 bg-gray-100" indicatorClassName="bg-lg-accent" />
+                  <Progress value={metric.progress} className="h-2 bg-gray-100" />
                 </div>
               ))}
             </div>
