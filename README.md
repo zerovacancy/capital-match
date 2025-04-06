@@ -1,73 +1,92 @@
-# Welcome to your Lovable project
 
-## Project info
+# LG Development AI Assistant
 
-**URL**: https://lovable.dev/projects/f423d61b-8a3f-4f46-a912-1ae4fd523a84
+A modern web application showcasing LG Development's AI-powered platform for matching Limited Partners (investors) with real estate development opportunities based on sophisticated criteria.
 
-## How can I edit this code?
+## Overview
 
-There are several ways of editing your application.
+The LG Development AI Assistant is an intelligent capital matching platform designed to automate the alignment of investor criteria with development opportunities. This application serves as a presentation website to demonstrate the platform's capabilities to executives in the real estate industry.
 
-**Use Lovable**
+## Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/f423d61b-8a3f-4f46-a912-1ae4fd523a84) and start prompting.
+- **LP Profile Engine**: Build comprehensive investor profiles based on historical preferences, risk tolerance, and targeted returns.
+- **Deal Analysis Engine**: Advanced algorithms to evaluate development opportunities against multiple investment criteria.
+- **Matching Algorithm**: AI-powered matching system to align investor profiles with the right development opportunities.
+- **Reporting Generator**: Automated creation of detailed reports for investors, executives, and regulatory compliance.
 
-Changes made via Lovable will be committed automatically to this repo.
+## Technology Stack
 
-**Use your preferred IDE**
+- **Frontend**: React with TypeScript
+- **UI Framework**: Tailwind CSS with Shadcn UI components
+- **Build Tool**: Vite
+- **Routing**: React Router
+- **Data Fetching**: TanStack Query (React Query)
+- **Icons**: Lucide React
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Getting Started
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Prerequisites
 
-Follow these steps:
+- Node.js (v18 or higher)
+- npm or yarn
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Installation
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+1. Clone the repository:
+   ```
+   git clone <repository-url>
+   ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+2. Navigate to the project directory:
+   ```
+   cd lg-development-ai-assistant
+   ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+3. Install dependencies:
+   ```
+   npm install
+   ```
 
-**Edit a file directly in GitHub**
+4. Start the development server:
+   ```
+   npm run dev
+   ```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+5. Open your browser and visit:
+   ```
+   http://localhost:8080
+   ```
 
-**Use GitHub Codespaces**
+## Project Structure
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- `/src`: Source code
+  - `/components`: Reusable UI components
+  - `/pages`: Page components
+  - `/hooks`: Custom React hooks
+  - `/lib`: Utility functions
+  - `/assets`: Static assets like images
 
-## What technologies are used for this project?
+## Deployment
 
-This project is built with:
+This project can be deployed to any static hosting service such as Vercel, Netlify, or GitHub Pages.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Customization
 
-## How can I deploy this project?
+The application is designed to be easily customizable:
 
-Simply open [Lovable](https://lovable.dev/projects/f423d61b-8a3f-4f46-a912-1ae4fd523a84) and click on Share -> Publish.
+- Brand colors can be adjusted in `tailwind.config.ts`
+- Content can be modified in respective component files
+- New sections can be added by creating new components and adding them to the appropriate page
 
-## Can I connect a custom domain to my Lovable project?
+## License
 
-Yes it is!
+[Specify your license here]
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Contact
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+LG Development - [Contact Information]
+
+## Acknowledgments
+
+- All the libraries and frameworks used in this project
+- Contributors and designers
