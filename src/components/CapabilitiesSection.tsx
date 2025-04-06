@@ -100,14 +100,12 @@ const CapabilitiesSection = () => {
 
   const renderVisualization = (index: number) => {
     switch (index) {
-      // LP Profile Engine Visualization
       case 0:
         return (
           <div className="flex flex-col items-center justify-center h-full">
             <div className="relative w-full max-w-[220px] mx-auto">
               <div className="absolute -top-4 -left-4 w-32 h-32 rounded-full bg-[#275E91]/10 animate-pulse-slow"></div>
               
-              {/* LP Profile Circle */}
               <div className="relative z-10 h-16 w-16 mx-auto rounded-full border-2 border-[#275E91] bg-white flex items-center justify-center mb-4">
                 <UserRound className="h-8 w-8 text-[#275E91]" />
                 <div className="absolute top-0 right-0 h-5 w-5 rounded-full bg-[#275E91] text-white flex items-center justify-center text-xs font-bold">
@@ -115,7 +113,6 @@ const CapabilitiesSection = () => {
                 </div>
               </div>
               
-              {/* Profile Attributes */}
               <div className="grid grid-cols-2 gap-2 relative z-10">
                 <Badge variant="outline" className="py-1 border-[#275E91]/50 flex items-center gap-1 justify-center">
                   <ArrowUpRight className="h-3 w-3 text-green-500" />
@@ -141,7 +138,6 @@ const CapabilitiesSection = () => {
           </div>
         );
       
-      // Deal Analysis Engine Visualization
       case 1:
         return (
           <div className="relative z-10 h-full flex flex-col justify-center items-center">
@@ -186,37 +182,30 @@ const CapabilitiesSection = () => {
           </div>
         );
       
-      // Matching Algorithm Visualization
       case 2:
         return (
           <div className="h-full flex items-center justify-center">
             <div className="relative">
-              {/* LP side */}
               <div className="absolute left-0 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white border border-[#275E91] flex items-center justify-center z-10">
                 <UserRound className="w-6 h-6 text-[#275E91]" />
               </div>
               
-              {/* Deal side */}
               <div className="absolute right-0 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white border border-[#275E91] flex items-center justify-center z-10">
                 <Building2 className="w-6 h-6 text-[#275E91]" />
               </div>
               
-              {/* Middle AI node */}
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-md bg-gradient-to-br from-[#275E91] to-[#7A8D79] flex items-center justify-center z-20 animate-pulse-slow">
                 <GitCompareArrows className="w-8 h-8 text-white" />
               </div>
               
-              {/* Connection Line 1 */}
               <div className="h-[2px] w-32 bg-gradient-to-r from-[#275E91] to-[#7A8D79] absolute left-10 top-1/2 -translate-y-1/2">
                 <div className="absolute top-0 left-0 h-full bg-white/50 w-full animate-[grow_3s_ease-in-out_infinite]"></div>
               </div>
               
-              {/* Connection Line 2 */}
               <div className="h-[2px] w-32 bg-gradient-to-r from-[#7A8D79] to-[#275E91] absolute right-10 top-1/2 -translate-y-1/2">
                 <div className="absolute top-0 right-0 h-full bg-white/50 w-full animate-[grow-reverse_3s_ease-in-out_infinite]"></div>
               </div>
               
-              {/* Match percentage */}
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 bg-white rounded-full px-2 py-1 text-xs font-medium border border-green-500 text-green-600 z-30">
                 98% Match
               </div>
@@ -224,23 +213,18 @@ const CapabilitiesSection = () => {
           </div>
         );
       
-      // Reporting Generator Visualization
       case 3:
         return (
           <div className="h-full flex items-center justify-center">
             <div className="relative">
-              {/* Report document */}
               <div className="w-32 h-40 bg-white border border-gray-300 rounded shadow-md relative mx-auto z-10">
-                {/* Header */}
                 <div className="h-6 bg-[#275E91] rounded-t"></div>
                 
-                {/* Content lines */}
                 <div className="p-2">
                   <div className="h-1.5 bg-gray-200 rounded w-full mb-1.5"></div>
                   <div className="h-1.5 bg-gray-200 rounded w-5/6 mb-1.5"></div>
                   <div className="h-1.5 bg-gray-200 rounded w-11/12 mb-3"></div>
                   
-                  {/* Chart */}
                   <div className="h-12 mb-2 flex items-end justify-between gap-1">
                     <div className="h-3 w-2 bg-[#275E91] rounded-t"></div>
                     <div className="h-8 w-2 bg-[#275E91] rounded-t"></div>
@@ -250,16 +234,13 @@ const CapabilitiesSection = () => {
                     <div className="h-7 w-2 bg-[#275E91] rounded-t"></div>
                   </div>
                   
-                  {/* More content */}
                   <div className="h-1.5 bg-gray-200 rounded w-3/4 mb-1.5"></div>
                   <div className="h-1.5 bg-gray-200 rounded w-5/6 mb-1.5"></div>
                 </div>
                 
-                {/* Copies behind for 3D effect */}
                 <div className="absolute w-full h-full bg-white border border-gray-300 rounded shadow-sm -right-1 -bottom-1 -z-10"></div>
                 <div className="absolute w-full h-full bg-white border border-gray-300 rounded shadow-sm -right-2 -bottom-2 -z-20"></div>
                 
-                {/* Export formats */}
                 <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 flex space-x-1 z-20">
                   <Badge variant="outline" className="px-1 py-0 text-[8px] border-[#7A8D79]/50 text-[#7A8D79]">
                     PDF
@@ -283,7 +264,6 @@ const CapabilitiesSection = () => {
 
   return (
     <section id="capabilities" className="section-container overflow-hidden relative py-20">
-      {/* Enhanced Background decoration with Section Highlight */}
       <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-[#275E91]/10 to-[#C9D4DC]/5 blur-3xl"></div>
       <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-[#7A8D79]/10 to-[#C9D4DC]/10 blur-3xl"></div>
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNDOUQ0REMiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0aC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptMC02aC0yVjhoMnY0em0wIDMwaC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptLTYgMTJoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0eiIvPjwvZz48L2c+PC9zdmc+')] opacity-30"></div>
@@ -300,7 +280,6 @@ const CapabilitiesSection = () => {
         </p>
       </div>
       
-      {/* Background pattern with Highlight Background */}
       <div className="absolute inset-x-0 top-1/3 h-1/3 bg-[#ECEDE3]/30 -z-10 skew-y-3 transform"></div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 relative z-10">
@@ -309,19 +288,18 @@ const CapabilitiesSection = () => {
             key={index} 
             className={cn(
               "h-full overflow-hidden transition-all duration-500 relative group border-transparent rounded-2xl",
-              "bg-white/70 backdrop-blur-md shadow-lg hover:shadow-xl",
+              "backdrop-blur-md shadow-lg hover:shadow-xl",
               "hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(201,212,220,0.4)]",
               activeCard === index ? 
                 "ring-2 ring-[#275E91]/60 shadow-xl translate-y-[-2px]" : 
                 "border border-[#C9D4DC]/20",
-              "before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-br before:from-white/80 before:to-white/40 before:backdrop-blur-sm"
+              "before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-br before:from-footer/80 before:to-footer/40 before:backdrop-blur-sm"
             )}
             onClick={() => setActiveCard(index === activeCard ? null : index)}
             data-aos="fade-up"
             data-aos-delay={index * 100}
             data-aos-duration="800"
           >
-            {/* Enhanced glow effect with C9D4DC Section Highlight on hover */}
             <div 
               className={cn(
                 "absolute -inset-0.5 bg-gradient-to-br rounded-2xl opacity-0 transition-all duration-500 -z-10",
@@ -331,7 +309,6 @@ const CapabilitiesSection = () => {
               )}
             ></div>
             
-            {/* Enhanced background gradient with Section Highlight */}
             <div 
               className={cn(
                 "absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t transition-all duration-500",
@@ -341,15 +318,13 @@ const CapabilitiesSection = () => {
               )}
             ></div>
             
-            {/* Subtle pattern overlay */}
             <div 
               className={cn(
-                "absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiM0RjVENzUiIGZpbGwtb3BhY2l0eT0iMC4wMiI+PHBhdGggZD0iTTM2IDM0aC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptMC02aC0yVjhoMnY0em0wIDMwaC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptLTYgMTJoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0eiIvPjwvZz48L2c+PC9zdmc+')]",
+                "absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNDOUQ0REMiIGZpbGwtb3BhY2l0eT0iMC4wMiI+PHBhdGggZD0iTTM2IDM0aC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptMC02aC0yVjhoMnY0em0wIDMwaC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptLTYgMTJoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0eiIvPjwvZz48L2c+PC9zdmc+')]",
                 "opacity-0 group-hover:opacity-100 transition-all duration-500"
               )}
             ></div>
             
-            {/* Card content container */}
             <div className="relative z-10">
               <CardHeader className="pt-6 pb-3">
                 <div className={cn(
@@ -384,7 +359,6 @@ const CapabilitiesSection = () => {
                   {capability.description}
                 </CardDescription>
                 
-                {/* Enhanced Benefits list with Primary Blue iconography */}
                 <div className="mb-5">
                   <h4 className="text-sm font-semibold text-[#275E91] mb-3 flex items-center font-display tracking-tight">
                     <span className="w-1 h-4 bg-gradient-to-b from-[#275E91] to-[#7A8D79] rounded-full mr-2 flex-shrink-0"></span>
@@ -406,7 +380,6 @@ const CapabilitiesSection = () => {
                   </ul>
                 </div>
                 
-                {/* Enhanced Expand/collapse indicator with Section Highlight hover effects */}
                 <div className="mt-4 mb-3 flex justify-center">
                   <button
                     className={cn(
@@ -417,7 +390,7 @@ const CapabilitiesSection = () => {
                         "bg-[#C9D4DC]/10 text-[#1C1C1C] hover:bg-[#C9D4DC]/20 hover:text-[#275E91] border border-[#C9D4DC]/20 hover:border-[#275E91]/20"
                     )}
                     onClick={(e) => {
-                      e.stopPropagation(); // To prevent card click event
+                      e.stopPropagation();
                       setActiveCard(index === activeCard ? null : index);
                     }}
                   >
@@ -440,11 +413,10 @@ const CapabilitiesSection = () => {
                   </button>
                 </div>
                 
-                {/* Enhanced expandable content with Section Highlight background */}
                 <div 
                   className={cn(
                     "transition-all duration-500 overflow-hidden rounded-lg relative",
-                    "bg-gradient-to-br from-white/90 to-[#C9D4DC]/20 backdrop-blur-sm border",
+                    "bg-gradient-to-br from-footer/90 to-[#C9D4DC]/20 backdrop-blur-sm border",
                     activeCard === index ? 
                       "max-h-[500px] opacity-100 mb-5 border-[#C9D4DC]/40 shadow-lg" : 
                       "max-h-0 opacity-0 mb-0 border-transparent"
@@ -453,22 +425,18 @@ const CapabilitiesSection = () => {
                     transitionProperty: "max-height, opacity, margin, border"
                   }}
                 >
-                  {/* Enhanced semi-transparent backdrop for depth with Section Highlight */}
                   <div className={cn(
                     "absolute inset-0 bg-gradient-to-b from-[#C9D4DC]/10 to-white/0 transition-opacity duration-500",
                     activeCard === index ? "opacity-100" : "opacity-0"
                   )}></div>
                   
-                  {/* Subtle pattern overlay */}
                   <div className={cn(
-                    "absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNDOUQ0REMiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0aC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptMC02aC0yVjhoMnY0em0wIDMwaC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptLTYgMTJoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0eiIvPjwvZz48L2c+PC9zdmc+')]",
+                    "absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNDOUQ0REMiIGZpbGwtb3BhY2l0eT0iMC4wMiI+PHBhdGggZD0iTTM2IDM0aC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptMC02aC0yVjhoMnY0em0wIDMwaC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptLTYgMTJoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0eiIvPjwvZz48L2c+PC9zdmc+')]",
                     "opacity-30 transition-opacity duration-500",
                     activeCard === index ? "opacity-30" : "opacity-0"
                   )}></div>
                   
-                  {/* Expandable content container */}
                   <div className="relative">
-                    {/* Enhanced Performance Metrics Section with Primary Blue accents */}
                     <div className="border-b border-[#C9D4DC]/20">
                       <div className="flex items-center justify-between px-4 py-3 bg-[#275E91]/5">
                         <h4 className="text-sm font-semibold text-[#275E91] flex items-center">
@@ -483,7 +451,7 @@ const CapabilitiesSection = () => {
                           {capability.metrics.map((metric, i) => (
                             <div 
                               key={i} 
-                              className="text-center p-3 rounded-md bg-white shadow-sm border border-[#C9D4DC]/20 hover:shadow-md hover:border-[#275E91]/20 transition-all duration-300 group"
+                              className="text-center p-3 rounded-md bg-footer shadow-sm border border-[#C9D4DC]/20 hover:shadow-md hover:border-[#275E91]/20 transition-all duration-300 group"
                             >
                               <div className="relative">
                                 <p className="text-lg font-bold text-[#275E91] group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-br group-hover:from-[#275E91] group-hover:to-[#275E91]/80 transition-colors duration-500">
@@ -499,7 +467,6 @@ const CapabilitiesSection = () => {
                       </div>
                     </div>
                     
-                    {/* Enhanced Visualization Section with Section Highlight background */}
                     <div>
                       <div className="flex items-center justify-between px-4 py-3 bg-[#275E91]/5 border-b border-[#C9D4DC]/20">
                         <h4 className="text-sm font-semibold text-[#275E91] flex items-center font-display">
@@ -511,8 +478,7 @@ const CapabilitiesSection = () => {
                         <ChevronRight className="h-4 w-4 text-[#275E91] transform rotate-90" />
                       </div>
                       
-                      <div className="p-3 bg-white relative overflow-hidden group">
-                        {/* Add subtle background pattern */}
+                      <div className="p-3 bg-footer relative overflow-hidden group">
                         <div className="absolute inset-0 bg-[#C9D4DC]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                         <div className="absolute -right-6 -top-6 w-16 h-16 rounded-full bg-[#275E91]/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                         
@@ -522,7 +488,6 @@ const CapabilitiesSection = () => {
                       </div>
                     </div>
                     
-                    {/* Enhanced Collapse section with Section Highlight background */}
                     <div className="px-4 py-3 bg-[#C9D4DC]/10 border-t border-[#C9D4DC]/20 flex justify-center">
                       <button
                         className="flex items-center justify-center gap-1.5 text-xs text-[#1C1C1C] hover:text-[#275E91] transition-all duration-300 px-3 py-1 rounded-full hover:bg-white/80 hover:shadow-sm group"
