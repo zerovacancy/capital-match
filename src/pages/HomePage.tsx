@@ -14,7 +14,7 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main>
+      <main className="pt-[72px]">
         <HeroSection />
         <CapabilitiesSection />
         <ArchitectureSection />

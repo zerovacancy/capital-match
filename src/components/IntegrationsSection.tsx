@@ -72,7 +72,7 @@ const IntegrationsSection = () => {
   ];
 
   return (
-    <section id="integrations" className="section-container bg-gray-50">
+    <section id="integrations" className="section-container bg-background">
       <div className="mb-16 text-center">
         <h2 className="section-title">Integration Ecosystem</h2>
         <p className="section-subtitle mx-auto">
@@ -82,7 +82,7 @@ const IntegrationsSection = () => {
       
       <div className="max-w-6xl mx-auto">
         {/* Header explaining platform integration */}
-        <div className="mb-12 bg-white rounded-xl p-6 shadow-md text-center border border-gray-100">
+        <div className="mb-12 bg-footer rounded-xl p-6 shadow-md text-center border border-highlight/30">
           <div className="w-20 h-20 mx-auto bg-gradient-to-br from-lg-blue-dark via-lg-blue to-lg-accent rounded-full flex items-center justify-center mb-4">
             <div className="text-white font-bold text-xl">LG AI</div>
           </div>
@@ -95,7 +95,7 @@ const IntegrationsSection = () => {
         {/* Integration cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {integrations.map((integration, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-md p-6 border border-gray-100 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+            <div key={index} className="bg-footer rounded-lg shadow-md p-6 border border-highlight/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
               <div className="flex flex-col items-center text-center">
                 <div className="w-24 h-24 flex items-center justify-center mb-4 transition-all duration-300">
                   <img 
@@ -113,7 +113,7 @@ const IntegrationsSection = () => {
         </div>
         
         {/* Visual representation of system connections */}
-        <div className="mt-16 bg-white rounded-xl p-8 shadow-md border border-gray-100">
+        <div className="mt-16 bg-footer rounded-xl p-8 shadow-md border border-highlight/30">
           <h3 className="h3 mb-6 text-center">Integration Architecture</h3>
           <div className="relative w-full" style={{ height: "400px" }}>
             {/* Center platform */}
@@ -138,7 +138,7 @@ const IntegrationsSection = () => {
               return (
                 <div 
                   key={index} 
-                  className="absolute w-20 h-20 bg-white rounded-full shadow-md flex items-center justify-center border border-gray-200 z-20"
+                  className="absolute w-20 h-20 bg-footer rounded-full shadow-md flex items-center justify-center border border-highlight/40 z-20"
                   style={{ 
                     left: `calc(50% + ${x}px - 40px)`, 
                     top: `calc(50% + ${y}px - 40px)`,
@@ -152,7 +152,7 @@ const IntegrationsSection = () => {
                   
                   {/* Label - position dynamically based on position in circle */}
                   <div 
-                    className={`absolute whitespace-nowrap text-xs font-medium bg-white px-2 py-1 rounded shadow-sm z-40 ${
+                    className={`absolute whitespace-nowrap text-xs font-medium bg-footer px-2 py-1 rounded shadow-sm z-40 ${
                       // Position labels based on which quadrant they're in
                       y < 0 ? '-bottom-8' : 'top-[-32px]'
                     }`}
@@ -181,7 +181,7 @@ const IntegrationsSection = () => {
                   <path 
                     key={index}
                     d={`M${innerX} ${innerY} L${outerX} ${outerY}`} 
-                    stroke="#E2E8F0" 
+                    stroke="#C9D4DC" 
                     strokeWidth="0.5" 
                     strokeDasharray="2 1"
                   />

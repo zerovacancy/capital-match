@@ -32,7 +32,7 @@ const ArchitectureSection = () => {
   ];
 
   return (
-    <section id="architecture" className="section-container bg-gray-50">
+    <section id="architecture" className="section-container bg-background">
       <div className="mb-16 text-center">
         <h2 className="section-title">Platform Architecture</h2>
         <p className="section-subtitle mx-auto">
@@ -42,9 +42,9 @@ const ArchitectureSection = () => {
       
       <div className="relative max-w-4xl mx-auto">
         {/* Architecture Diagram Visualization - Using uploaded image */}
-        <div className="bg-white rounded-xl shadow-lg p-6 md:p-8 mb-12 border border-gray-100">
+        <div className="bg-footer rounded-xl shadow-lg p-6 md:p-8 mb-12 border border-highlight/30">
           <h3 className="text-lg font-semibold text-lg-blue mb-4 text-center font-display">System Architecture Overview</h3>
-          <div className="rounded-lg overflow-hidden shadow-sm border border-gray-100">
+          <div className="rounded-lg overflow-hidden shadow-sm border border-highlight/40">
             <img 
               src="/assets/images/home/architecture/data-sources/System Architecture Overview.webp" 
               alt="System Architecture Diagram"
@@ -59,7 +59,7 @@ const ArchitectureSection = () => {
         {/* Architecture Components */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {architectureComponents.map((component, index) => (
-            <Card key={index} className="overflow-hidden shadow-md">
+            <Card key={index} className="overflow-hidden shadow-md bg-footer border-highlight/30">
               <div className={`${component.color} p-4`}>
                 <div className="flex items-center space-x-4">
                   {component.icon}

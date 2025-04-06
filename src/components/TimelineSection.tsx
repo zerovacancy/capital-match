@@ -50,19 +50,19 @@ const TimelineSection = () => {
         {/* Horizontal timeline for desktop */}
         <div className="hidden md:block">
           {/* Timeline line */}
-          <div className="absolute top-0 left-0 w-full h-1 bg-gray-200"></div>
+          <div className="absolute top-0 left-0 w-full h-1 bg-highlight"></div>
           
           {/* Timeline steps */}
           <div className="grid grid-cols-4 gap-4">
             {timelineSteps.map((step, index) => (
               <div key={index} className="relative pt-12">
                 {/* Timeline marker */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white border-4 border-lg-accent flex items-center justify-center shadow-sm">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-footer border-4 border-lg-accent flex items-center justify-center shadow-sm">
                   <span className="font-bold text-lg-accent">{index + 1}</span>
                 </div>
                 
                 {/* Content card */}
-                <div className="bg-white rounded-lg shadow-md p-6 border border-gray-100 h-full">
+                <div className="bg-footer rounded-lg shadow-md p-6 border border-highlight/30 h-full">
                   <div className="text-xs font-semibold text-lg-accent mb-2">{step.phase}</div>
                   <h3 className="text-xl font-bold text-lg-blue-dark mb-3 font-display tracking-tight">{step.title}</h3>
                   <p className="text-base text-lg-gray mb-4 leading-relaxed">{step.description}</p>
@@ -76,7 +76,7 @@ const TimelineSection = () => {
                       ))}
                     </ul>
                   </div>
-                  <div className="mt-auto pt-2 border-t border-gray-100 flex justify-between items-center">
+                  <div className="mt-auto pt-2 border-t border-highlight/20 flex justify-between items-center">
                     <span className="text-xs font-medium text-lg-gray">{step.timeline}</span>
                     <span className="text-xs py-1 px-2 bg-lg-blue/10 text-lg-blue rounded-full">{step.status}</span>
                   </div>
@@ -88,16 +88,16 @@ const TimelineSection = () => {
         
         {/* Vertical timeline for mobile */}
         <div className="md:hidden">
-          <div className="relative pl-8 border-l-2 border-gray-200 space-y-12">
+          <div className="relative pl-8 border-l-2 border-highlight space-y-12">
             {timelineSteps.map((step, index) => (
               <div key={index} className="relative">
                 {/* Timeline marker */}
-                <div className="absolute top-0 -left-[25px] w-12 h-12 rounded-full bg-white border-4 border-lg-accent flex items-center justify-center">
+                <div className="absolute top-0 -left-[25px] w-12 h-12 rounded-full bg-footer border-4 border-lg-accent flex items-center justify-center">
                   <span className="font-bold text-lg-accent">{index + 1}</span>
                 </div>
                 
                 {/* Content card */}
-                <div className="bg-white rounded-lg shadow-md p-6 border border-gray-100">
+                <div className="bg-footer rounded-lg shadow-md p-6 border border-highlight/30">
                   <div className="text-xs font-semibold text-lg-accent mb-2">{step.phase}</div>
                   <h3 className="text-xl font-bold text-lg-blue-dark mb-3 font-display tracking-tight">{step.title}</h3>
                   <p className="text-base text-lg-gray mb-4 leading-relaxed">{step.description}</p>
@@ -111,7 +111,7 @@ const TimelineSection = () => {
                       ))}
                     </ul>
                   </div>
-                  <div className="mt-auto pt-2 border-t border-gray-100 flex justify-between items-center">
+                  <div className="mt-auto pt-2 border-t border-highlight/20 flex justify-between items-center">
                     <span className="text-xs font-medium text-lg-gray">{step.timeline}</span>
                     <span className="text-xs py-1 px-2 bg-lg-blue/10 text-lg-blue rounded-full">{step.status}</span>
                   </div>
