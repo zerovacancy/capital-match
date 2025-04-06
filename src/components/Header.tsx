@@ -2,17 +2,20 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Building, ChevronRight, Menu, X } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { cn } from "@/lib/utils";
 import { useLocation } from "react-router-dom";
+import { TabContext } from '../pages/PrototypePage';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
   const isPrototypePage = location.pathname === '/prototype';
+  // Get tab state from context if on prototype page
+  const tabContext = isPrototypePage ? useContext(TabContext) : null;
 
   return (
-    <header className="fixed w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
+    <header className={`fixed w-full bg-white/90 backdrop-blur-sm shadow-sm ${isPrototypePage ? 'z-10' : 'z-50'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center py-4 md:justify-start md:space-x-10">
           {/* Logo */}
@@ -44,44 +47,7 @@ const Header = () => {
           {/* Desktop nav */}
           <nav className="hidden md:flex space-x-10">
             {isPrototypePage ? (
-              <>
-                <button 
-                  onClick={() => {
-                    const element = document.querySelector('[data-value="dashboard"]');
-                    if (element) (element as HTMLElement).click();
-                  }} 
-                  className="text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium cursor-pointer bg-transparent border-none text-left"
-                >
-                  Dashboard
-                </button>
-                <button 
-                  onClick={() => {
-                    const element = document.querySelector('[data-value="lp-profiles"]');
-                    if (element) (element as HTMLElement).click();
-                  }} 
-                  className="text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium cursor-pointer bg-transparent border-none text-left"
-                >
-                  LP Profiles
-                </button>
-                <button 
-                  onClick={() => {
-                    const element = document.querySelector('[data-value="deal-analyzer"]');
-                    if (element) (element as HTMLElement).click();
-                  }} 
-                  className="text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium cursor-pointer bg-transparent border-none text-left"
-                >
-                  Deal Analyzer
-                </button>
-                <button 
-                  onClick={() => {
-                    const element = document.querySelector('[data-value="matching-engine"]');
-                    if (element) (element as HTMLElement).click();
-                  }} 
-                  className="text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium cursor-pointer bg-transparent border-none text-left"
-                >
-                  Matching Engine
-                </button>
-              </>
+              <></>
             ) : (
               <>
                 <a href="#capabilities" className="text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium">
@@ -132,48 +98,8 @@ const Header = () => {
         <div className="px-4 pt-2 pb-4 space-y-4">
           {isPrototypePage ? (
             <>
-              <button 
-                onClick={() => {
-                  const element = document.querySelector('[data-value="dashboard"]');
-                  if (element) (element as HTMLElement).click();
-                  setMobileMenuOpen(false);
-                }} 
-                className="block py-2 w-full text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium cursor-pointer bg-transparent border-none text-left"
-              >
-                Dashboard
-              </button>
-              <button 
-                onClick={() => {
-                  const element = document.querySelector('[data-value="lp-profiles"]');
-                  if (element) (element as HTMLElement).click();
-                  setMobileMenuOpen(false);
-                }} 
-                className="block py-2 w-full text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium cursor-pointer bg-transparent border-none text-left"
-              >
-                LP Profiles
-              </button>
-              <button 
-                onClick={() => {
-                  const element = document.querySelector('[data-value="deal-analyzer"]');
-                  if (element) (element as HTMLElement).click();
-                  setMobileMenuOpen(false);
-                }} 
-                className="block py-2 w-full text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium cursor-pointer bg-transparent border-none text-left"
-              >
-                Deal Analyzer
-              </button>
-              <button 
-                onClick={() => {
-                  const element = document.querySelector('[data-value="matching-engine"]');
-                  if (element) (element as HTMLElement).click();
-                  setMobileMenuOpen(false);
-                }} 
-                className="block py-2 w-full text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium cursor-pointer bg-transparent border-none text-left"
-              >
-                Matching Engine
-              </button>
               <a href="/" className="block w-full">
-                <Button className="w-full btn-primary flex items-center justify-center gap-2 mt-4">
+                <Button className="w-full btn-primary flex items-center justify-center gap-2">
                   Back to Home <ChevronRight className="h-4 w-4" />
                 </Button>
               </a>
