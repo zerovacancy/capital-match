@@ -52,9 +52,9 @@ const Header = () => {
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <a href="/" className="flex items-center">
               <img 
-                src="/assets/images/global/logos/lg-development/LG-Design-Logo_Black-e1640047593286-1024x535.png" 
+                src="/assets/images/global/logos/lg-development/lg_logo.png" 
                 alt="LG Development Logo" 
-                className="h-12 w-auto"
+                className="h-12 w-auto object-contain"
               />
             </a>
           </div>

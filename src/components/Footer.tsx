@@ -11,9 +11,9 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <div className="mb-4">
               <img 
-                src="/assets/images/global/logos/lg-development/LG-Design-Logo_Black-e1640047593286-1024x535.png" 
+                src="/assets/images/global/logos/lg-development/lg_logo.png" 
                 alt="LG Development Logo" 
-                className="h-16 w-auto"
+                className="h-16 w-auto object-contain"
               />
             </div>
             <p className="text-lg-text mb-6 max-w-md">
