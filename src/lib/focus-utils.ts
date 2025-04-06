@@ -5,6 +5,7 @@
  */
 
 import { useState, useEffect, useRef } from 'react';
+import React from 'react';
 
 /**
  * Hook to trap focus within a container (for modals, dialogs, etc.)
@@ -66,14 +67,16 @@ export function useFocusTrap(isActive: boolean = true) {
  * @returns {() => JSX.Element} - Function that returns a skip to content link component
  */
 export function useSkipToContent(contentId: string): () => JSX.Element {
-  return () => (
-    <a 
-      href={`#${contentId}`} 
-      className="skip-to-content"
-    >
-      Skip to main content
-    </a>
-  );
+  return () => {
+    return React.createElement(
+      'a',
+      {
+        href: `#${contentId}`,
+        className: 'skip-to-content'
+      },
+      'Skip to main content'
+    );
+  };
 }
 
 /**
