@@ -195,4 +195,26 @@
   .animation-delay-3000 {
     animation-delay: 3000ms;
   }
+
+  /* Animation for floating elements */
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Connection animations */
+  @keyframes grow {
+    0% { width: 0%; }
+    100% { width: 100%; }
+  }
+
+  @keyframes grow-reverse {
+    0% { width: 0%; right: 0; }
+    100% { width: 100%; right: 0; }
+  }
 }

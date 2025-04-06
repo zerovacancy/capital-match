@@ -362,23 +362,5 @@ const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({ className
 
 export default PlatformVisualization;
 
-// Add CSS keyframes for the animation
-const styles = `
-@keyframes grow {
-  0% { width: 0%; }
-  100% { width: 100%; }
-}
-
-@keyframes grow-reverse {
-  0% { width: 0%; right: 0; }
-  100% { width: 100%; right: 0; }
-}
-`;
-
-// Insert the CSS into the document head
-if (typeof document !== 'undefined') {
-  const styleEl = document.createElement('style');
-  styleEl.type = 'text/css';
-  styleEl.appendChild(document.createTextNode(styles));
-  document.head.appendChild(styleEl);
-}
+// Note: Animations are now defined in src/index.css
+// This keeps the code cleaner and more maintainable
