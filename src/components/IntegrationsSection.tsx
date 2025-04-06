@@ -17,49 +17,57 @@ const IntegrationsSection = () => {
       name: "Procore",
       category: "Construction",
       description: "Construction project management and tracking",
-      icon: <Building2 className="w-8 h-8" />
+      icon: <Building2 className="w-8 h-8" />,
+      logo: "/assets/images/home/integrations/logos/procore_logo.webp"
     },
     {
       name: "Sage",
       category: "Finance",
       description: "Financial and accounting management",
-      icon: <FileSpreadsheet className="w-8 h-8" />
+      icon: <FileSpreadsheet className="w-8 h-8" />,
+      logo: "/assets/images/home/integrations/logos/sage_logo.webp"
     },
     {
       name: "HubSpot",
       category: "CRM & Marketing",
       description: "CRM and marketing automation",
-      icon: <Home className="w-8 h-8" />
+      icon: <Home className="w-8 h-8" />,
+      logo: "/assets/images/home/integrations/logos/hubspot_logo (1).webp"
     },
     {
       name: "Microsoft Teams",
       category: "Communication",
       description: "Internal team communication and collaboration",
-      icon: <MessageSquareText className="w-8 h-8" />
+      icon: <MessageSquareText className="w-8 h-8" />,
+      logo: "/assets/images/home/integrations/logos/teams_logo.webp"
     },
     {
       name: "Office 365",
       category: "Productivity",
       description: "Email, documents, Excel, and productivity tools",
-      icon: <Mail className="w-8 h-8" />
+      icon: <Mail className="w-8 h-8" />,
+      logo: "/assets/images/home/integrations/logos/office365_logo.webp"
     },
     {
       name: "Microsoft Lists",
       category: "Project Tracking",
       description: "Task and project tracking management",
-      icon: <ListChecks className="w-8 h-8" />
+      icon: <ListChecks className="w-8 h-8" />,
+      logo: "/assets/images/home/integrations/logos/lists_logo.webp"
     },
     {
       name: "OneDrive",
       category: "File Storage",
       description: "Internal file storage and organization",
-      icon: <HardDriveDownload className="w-8 h-8" />
+      icon: <HardDriveDownload className="w-8 h-8" />,
+      logo: "/assets/images/home/integrations/logos/onedrive_logo.webp"
     },
     {
       name: "ShareFile",
       category: "Document Sharing",
       description: "Secure document sharing with external parties",
-      icon: <FileCheck className="w-8 h-8" />
+      icon: <FileCheck className="w-8 h-8" />,
+      logo: "/assets/images/home/integrations/logos/sharefile_logo.webp"
     }
   ];
 
@@ -89,8 +97,12 @@ const IntegrationsSection = () => {
           {integrations.map((integration, index) => (
             <div key={index} className="bg-white rounded-lg shadow-md p-6 border border-gray-100 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
               <div className="flex flex-col items-center text-center">
-                <div className="w-16 h-16 rounded-full bg-lg-blue/5 flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-lg-blue/10">
-                  <div className="text-lg-accent">{integration.icon}</div>
+                <div className="w-24 h-24 flex items-center justify-center mb-4 transition-all duration-300">
+                  <img 
+                    src={integration.logo} 
+                    alt={`${integration.name} logo`} 
+                    className="w-full h-full object-contain"
+                  />
                 </div>
                 <h3 className="font-bold text-lg text-lg-blue-dark mb-1">{integration.name}</h3>
                 <div className="text-xs font-medium text-lg-accent mb-2">{integration.category}</div>
@@ -126,15 +138,17 @@ const IntegrationsSection = () => {
               return (
                 <div 
                   key={index} 
-                  className="absolute w-16 h-16 bg-white rounded-full shadow-md flex items-center justify-center border border-gray-200 z-20"
+                  className="absolute w-20 h-20 bg-white rounded-full shadow-md flex items-center justify-center border border-gray-200 z-20"
                   style={{ 
-                    left: `calc(50% + ${x}px - 32px)`, 
-                    top: `calc(50% + ${y}px - 32px)`,
+                    left: `calc(50% + ${x}px - 40px)`, 
+                    top: `calc(50% + ${y}px - 40px)`,
                   }}
                 >
-                  <div className="text-lg-accent">
-                    {integration.icon}
-                  </div>
+                  <img 
+                    src={integration.logo} 
+                    alt={`${integration.name} logo`} 
+                    className="w-12 h-12 object-contain"
+                  />
                   
                   {/* Label - position dynamically based on position in circle */}
                   <div 
