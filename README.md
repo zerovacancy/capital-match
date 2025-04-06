@@ -1,92 +1,125 @@
+# LG Development Capital Match AI Platform
 
-# LG Development AI Assistant
+## Project Overview
 
-A modern web application showcasing LG Development's AI-powered platform for matching Limited Partners (investors) with real estate development opportunities based on sophisticated criteria.
+This project is a consulting pitch for LG Development (lg-group.com), a Chicago-based real estate developer. The platform demonstrates an AI-powered solution to streamline their LP (Limited Partner) relationship management, deal pipeline, and capital raising processes.
 
-## Overview
+## Strategic Alignment
 
-The LG Development AI Assistant is an intelligent capital matching platform designed to automate the alignment of investor criteria with development opportunities. This application serves as a presentation website to demonstrate the platform's capabilities to executives in the real estate industry.
+The Capital Match AI Platform directly aligns with LG Development's strategic goals:
 
-## Features
+- **Revenue Growth**: Supporting growth from $4.6M (2025) to $48M (2034) at 30% YOY
+- **Market Expansion**: Facilitating expansion into Denver, Charlotte, Raleigh, Nashville
+- **Project Focus**: Optimizing capital raise for Build-to-Rent, Mid-Rise and High-Rise Multifamily developments
+- **Capital Goals**: Accelerating access to $5M discretionary capital by Q2
+- **Deal Pipeline**: Supporting 4 new deals/year and >8 deals reviewed monthly
 
-- **LP Profile Engine**: Build comprehensive investor profiles based on historical preferences, risk tolerance, and targeted returns.
-- **Deal Analysis Engine**: Advanced algorithms to evaluate development opportunities against multiple investment criteria.
-- **Matching Algorithm**: AI-powered matching system to align investor profiles with the right development opportunities.
-- **Reporting Generator**: Automated creation of detailed reports for investors, executives, and regulatory compliance.
+## Codebase Analysis
 
-## Technology Stack
+### Current State
 
-- **Frontend**: React with TypeScript
-- **UI Framework**: Tailwind CSS with Shadcn UI components
-- **Build Tool**: Vite
-- **Routing**: React Router
-- **Data Fetching**: TanStack Query (React Query)
-- **Icons**: Lucide React
+The project is built with a modern React + TypeScript stack, leveraging:
+- Vite for fast development and building
+- TailwindCSS with shadcn/ui component library
+- React Router for navigation
+- TanStack Query for data management
+
+The existing codebase includes:
+- Comprehensive documentation covering architecture, strategic alignment, and prototype plans
+- Landing page components (Hero, Capabilities, Architecture sections, etc.)
+- Complete UI component library from shadcn/ui
+- Basic application structure and routing
+
+### Implementation Gaps
+
+Based on thorough analysis, the following components need to be implemented:
+
+1. **LP Profile Engine**: Functionality to view comprehensive LP profiles with investment criteria
+2. **Deal Analysis Engine**: Component to analyze and standardize deal metrics
+3. **Matching Algorithm Visualization**: UI to demonstrate LP-deal compatibility scoring
+4. **Capital Raise Dashboard**: Tracking interface for monitoring fundraising progress
+
+The prototype directories exist but currently lack implementation of the core demo components required for the presentation.
+
+## Implementation Strategy
+
+### Phase 1: Core Components (Day 1-2)
+- Implement the four main prototype components with static sample data
+- Focus on visual representation of the key features
+- Ensure proper styling and layout
+
+### Phase 2: Unified Dashboard (Day 3-4)
+- Create a prototype dashboard page with tabbed navigation
+- Update routes to include the demo page
+- Connect components to provide a cohesive experience
+
+### Phase 3: Enhanced Interactivity (Day 5-6)
+- Add animations for data transitions
+- Implement interactive features (filtering, sorting)
+- Polish UI for presentation quality
+
+### Phase 4: Quality Assurance (Day 7)
+- Test all components and interactions
+- Optimize for the presentation environment
+- Prepare backup materials
+
+## Key Components to Implement
+
+1. **LP Profile Viewer**
+   - Investment criteria visualization
+   - Geographic preference mapping
+   - Relationship strength indicators
+   - Communication preference display
+
+2. **Deal Analysis Component**
+   - Financial metrics visualization
+   - Strategic alignment indicators
+   - Capital requirement breakdown
+   - Risk assessment display
+
+3. **Matching Algorithm Visualization**
+   - LP-deal match scoring
+   - Confidence rating visualization
+   - Matching factor breakdown
+   - Outreach recommendation generation
+
+4. **Capital Raise Tracker**
+   - Progress towards $5M Q2 goal
+   - Monthly velocity metrics
+   - Pipeline visualization
+   - Forecast completion timeline
+
+## Presentation Approach
+
+The demo should follow a narrative flow that demonstrates how the platform addresses LG Development's specific challenges:
+
+1. Begin with executive dashboard overview
+2. Drill down into LP profile examples
+3. Show deal analysis capabilities
+4. Demonstrate matching algorithm in action
+5. Return to dashboard to show impact on KPIs
+
+## Development Notes
+
+- Use realistic data that reflects LG Development's target markets and project types
+- Emphasize connections to KPIs in the strategic plan
+- Showcase integration points with existing systems (HubSpot, MS Teams, etc.)
+- Highlight the platform's direct impact on their $5M discretionary capital goal
 
 ## Getting Started
 
-### Prerequisites
+```bash
+# Install dependencies
+npm install
 
-- Node.js (v18 or higher)
-- npm or yarn
+# Start development server
+npm run dev
 
-### Installation
+# Build for production
+npm run build
+```
 
-1. Clone the repository:
-   ```
-   git clone <repository-url>
-   ```
+## Demo Access
 
-2. Navigate to the project directory:
-   ```
-   cd lg-development-ai-assistant
-   ```
-
-3. Install dependencies:
-   ```
-   npm install
-   ```
-
-4. Start the development server:
-   ```
-   npm run dev
-   ```
-
-5. Open your browser and visit:
-   ```
-   http://localhost:8080
-   ```
-
-## Project Structure
-
-- `/src`: Source code
-  - `/components`: Reusable UI components
-  - `/pages`: Page components
-  - `/hooks`: Custom React hooks
-  - `/lib`: Utility functions
-  - `/assets`: Static assets like images
-
-## Deployment
-
-This project can be deployed to any static hosting service such as Vercel, Netlify, or GitHub Pages.
-
-## Customization
-
-The application is designed to be easily customizable:
-
-- Brand colors can be adjusted in `tailwind.config.ts`
-- Content can be modified in respective component files
-- New sections can be added by creating new components and adding them to the appropriate page
-
-## License
-
-[Specify your license here]
-
-## Contact
-
-LG Development - [Contact Information]
-
-## Acknowledgments
-
-- All the libraries and frameworks used in this project
-- Contributors and designers
+The interactive prototype is available at:
+- Local development: http://localhost:5173/prototype

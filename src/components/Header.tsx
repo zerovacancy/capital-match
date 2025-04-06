@@ -56,9 +56,11 @@ const Header = () => {
           
           {/* CTA button */}
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-            <Button className="ml-8 btn-primary flex items-center gap-2">
-              Get Started <ChevronRight className="h-4 w-4" />
-            </Button>
+            <a href="/prototype">
+              <Button className="ml-8 btn-primary flex items-center gap-2">
+                Explore Platform <ChevronRight className="h-4 w-4" />
+              </Button>
+            </a>
           </div>
         </div>
       </div>
@@ -86,9 +88,11 @@ const Header = () => {
           <a href="#value" className="block py-2 text-lg-gray-dark hover:text-lg-blue transition-colors">
             Value
           </a>
-          <Button className="w-full btn-primary flex items-center justify-center gap-2 mt-4">
-            Get Started <ChevronRight className="h-4 w-4" />
-          </Button>
+          <a href="/prototype" className="block w-full">
+            <Button className="w-full btn-primary flex items-center justify-center gap-2 mt-4">
+              Explore Platform <ChevronRight className="h-4 w-4" />
+            </Button>
+          </a>
         </div>
       </div>
     </header>

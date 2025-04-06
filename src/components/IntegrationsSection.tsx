@@ -1,44 +1,65 @@
 
 import React from 'react';
-import { DollarSign, Phone, PieChart, FileText, BriefcaseBusiness, BarChartHorizontal } from "lucide-react";
+import { 
+  Building2, 
+  MessageSquareText, 
+  FileSpreadsheet, 
+  ListChecks,
+  Mail, 
+  HardDriveDownload,
+  FileCheck,
+  Home 
+} from "lucide-react";
 
 const IntegrationsSection = () => {
   const integrations = [
     {
+      name: "Procore",
+      category: "Construction",
+      description: "Construction project management and tracking",
+      icon: <Building2 className="w-8 h-8" />
+    },
+    {
+      name: "Sage",
+      category: "Finance",
+      description: "Financial and accounting management",
+      icon: <FileSpreadsheet className="w-8 h-8" />
+    },
+    {
       name: "HubSpot",
       category: "CRM & Marketing",
-      description: "Sync investor profiles and communication data",
-      icon: <Phone className="w-8 h-8" />
+      description: "CRM and marketing automation",
+      icon: <Home className="w-8 h-8" />
     },
     {
-      name: "MS Teams",
+      name: "Microsoft Teams",
       category: "Communication",
-      description: "Real-time notifications and collaborative workflows",
-      icon: <BriefcaseBusiness className="w-8 h-8" />
+      description: "Internal team communication and collaboration",
+      icon: <MessageSquareText className="w-8 h-8" />
     },
     {
-      name: "Procore",
-      category: "Project Management",
-      description: "Import development project details and timelines",
-      icon: <FileText className="w-8 h-8" />
+      name: "Office 365",
+      category: "Productivity",
+      description: "Email, documents, Excel, and productivity tools",
+      icon: <Mail className="w-8 h-8" />
     },
     {
-      name: "Power BI",
-      category: "Analytics",
-      description: "Advanced reporting and visualization dashboards",
-      icon: <PieChart className="w-8 h-8" />
+      name: "Microsoft Lists",
+      category: "Project Tracking",
+      description: "Task and project tracking management",
+      icon: <ListChecks className="w-8 h-8" />
     },
     {
-      name: "QuickBooks",
-      category: "Finance",
-      description: "Financial data integration for investment tracking",
-      icon: <DollarSign className="w-8 h-8" />
+      name: "OneDrive",
+      category: "File Storage",
+      description: "Internal file storage and organization",
+      icon: <HardDriveDownload className="w-8 h-8" />
     },
     {
-      name: "Salesforce",
-      category: "CRM",
-      description: "Comprehensive investor relationship management",
-      icon: <BarChartHorizontal className="w-8 h-8" />
+      name: "ShareFile",
+      category: "Document Sharing",
+      description: "Secure document sharing with external parties",
+      icon: <FileCheck className="w-8 h-8" />
     }
   ];
 
@@ -51,24 +72,27 @@ const IntegrationsSection = () => {
         </p>
       </div>
       
-      <div className="relative max-w-5xl mx-auto">
-        {/* Central platform element */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 md:w-48 md:h-48 rounded-full gradient-bg flex items-center justify-center z-10">
-          <div className="text-center text-white">
-            <h3 className="font-bold text-sm md:text-xl">LG AI</h3>
-            <p className="text-xs md:text-sm">Platform</p>
+      <div className="max-w-6xl mx-auto">
+        {/* Header explaining platform integration */}
+        <div className="mb-12 bg-white rounded-xl p-6 shadow-md text-center border border-gray-100">
+          <div className="w-20 h-20 mx-auto bg-gradient-to-br from-lg-blue-dark via-lg-blue to-lg-accent rounded-full flex items-center justify-center mb-4">
+            <div className="text-white font-bold text-xl">LG AI</div>
           </div>
+          <h3 className="text-xl font-bold text-lg-blue-dark mb-2">Capital Match AI Platform</h3>
+          <p className="text-lg-gray max-w-2xl mx-auto">
+            Our platform seamlessly integrates with your existing technology stack to provide a unified experience across all your tools and systems.
+          </p>
         </div>
         
-        {/* Integration spokes */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
+        {/* Integration cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {integrations.map((integration, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-md p-4 md:p-6 border border-gray-100 relative z-20">
+            <div key={index} className="bg-white rounded-lg shadow-md p-6 border border-gray-100 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
               <div className="flex flex-col items-center text-center">
-                <div className="w-16 h-16 rounded-full bg-lg-blue/5 flex items-center justify-center mb-4">
+                <div className="w-16 h-16 rounded-full bg-lg-blue/5 flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-lg-blue/10">
                   <div className="text-lg-accent">{integration.icon}</div>
                 </div>
-                <h3 className="font-bold text-lg text-lg-blue-dark">{integration.name}</h3>
+                <h3 className="font-bold text-lg text-lg-blue-dark mb-1">{integration.name}</h3>
                 <div className="text-xs font-medium text-lg-accent mb-2">{integration.category}</div>
                 <p className="text-sm text-lg-gray">{integration.description}</p>
               </div>
@@ -76,16 +100,81 @@ const IntegrationsSection = () => {
           ))}
         </div>
         
-        {/* Connection lines - visible only on desktop */}
-        <div className="hidden md:block absolute inset-0 -z-0">
-          <svg width="100%" height="100%" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M400 300 L200 150" stroke="#E2E8F0" strokeWidth="2" strokeDasharray="6 4" />
-            <path d="M400 300 L200 300" stroke="#E2E8F0" strokeWidth="2" strokeDasharray="6 4" />
-            <path d="M400 300 L200 450" stroke="#E2E8F0" strokeWidth="2" strokeDasharray="6 4" />
-            <path d="M400 300 L600 150" stroke="#E2E8F0" strokeWidth="2" strokeDasharray="6 4" />
-            <path d="M400 300 L600 300" stroke="#E2E8F0" strokeWidth="2" strokeDasharray="6 4" />
-            <path d="M400 300 L600 450" stroke="#E2E8F0" strokeWidth="2" strokeDasharray="6 4" />
-          </svg>
+        {/* Visual representation of system connections */}
+        <div className="mt-16 bg-white rounded-xl p-8 shadow-md border border-gray-100">
+          <h3 className="text-lg font-semibold text-lg-blue mb-6 text-center">Integration Architecture</h3>
+          <div className="relative w-full" style={{ height: "400px" }}>
+            {/* Center platform */}
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-gradient-to-br from-lg-blue-dark via-lg-blue to-lg-accent rounded-lg flex items-center justify-center z-30 shadow-lg">
+              <div className="text-white text-center px-1">
+                <p className="font-bold text-xs">Capital Match</p>
+                <p className="text-[10px]">AI Platform</p>
+                <div className="w-full h-0.5 bg-white/20 my-0.5"></div>
+                <p className="text-[8px]">Integration Hub</p>
+              </div>
+            </div>
+            
+            {/* Integration nodes - positioned in a circle around the center */}
+            {integrations.map((integration, index) => {
+              // Calculate position in a circle
+              const totalItems = integrations.length;
+              const angle = (Math.PI * 2 * index) / totalItems;
+              const radius = 180; // Increased radius to prevent overlap
+              const x = Math.cos(angle) * radius; 
+              const y = Math.sin(angle) * radius;
+              
+              return (
+                <div 
+                  key={index} 
+                  className="absolute w-16 h-16 bg-white rounded-full shadow-md flex items-center justify-center border border-gray-200 z-20"
+                  style={{ 
+                    left: `calc(50% + ${x}px - 32px)`, 
+                    top: `calc(50% + ${y}px - 32px)`,
+                  }}
+                >
+                  <div className="text-lg-accent">
+                    {integration.icon}
+                  </div>
+                  
+                  {/* Label - position dynamically based on position in circle */}
+                  <div 
+                    className={`absolute whitespace-nowrap text-xs font-medium bg-white px-2 py-1 rounded shadow-sm z-40 ${
+                      // Position labels based on which quadrant they're in
+                      y < 0 ? '-bottom-8' : 'top-[-32px]'
+                    }`}
+                  >
+                    {integration.name}
+                  </div>
+                </div>
+              );
+            })}
+            
+            {/* Connection lines */}
+            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              {integrations.map((_, index) => {
+                const totalItems = integrations.length;
+                const angle = (Math.PI * 2 * index) / totalItems;
+                const innerRadius = 6; // Central platform radius in %
+                const outerRadius = 36; // Outer circle radius in %
+                
+                // Calculate start and end points
+                const innerX = Math.cos(angle) * innerRadius + 50;
+                const innerY = Math.sin(angle) * innerRadius + 50;
+                const outerX = Math.cos(angle) * outerRadius + 50;
+                const outerY = Math.sin(angle) * outerRadius + 50;
+                
+                return (
+                  <path 
+                    key={index}
+                    d={`M${innerX} ${innerY} L${outerX} ${outerY}`} 
+                    stroke="#E2E8F0" 
+                    strokeWidth="0.5" 
+                    strokeDasharray="2 1"
+                  />
+                );
+              })}
+            </svg>
+          </div>
         </div>
       </div>
     </section>

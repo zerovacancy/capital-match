@@ -50,14 +50,14 @@ const TimelineSection = () => {
         {/* Horizontal timeline for desktop */}
         <div className="hidden md:block">
           {/* Timeline line */}
-          <div className="absolute top-1/3 left-0 w-full h-1 bg-gray-200"></div>
+          <div className="absolute top-0 left-0 w-full h-1 bg-gray-200"></div>
           
           {/* Timeline steps */}
           <div className="grid grid-cols-4 gap-4">
             {timelineSteps.map((step, index) => (
               <div key={index} className="relative pt-12">
                 {/* Timeline marker */}
-                <div className="absolute top-[calc(1/3*100%_-_2rem)] left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-white border-4 border-lg-accent flex items-center justify-center">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white border-4 border-lg-accent flex items-center justify-center shadow-sm">
                   <span className="font-bold text-lg-accent">{index + 1}</span>
                 </div>
                 
