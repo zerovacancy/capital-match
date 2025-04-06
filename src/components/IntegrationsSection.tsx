@@ -32,7 +32,7 @@ const IntegrationsSection = () => {
       category: "CRM & Marketing",
       description: "CRM and marketing automation",
       icon: <Home className="w-8 h-8" />,
-      logo: "/assets/images/home/integrations/logos/hubspot_logo (1).webp"
+      logo: "/assets/images/home/integrations/logos/hubspot_logo.webp"
     },
     {
       name: "Microsoft Teams",
