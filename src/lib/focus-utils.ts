@@ -1,3 +1,4 @@
+
 /**
  * Focus management utilities for accessible component interactions
  * Used to enhance keyboard navigation and focus management across the application
@@ -62,10 +63,10 @@ export function useFocusTrap(isActive: boolean = true) {
  * Hook to create a skip-to-content link for accessibility
  * 
  * @param {string} contentId - ID of the main content element
- * @returns {JSX.Element} - Skip to content link component
+ * @returns {() => JSX.Element} - Function that returns a skip to content link component
  */
-export function useSkipToContent(contentId: string) {
-  return (
+export function useSkipToContent(contentId: string): () => JSX.Element {
+  return () => (
     <a 
       href={`#${contentId}`} 
       className="skip-to-content"
