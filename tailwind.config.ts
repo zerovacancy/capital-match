@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -110,7 +111,7 @@ export default {
 			},
 			fontFamily: {
 				sans: ['Inter', 'system-ui', 'sans-serif'],
-					display: ['Space Grotesk', 'sans-serif'],
+				display: ['Space Grotesk', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -133,13 +134,19 @@ export default {
 				'slide-in-right': {
 					'0%': { transform: 'translateX(100%)' },
 					'100%': { transform: 'translateX(0)' }
+				},
+				'shine': {
+					'0%': { transform: 'rotate(-45deg) translateY(100%)' },
+					'30%': { transform: 'rotate(-45deg) translateY(-100%)' },
+					'100%': { transform: 'rotate(-45deg) translateY(100%)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.5s ease-out',
-				'slide-in-right': 'slide-in-right 0.5s ease-out'
+				'slide-in-right': 'slide-in-right 0.5s ease-out',
+				'shine': 'shine 3s ease-in-out infinite'
 			}
 		}
 	},
