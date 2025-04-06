@@ -54,7 +54,7 @@ const Header = () => {
               <img 
                 src="/assets/images/global/logos/lg-development/lg_logo.png" 
                 alt="LG Development Logo" 
-                className="h-12 w-auto object-contain"
+                className="h-16 w-auto object-contain"
               />
             </a>
           </div>

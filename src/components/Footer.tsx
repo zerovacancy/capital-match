@@ -13,7 +13,7 @@ const Footer = () => {
               <img 
                 src="/assets/images/global/logos/lg-development/lg_logo.png" 
                 alt="LG Development Logo" 
-                className="h-16 w-auto object-contain"
+                className="h-24 w-auto object-contain"
               />
             </div>
             <p className="text-lg-text mb-6 max-w-md">
