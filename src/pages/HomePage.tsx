@@ -10,7 +10,7 @@ import ValueSection from '@/components/ValueSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 
-const Index = () => {
+const HomePage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -28,4 +28,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default HomePage;
