@@ -13,9 +13,40 @@ const Header = () => {
   const isPrototypePage = location.pathname === '/prototype';
   // Get tab state from context if on prototype page
   const tabContext = isPrototypePage ? useContext(TabContext) : null;
+  
+  // Determine active section based on URL hash
+  const [activeSection, setActiveSection] = useState("");
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      // Get all sections
+      const sections = document.querySelectorAll('section[id]');
+      
+      // Find the section closest to the top of the viewport
+      let current = "";
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        if (window.scrollY >= sectionTop - 100) {
+          current = section.getAttribute('id') || "";
+        }
+      });
+      
+      setActiveSection(current);
+    };
+    
+    if (!isPrototypePage) {
+      window.addEventListener('scroll', handleScroll);
+      // Initial check
+      handleScroll();
+    }
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [isPrototypePage]);
 
   return (
-    <header className={`fixed w-full bg-white/90 backdrop-blur-sm shadow-sm ${isPrototypePage ? 'z-10' : 'z-50'}`}>
+    <header className={`fixed w-full bg-white/90 backdrop-blur-sm shadow-md ${isPrototypePage ? 'z-10' : 'z-50'} transition-shadow duration-300 ease-in-out sticky top-0`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center py-4 md:justify-start md:space-x-10">
           {/* Logo */}
@@ -50,20 +81,70 @@ const Header = () => {
               <></>
             ) : (
               <>
-                <a href="#capabilities" className="text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium">
+                <a 
+                  href="#capabilities" 
+                  className={cn(
+                    "text-lg-gray-dark hover:text-lg-blue transition-all duration-300 font-display font-medium relative px-2 py-1 group",
+                    activeSection === "capabilities" && "text-lg-blue"
+                  )}
+                >
                   Capabilities
+                  <span className={cn(
+                    "absolute bottom-0 left-0 h-0.5 bg-lg-blue transform origin-left transition-all duration-300 ease-out",
+                    activeSection === "capabilities" ? "w-full" : "w-0 group-hover:w-full"
+                  )}></span>
                 </a>
-                <a href="#architecture" className="text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium">
+                <a 
+                  href="#architecture" 
+                  className={cn(
+                    "text-lg-gray-dark hover:text-lg-blue transition-all duration-300 font-display font-medium relative px-2 py-1 group",
+                    activeSection === "architecture" && "text-lg-blue"
+                  )}
+                >
                   Architecture
+                  <span className={cn(
+                    "absolute bottom-0 left-0 h-0.5 bg-lg-blue transform origin-left transition-all duration-300 ease-out",
+                    activeSection === "architecture" ? "w-full" : "w-0 group-hover:w-full"
+                  )}></span>
                 </a>
-                <a href="#timeline" className="text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium">
+                <a 
+                  href="#timeline" 
+                  className={cn(
+                    "text-lg-gray-dark hover:text-lg-blue transition-all duration-300 font-display font-medium relative px-2 py-1 group",
+                    activeSection === "timeline" && "text-lg-blue"
+                  )}
+                >
                   Timeline
+                  <span className={cn(
+                    "absolute bottom-0 left-0 h-0.5 bg-lg-blue transform origin-left transition-all duration-300 ease-out",
+                    activeSection === "timeline" ? "w-full" : "w-0 group-hover:w-full"
+                  )}></span>
                 </a>
-                <a href="#integrations" className="text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium">
+                <a 
+                  href="#integrations" 
+                  className={cn(
+                    "text-lg-gray-dark hover:text-lg-blue transition-all duration-300 font-display font-medium relative px-2 py-1 group",
+                    activeSection === "integrations" && "text-lg-blue"
+                  )}
+                >
                   Integrations
+                  <span className={cn(
+                    "absolute bottom-0 left-0 h-0.5 bg-lg-blue transform origin-left transition-all duration-300 ease-out",
+                    activeSection === "integrations" ? "w-full" : "w-0 group-hover:w-full"
+                  )}></span>
                 </a>
-                <a href="#value" className="text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium">
+                <a 
+                  href="#value" 
+                  className={cn(
+                    "text-lg-gray-dark hover:text-lg-blue transition-all duration-300 font-display font-medium relative px-2 py-1 group",
+                    activeSection === "value" && "text-lg-blue"
+                  )}
+                >
                   Value
+                  <span className={cn(
+                    "absolute bottom-0 left-0 h-0.5 bg-lg-blue transform origin-left transition-all duration-300 ease-out",
+                    activeSection === "value" ? "w-full" : "w-0 group-hover:w-full"
+                  )}></span>
                 </a>
               </>
             )}
@@ -72,15 +153,15 @@ const Header = () => {
           {/* CTA button */}
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
             {isPrototypePage ? (
-              <a href="/">
-                <Button className="ml-8 btn-primary flex items-center gap-2">
-                  Back to Home <ChevronRight className="h-4 w-4" />
+              <a href="/" className="transform hover:scale-105 transition-transform duration-300">
+                <Button className="ml-8 btn-primary flex items-center gap-2 px-8 py-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                  Back to Home <ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </Button>
               </a>
             ) : (
-              <a href="/prototype">
-                <Button className="ml-8 btn-primary flex items-center gap-2">
-                  Explore Platform <ChevronRight className="h-4 w-4" />
+              <a href="/prototype" className="transform hover:scale-105 transition-transform duration-300">
+                <Button className="ml-8 btn-primary flex items-center gap-2 px-8 py-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                  Explore Platform <ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </Button>
               </a>
             )}
@@ -99,31 +180,66 @@ const Header = () => {
           {isPrototypePage ? (
             <>
               <a href="/" className="block w-full">
-                <Button className="w-full btn-primary flex items-center justify-center gap-2">
-                  Back to Home <ChevronRight className="h-4 w-4" />
+                <Button className="w-full btn-primary flex items-center justify-center gap-3 py-4 shadow-lg hover:shadow-xl transition-all duration-300">
+                  Back to Home <ChevronRight className="h-4 w-4 group-hover:translate-x-1" />
                 </Button>
               </a>
             </>
           ) : (
             <>
-              <a href="#capabilities" className="block py-2 text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium">
+              <a 
+                href="#capabilities" 
+                className={cn(
+                  "block py-3 px-4 text-lg-gray-dark hover:text-lg-blue transition-all duration-300 font-display font-medium border-l-2 hover:border-lg-blue hover:bg-lg-blue/5 hover:pl-6",
+                  activeSection === "capabilities" ? "border-lg-blue text-lg-blue bg-lg-blue/5" : "border-transparent"
+                )}
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 Capabilities
               </a>
-              <a href="#architecture" className="block py-2 text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium">
+              <a 
+                href="#architecture" 
+                className={cn(
+                  "block py-3 px-4 text-lg-gray-dark hover:text-lg-blue transition-all duration-300 font-display font-medium border-l-2 hover:border-lg-blue hover:bg-lg-blue/5 hover:pl-6",
+                  activeSection === "architecture" ? "border-lg-blue text-lg-blue bg-lg-blue/5" : "border-transparent"
+                )}
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 Architecture
               </a>
-              <a href="#timeline" className="block py-2 text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium">
+              <a 
+                href="#timeline" 
+                className={cn(
+                  "block py-3 px-4 text-lg-gray-dark hover:text-lg-blue transition-all duration-300 font-display font-medium border-l-2 hover:border-lg-blue hover:bg-lg-blue/5 hover:pl-6",
+                  activeSection === "timeline" ? "border-lg-blue text-lg-blue bg-lg-blue/5" : "border-transparent"
+                )}
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 Timeline
               </a>
-              <a href="#integrations" className="block py-2 text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium">
+              <a 
+                href="#integrations" 
+                className={cn(
+                  "block py-3 px-4 text-lg-gray-dark hover:text-lg-blue transition-all duration-300 font-display font-medium border-l-2 hover:border-lg-blue hover:bg-lg-blue/5 hover:pl-6",
+                  activeSection === "integrations" ? "border-lg-blue text-lg-blue bg-lg-blue/5" : "border-transparent"
+                )}
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 Integrations
               </a>
-              <a href="#value" className="block py-2 text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium">
+              <a 
+                href="#value" 
+                className={cn(
+                  "block py-3 px-4 text-lg-gray-dark hover:text-lg-blue transition-all duration-300 font-display font-medium border-l-2 hover:border-lg-blue hover:bg-lg-blue/5 hover:pl-6",
+                  activeSection === "value" ? "border-lg-blue text-lg-blue bg-lg-blue/5" : "border-transparent"
+                )}
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 Value
               </a>
-              <a href="/prototype" className="block w-full">
-                <Button className="w-full btn-primary flex items-center justify-center gap-2 mt-4">
-                  Explore Platform <ChevronRight className="h-4 w-4" />
+              <a href="/prototype" className="block w-full mt-4">
+                <Button className="w-full btn-primary flex items-center justify-center gap-3 py-4 shadow-lg hover:shadow-xl transition-all duration-300">
+                  Explore Platform <ChevronRight className="h-4 w-4 group-hover:translate-x-1" />
                 </Button>
               </a>
             </>
