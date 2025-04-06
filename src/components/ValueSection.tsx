@@ -56,7 +56,7 @@ const ValueSection = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
           <div className="bg-white rounded-lg shadow-lg border border-gray-100 p-6 h-full">
-            <h3 className="text-xl font-bold text-lg-blue-dark mb-6">Performance Metrics</h3>
+            <h3 className="text-xl font-bold text-lg-blue-dark mb-6 font-display">Performance Metrics</h3>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               {metrics.map((metric, index) => (
@@ -80,7 +80,7 @@ const ValueSection = () => {
         
         <div>
           <div className="bg-white rounded-lg shadow-lg border border-gray-100 p-6 h-full">
-            <h3 className="text-xl font-bold text-lg-blue-dark mb-6">Key Benefits</h3>
+            <h3 className="text-xl font-bold text-lg-blue-dark mb-6 font-display">Key Benefits</h3>
             
             <ul className="space-y-4">
               {benefits.map((benefit, index) => (
@@ -92,7 +92,7 @@ const ValueSection = () => {
             </ul>
             
             <div className="mt-8 p-4 rounded-lg bg-lg-blue/5 border border-lg-blue/10">
-              <h4 className="font-semibold text-lg-blue mb-2">ROI Projection</h4>
+              <h4 className="font-semibold text-lg-blue mb-2 font-display">ROI Projection</h4>
               <p className="text-sm text-lg-gray mb-3">
                 Based on current metrics, projected ROI within the first year of implementation:
               </p>

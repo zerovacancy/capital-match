@@ -86,7 +86,7 @@ const IntegrationsSection = () => {
           <div className="w-20 h-20 mx-auto bg-gradient-to-br from-lg-blue-dark via-lg-blue to-lg-accent rounded-full flex items-center justify-center mb-4">
             <div className="text-white font-bold text-xl">LG AI</div>
           </div>
-          <h3 className="text-xl font-bold text-lg-blue-dark mb-2">Capital Match AI Platform</h3>
+          <h3 className="text-xl font-bold text-lg-blue-dark mb-2 font-display">Capital Match AI Platform</h3>
           <p className="text-lg-gray max-w-2xl mx-auto">
             Our platform seamlessly integrates with your existing technology stack to provide a unified experience across all your tools and systems.
           </p>
@@ -104,7 +104,7 @@ const IntegrationsSection = () => {
                     className="w-full h-full object-contain"
                   />
                 </div>
-                <h3 className="font-bold text-lg text-lg-blue-dark mb-1">{integration.name}</h3>
+                <h3 className="font-bold text-lg text-lg-blue-dark mb-1 font-display">{integration.name}</h3>
                 <div className="text-xs font-medium text-lg-accent mb-2">{integration.category}</div>
                 <p className="text-sm text-lg-gray">{integration.description}</p>
               </div>
@@ -114,7 +114,7 @@ const IntegrationsSection = () => {
         
         {/* Visual representation of system connections */}
         <div className="mt-16 bg-white rounded-xl p-8 shadow-md border border-gray-100">
-          <h3 className="text-lg font-semibold text-lg-blue mb-6 text-center">Integration Architecture</h3>
+          <h3 className="text-lg font-semibold text-lg-blue mb-6 text-center font-display">Integration Architecture</h3>
           <div className="relative w-full" style={{ height: "400px" }}>
             {/* Center platform */}
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-gradient-to-br from-lg-blue-dark via-lg-blue to-lg-accent rounded-lg flex items-center justify-center z-30 shadow-lg">

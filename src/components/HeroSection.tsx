@@ -48,7 +48,7 @@ const HeroSection = () => {
         </div>
         
         {/* Main headline with animated gradient text */}
-        <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6 max-w-4xl animate-fade-in">
+        <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6 max-w-4xl animate-fade-in font-display tracking-tight">
           <span className="text-[#275E91]">LG Development</span>{" "}
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#275E91] to-[#7A8D79] animate-text-gradient">AI</span>
           <span className="text-[#275E91]"> Assistant</span>

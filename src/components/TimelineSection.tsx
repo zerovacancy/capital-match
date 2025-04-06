@@ -64,7 +64,7 @@ const TimelineSection = () => {
                 {/* Content card */}
                 <div className="bg-white rounded-lg shadow-md p-6 border border-gray-100 h-full">
                   <div className="text-xs font-semibold text-lg-accent mb-2">{step.phase}</div>
-                  <h3 className="text-lg font-bold text-lg-blue-dark mb-2">{step.title}</h3>
+                  <h3 className="text-lg font-bold text-lg-blue-dark mb-2 font-display">{step.title}</h3>
                   <p className="text-sm text-lg-gray mb-4">{step.description}</p>
                   <div className="mb-4">
                     <ul className="text-xs space-y-1">
@@ -99,7 +99,7 @@ const TimelineSection = () => {
                 {/* Content card */}
                 <div className="bg-white rounded-lg shadow-md p-6 border border-gray-100">
                   <div className="text-xs font-semibold text-lg-accent mb-2">{step.phase}</div>
-                  <h3 className="text-lg font-bold text-lg-blue-dark mb-2">{step.title}</h3>
+                  <h3 className="text-lg font-bold text-lg-blue-dark mb-2 font-display">{step.title}</h3>
                   <p className="text-sm text-lg-gray mb-4">{step.description}</p>
                   <div className="mb-4">
                     <ul className="text-xs space-y-1">

@@ -43,7 +43,7 @@ const ArchitectureSection = () => {
       <div className="relative max-w-4xl mx-auto">
         {/* Architecture Diagram Visualization - Using uploaded image */}
         <div className="bg-white rounded-xl shadow-lg p-6 md:p-8 mb-12 border border-gray-100">
-          <h3 className="text-lg font-semibold text-lg-blue mb-4 text-center">System Architecture Overview</h3>
+          <h3 className="text-lg font-semibold text-lg-blue mb-4 text-center font-display">System Architecture Overview</h3>
           <div className="rounded-lg overflow-hidden shadow-sm border border-gray-100">
             <img 
               src="/assets/images/home/architecture/data-sources/System Architecture Overview.webp" 
@@ -63,7 +63,7 @@ const ArchitectureSection = () => {
               <div className={`${component.color} p-4`}>
                 <div className="flex items-center space-x-4">
                   {component.icon}
-                  <h3 className="text-lg font-semibold text-white">{component.title}</h3>
+                  <h3 className="text-lg font-semibold text-white font-display">{component.title}</h3>
                 </div>
               </div>
               <CardContent className="p-4">

@@ -2,11 +2,14 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Building, ChevronRight, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const isPrototypePage = location.pathname === '/prototype';
 
   return (
     <header className="fixed w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
@@ -40,30 +43,81 @@ const Header = () => {
           
           {/* Desktop nav */}
           <nav className="hidden md:flex space-x-10">
-            <a href="#capabilities" className="text-lg-gray-dark hover:text-lg-blue transition-colors">
-              Capabilities
-            </a>
-            <a href="#architecture" className="text-lg-gray-dark hover:text-lg-blue transition-colors">
-              Architecture
-            </a>
-            <a href="#timeline" className="text-lg-gray-dark hover:text-lg-blue transition-colors">
-              Timeline
-            </a>
-            <a href="#integrations" className="text-lg-gray-dark hover:text-lg-blue transition-colors">
-              Integrations
-            </a>
-            <a href="#value" className="text-lg-gray-dark hover:text-lg-blue transition-colors">
-              Value
-            </a>
+            {isPrototypePage ? (
+              <>
+                <button 
+                  onClick={() => {
+                    const element = document.querySelector('[data-value="dashboard"]');
+                    if (element) (element as HTMLElement).click();
+                  }} 
+                  className="text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium cursor-pointer bg-transparent border-none text-left"
+                >
+                  Dashboard
+                </button>
+                <button 
+                  onClick={() => {
+                    const element = document.querySelector('[data-value="lp-profiles"]');
+                    if (element) (element as HTMLElement).click();
+                  }} 
+                  className="text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium cursor-pointer bg-transparent border-none text-left"
+                >
+                  LP Profiles
+                </button>
+                <button 
+                  onClick={() => {
+                    const element = document.querySelector('[data-value="deal-analyzer"]');
+                    if (element) (element as HTMLElement).click();
+                  }} 
+                  className="text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium cursor-pointer bg-transparent border-none text-left"
+                >
+                  Deal Analyzer
+                </button>
+                <button 
+                  onClick={() => {
+                    const element = document.querySelector('[data-value="matching-engine"]');
+                    if (element) (element as HTMLElement).click();
+                  }} 
+                  className="text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium cursor-pointer bg-transparent border-none text-left"
+                >
+                  Matching Engine
+                </button>
+              </>
+            ) : (
+              <>
+                <a href="#capabilities" className="text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium">
+                  Capabilities
+                </a>
+                <a href="#architecture" className="text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium">
+                  Architecture
+                </a>
+                <a href="#timeline" className="text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium">
+                  Timeline
+                </a>
+                <a href="#integrations" className="text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium">
+                  Integrations
+                </a>
+                <a href="#value" className="text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium">
+                  Value
+                </a>
+              </>
+            )}
           </nav>
           
           {/* CTA button */}
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-            <a href="/prototype">
-              <Button className="ml-8 btn-primary flex items-center gap-2">
-                Explore Platform <ChevronRight className="h-4 w-4" />
-              </Button>
-            </a>
+            {isPrototypePage ? (
+              <a href="/">
+                <Button className="ml-8 btn-primary flex items-center gap-2">
+                  Back to Home <ChevronRight className="h-4 w-4" />
+                </Button>
+              </a>
+            ) : (
+              <a href="/prototype">
+                <Button className="ml-8 btn-primary flex items-center gap-2">
+                  Explore Platform <ChevronRight className="h-4 w-4" />
+                </Button>
+              </a>
+            )}
           </div>
         </div>
       </div>
@@ -76,26 +130,78 @@ const Header = () => {
         )}
       >
         <div className="px-4 pt-2 pb-4 space-y-4">
-          <a href="#capabilities" className="block py-2 text-lg-gray-dark hover:text-lg-blue transition-colors">
-            Capabilities
-          </a>
-          <a href="#architecture" className="block py-2 text-lg-gray-dark hover:text-lg-blue transition-colors">
-            Architecture
-          </a>
-          <a href="#timeline" className="block py-2 text-lg-gray-dark hover:text-lg-blue transition-colors">
-            Timeline
-          </a>
-          <a href="#integrations" className="block py-2 text-lg-gray-dark hover:text-lg-blue transition-colors">
-            Integrations
-          </a>
-          <a href="#value" className="block py-2 text-lg-gray-dark hover:text-lg-blue transition-colors">
-            Value
-          </a>
-          <a href="/prototype" className="block w-full">
-            <Button className="w-full btn-primary flex items-center justify-center gap-2 mt-4">
-              Explore Platform <ChevronRight className="h-4 w-4" />
-            </Button>
-          </a>
+          {isPrototypePage ? (
+            <>
+              <button 
+                onClick={() => {
+                  const element = document.querySelector('[data-value="dashboard"]');
+                  if (element) (element as HTMLElement).click();
+                  setMobileMenuOpen(false);
+                }} 
+                className="block py-2 w-full text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium cursor-pointer bg-transparent border-none text-left"
+              >
+                Dashboard
+              </button>
+              <button 
+                onClick={() => {
+                  const element = document.querySelector('[data-value="lp-profiles"]');
+                  if (element) (element as HTMLElement).click();
+                  setMobileMenuOpen(false);
+                }} 
+                className="block py-2 w-full text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium cursor-pointer bg-transparent border-none text-left"
+              >
+                LP Profiles
+              </button>
+              <button 
+                onClick={() => {
+                  const element = document.querySelector('[data-value="deal-analyzer"]');
+                  if (element) (element as HTMLElement).click();
+                  setMobileMenuOpen(false);
+                }} 
+                className="block py-2 w-full text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium cursor-pointer bg-transparent border-none text-left"
+              >
+                Deal Analyzer
+              </button>
+              <button 
+                onClick={() => {
+                  const element = document.querySelector('[data-value="matching-engine"]');
+                  if (element) (element as HTMLElement).click();
+                  setMobileMenuOpen(false);
+                }} 
+                className="block py-2 w-full text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium cursor-pointer bg-transparent border-none text-left"
+              >
+                Matching Engine
+              </button>
+              <a href="/" className="block w-full">
+                <Button className="w-full btn-primary flex items-center justify-center gap-2 mt-4">
+                  Back to Home <ChevronRight className="h-4 w-4" />
+                </Button>
+              </a>
+            </>
+          ) : (
+            <>
+              <a href="#capabilities" className="block py-2 text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium">
+                Capabilities
+              </a>
+              <a href="#architecture" className="block py-2 text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium">
+                Architecture
+              </a>
+              <a href="#timeline" className="block py-2 text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium">
+                Timeline
+              </a>
+              <a href="#integrations" className="block py-2 text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium">
+                Integrations
+              </a>
+              <a href="#value" className="block py-2 text-lg-gray-dark hover:text-lg-blue transition-colors font-display font-medium">
+                Value
+              </a>
+              <a href="/prototype" className="block w-full">
+                <Button className="w-full btn-primary flex items-center justify-center gap-2 mt-4">
+                  Explore Platform <ChevronRight className="h-4 w-4" />
+                </Button>
+              </a>
+            </>
+          )}
         </div>
       </div>
     </header>

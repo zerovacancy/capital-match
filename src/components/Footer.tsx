@@ -23,7 +23,7 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">Platform</h4>
+            <h4 className="text-lg font-semibold mb-4 font-display">Platform</h4>
             <ul className="space-y-2">
               <li>
                 <a href="#capabilities" className="text-white/70 hover:text-white transition-colors flex items-center">
@@ -49,7 +49,7 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">Company</h4>
+            <h4 className="text-lg font-semibold mb-4 font-display">Company</h4>
             <ul className="space-y-2">
               <li>
                 <a href="#" className="text-white/70 hover:text-white transition-colors flex items-center">
@@ -75,7 +75,7 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">Legal</h4>
+            <h4 className="text-lg font-semibold mb-4 font-display">Legal</h4>
             <ul className="space-y-2">
               <li>
                 <a href="#" className="text-white/70 hover:text-white transition-colors flex items-center">

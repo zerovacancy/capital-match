@@ -342,7 +342,7 @@ const CapabilitiesSection = () => {
                 )}>
                   {capability.icon}
                 </div>
-                <CardTitle className="text-[22px] font-semibold bg-clip-text text-transparent bg-gradient-to-br from-[#275E91] to-[#275E91]/80">
+                <CardTitle className="text-[22px] font-semibold bg-clip-text text-transparent bg-gradient-to-br from-[#275E91] to-[#275E91]/80 font-display">
                   {capability.title}
                 </CardTitle>
               </CardHeader>
@@ -455,7 +455,7 @@ const CapabilitiesSection = () => {
                     {/* Visualization Section */}
                     <div>
                       <div className="flex items-center justify-between px-4 py-3 bg-[#275E91]/5 border-b border-gray-100">
-                        <h4 className="text-sm font-semibold text-[#275E91] flex items-center">
+                        <h4 className="text-sm font-semibold text-[#275E91] flex items-center font-display">
                           <span className="w-1 h-4 bg-gradient-to-b from-[#275E91] to-[#7A8D79] rounded-full mr-2"></span>
                           {index === 0 ? "Investor Profile" : 
                            index === 1 ? "Financial Analysis" :
