@@ -10,9 +10,12 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-8">
           <div className="lg:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <Building className="h-8 w-8" />
-              <span className="text-xl font-semibold">LG Development</span>
+            <div className="mb-4">
+              <img 
+                src="/assets/images/global/logos/lg-development/LG-Design-Logo_Black-e1640047593286-1024x535.png" 
+                alt="LG Development Logo" 
+                className="h-16 w-auto brightness-0 invert"
+              />
             </div>
             <p className="text-white/70 mb-6 max-w-md">
               LG Development is a leading multifamily real estate development company, focused on creating exceptional spaces while maximizing returns for our investors.
