@@ -41,128 +41,18 @@ const ArchitectureSection = () => {
       </div>
       
       <div className="relative max-w-4xl mx-auto">
-        {/* Architecture Diagram Visualization */}
-        <div className="bg-white rounded-xl shadow-lg p-8 mb-12 border border-gray-100">
-          <h3 className="text-lg font-semibold text-lg-blue mb-4 text-center">System Architecture Diagram</h3>
-          <div className="aspect-[16/9] rounded-lg flex items-center justify-center relative">
-            {/* Architecture layers */}
-            <div className="w-full max-w-3xl mx-auto">
-              {/* Data Sources Layer */}
-              <div className="w-full py-3 px-4 bg-gray-100 rounded-t-lg border border-gray-200 text-center mb-8 relative">
-                <h4 className="text-sm font-semibold text-lg-gray-dark">DATA SOURCES & INPUTS</h4>
-                <div className="flex justify-between px-8 mt-2">
-                  <div className="p-2 bg-white rounded shadow-sm border border-gray-200 text-xs text-center w-1/5">
-                    <Database className="w-4 h-4 mx-auto mb-1 text-lg-blue" />
-                    <span>HubSpot CRM</span>
-                  </div>
-                  <div className="p-2 bg-white rounded shadow-sm border border-gray-200 text-xs text-center w-1/5">
-                    <span>Pro Forma Sheets</span>
-                  </div>
-                  <div className="p-2 bg-white rounded shadow-sm border border-gray-200 text-xs text-center w-1/5">
-                    <span>Pitch Decks</span>
-                  </div>
-                  <div className="p-2 bg-white rounded shadow-sm border border-gray-200 text-xs text-center w-1/5">
-                    <span>Market Data</span>
-                  </div>
-                </div>
-                
-                {/* Connecting arrow */}
-                <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 z-10">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-gray-400">
-                    <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-              </div>
-              
-              {/* Security Layer */}
-              <div className="w-full py-3 px-4 bg-lg-blue/10 rounded-lg border border-lg-blue/20 text-center mb-8 relative">
-                <h4 className="text-sm font-semibold text-lg-blue">DATA GOVERNANCE & SECURITY LAYER</h4>
-                <div className="flex justify-between px-8 mt-2">
-                  <div className="p-2 bg-white rounded shadow-sm text-xs text-center w-1/5 bg-white/60">
-                    <span>Role-based Access</span>
-                  </div>
-                  <div className="p-2 bg-white rounded shadow-sm text-xs text-center w-1/5 bg-white/60">
-                    <span>Encryption</span>
-                  </div>
-                  <div className="p-2 bg-white rounded shadow-sm text-xs text-center w-1/5 bg-white/60">
-                    <span>Compliance</span>
-                  </div>
-                  <div className="p-2 bg-white rounded shadow-sm text-xs text-center w-1/5 bg-white/60">
-                    <span>Audit Trails</span>
-                  </div>
-                </div>
-                
-                {/* Connecting arrow */}
-                <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 z-10">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-gray-400">
-                    <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-              </div>
-              
-              {/* AI Core Layer */}
-              <div className="w-full py-3 px-4 bg-lg-accent/15 rounded-lg border border-lg-accent/20 text-center mb-8 relative">
-                <h4 className="text-sm font-semibold text-lg-accent">AI ASSISTANT CORE (MCP SYSTEM)</h4>
-                <div className="grid grid-cols-3 gap-3 px-4 mt-2">
-                  <div className="p-2 bg-white/70 rounded shadow-sm text-xs text-center">
-                    <span>LP Profile Engine</span>
-                  </div>
-                  <div className="p-2 bg-white/70 rounded shadow-sm text-xs text-center">
-                    <span>Deal Analysis Engine</span>
-                  </div>
-                  <div className="p-2 bg-white/70 rounded shadow-sm text-xs text-center">
-                    <span>Capital Raise Tracker</span>
-                  </div>
-                  <div className="p-2 bg-white/70 rounded shadow-sm text-xs text-center">
-                    <span>Market Analysis Engine</span>
-                  </div>
-                  <div className="p-2 bg-white/70 rounded shadow-sm text-xs text-center">
-                    <CloudCog className="w-4 h-4 mx-auto mb-1 text-lg-accent" />
-                    <span>Matching Algorithm</span>
-                  </div>
-                  <div className="p-2 bg-white/70 rounded shadow-sm text-xs text-center">
-                    <span>Reporting Generator</span>
-                  </div>
-                </div>
-                
-                {/* Connecting arrow */}
-                <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 z-10">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-gray-400">
-                    <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-              </div>
-              
-              {/* Outputs Layer */}
-              <div className="w-full py-3 px-4 bg-gray-100 rounded-b-lg border border-gray-200 text-center relative">
-                <h4 className="text-sm font-semibold text-lg-gray-dark">OUTPUTS & INTEGRATIONS</h4>
-                <div className="flex justify-between px-8 mt-2">
-                  <div className="p-2 bg-white rounded shadow-sm border border-gray-200 text-xs text-center w-1/5">
-                    <span>MS Teams Updates</span>
-                  </div>
-                  <div className="p-2 bg-white rounded shadow-sm border border-gray-200 text-xs text-center w-1/5">
-                    <span>Office 365 Docs</span>
-                  </div>
-                  <div className="p-2 bg-white rounded shadow-sm border border-gray-200 text-xs text-center w-1/5">
-                    <Server className="w-4 h-4 mx-auto mb-1 text-lg-gray" />
-                    <span>HubSpot Actions</span>
-                  </div>
-                  <div className="p-2 bg-white rounded shadow-sm border border-gray-200 text-xs text-center w-1/5">
-                    <span>Secure Documents</span>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Static connection paths */}
-              <div className="absolute inset-0 pointer-events-none">
-                {/* Vertical center line */}
-                <div className="absolute left-1/2 top-[10%] w-0.5 h-[80%] bg-gray-200"></div>
-                
-                {/* Lateral connections */}
-                <div className="absolute left-1/4 right-1/4 top-[40%] h-0.5 bg-gray-200"></div>
-                <div className="absolute left-1/4 right-1/4 top-[65%] h-0.5 bg-gray-200"></div>
-              </div>
-            </div>
+        {/* Architecture Diagram Visualization - Using uploaded image */}
+        <div className="bg-white rounded-xl shadow-lg p-6 md:p-8 mb-12 border border-gray-100">
+          <h3 className="text-lg font-semibold text-lg-blue mb-4 text-center">System Architecture Overview</h3>
+          <div className="rounded-lg overflow-hidden shadow-sm border border-gray-100">
+            <img 
+              src="/assets/images/home/architecture/data-sources/System Architecture Overview.webp" 
+              alt="System Architecture Diagram"
+              className="w-full h-auto object-contain"
+            />
+          </div>
+          <div className="mt-4 text-sm text-lg-gray-dark text-center max-w-3xl mx-auto">
+            <p>Our comprehensive architecture integrates data sources, security layers, and AI components through a scalable, multi-tiered approach.</p>
           </div>
         </div>
         
