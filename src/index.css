@@ -94,11 +94,11 @@
   }
   
   .section-title {
-    @apply text-3xl md:text-4xl font-bold text-lg-blue mb-4;
+    @apply text-3xl md:text-4xl font-bold text-[#275E91] mb-4;
   }
   
   .section-subtitle {
-    @apply text-xl text-lg-gray mb-8 max-w-3xl;
+    @apply text-xl text-[#4F5D75] mb-8 max-w-3xl;
   }
   
   .feature-card {
@@ -110,22 +110,89 @@
   }
   
   .timeline-marker {
-    @apply w-8 h-8 rounded-full bg-lg-accent flex items-center justify-center text-white font-bold;
+    @apply w-8 h-8 rounded-full bg-[#7A8D79] flex items-center justify-center text-white font-bold;
   }
   
   .timeline-connector {
-    @apply w-1 h-16 bg-lg-blue/20 mx-auto;
+    @apply w-1 h-16 bg-[#275E91]/20 mx-auto;
   }
   
   .btn-primary {
-    @apply px-6 py-3 bg-lg-blue text-white rounded-md font-semibold hover:bg-lg-blue-dark transition-colors;
+    @apply px-6 py-3 bg-[#275E91] text-white rounded-md font-semibold hover:bg-[#275E91]/90 transition-colors;
   }
   
   .btn-secondary {
-    @apply px-6 py-3 bg-white text-lg-blue rounded-md font-semibold border border-lg-blue hover:bg-lg-blue/5 transition-colors;
+    @apply px-6 py-3 bg-white text-[#275E91] rounded-md font-semibold border border-[#275E91] hover:bg-[#275E91]/5 transition-colors;
   }
   
   .gradient-bg {
-    @apply bg-gradient-to-br from-lg-blue via-lg-blue-light to-lg-accent;
+    @apply bg-gradient-to-br from-[#275E91] via-[#7A8D79] to-[#C9D4DC];
+  }
+
+  /* Typewriter effect */
+  .typewriter-container {
+    @apply relative whitespace-pre-wrap;
+    max-width: 48rem;
+  }
+
+  .typewriter-text {
+    @apply font-normal;
+    overflow: hidden;
+    border-right: 0.15em solid transparent;
+    width: 0;
+    animation: typing 6s steps(60, end) forwards;
+    animation-delay: 1s;
+  }
+  
+  /* Animation for background particles */
+  .animate-particle {
+    animation: particle-move 15s ease-in-out infinite;
+  }
+
+  /* Animation for data flow */
+  @keyframes flow {
+    0% {
+      top: -5px;
+      opacity: 0;
+    }
+    20% {
+      opacity: 0.7;
+    }
+    80% {
+      opacity: 0.7;
+    }
+    100% {
+      top: 100%;
+      opacity: 0;
+    }
+  }
+
+  .animate-flow {
+    animation: flow 3s linear infinite;
+  }
+
+  /* Animation delay utilities */
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+  
+  .animation-delay-1000 {
+    animation-delay: 1000ms;
+  }
+  
+  .animation-delay-1500 {
+    animation-delay: 1500ms;
+  }
+  
+  .animation-delay-2000 {
+    animation-delay: 2000ms;
+  }
+  
+  .animation-delay-2500 {
+    animation-delay: 2500ms;
+  }
+  
+  .animation-delay-3000 {
+    animation-delay: 3000ms;
   }
 }

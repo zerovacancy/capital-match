@@ -48,7 +48,7 @@ const ArchitectureSection = () => {
             {/* Architecture layers */}
             <div className="w-full max-w-3xl mx-auto">
               {/* Data Sources Layer */}
-              <div className="w-full py-3 px-4 bg-gray-100 rounded-t-lg border border-gray-200 text-center mb-6 relative">
+              <div className="w-full py-3 px-4 bg-gray-100 rounded-t-lg border border-gray-200 text-center mb-8 relative">
                 <h4 className="text-sm font-semibold text-lg-gray-dark">DATA SOURCES & INPUTS</h4>
                 <div className="flex justify-between px-8 mt-2">
                   <div className="p-2 bg-white rounded shadow-sm border border-gray-200 text-xs text-center w-1/5">
@@ -65,16 +65,17 @@ const ArchitectureSection = () => {
                     <span>Market Data</span>
                   </div>
                 </div>
+                
                 {/* Connecting arrow */}
-                <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-gray-300">
+                <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 z-10">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-gray-400">
                     <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
               </div>
               
               {/* Security Layer */}
-              <div className="w-full py-3 px-4 bg-lg-blue/10 rounded-lg border border-lg-blue/20 text-center mb-6 relative">
+              <div className="w-full py-3 px-4 bg-lg-blue/10 rounded-lg border border-lg-blue/20 text-center mb-8 relative">
                 <h4 className="text-sm font-semibold text-lg-blue">DATA GOVERNANCE & SECURITY LAYER</h4>
                 <div className="flex justify-between px-8 mt-2">
                   <div className="p-2 bg-white rounded shadow-sm text-xs text-center w-1/5 bg-white/60">
@@ -90,16 +91,17 @@ const ArchitectureSection = () => {
                     <span>Audit Trails</span>
                   </div>
                 </div>
+                
                 {/* Connecting arrow */}
-                <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-gray-300">
+                <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 z-10">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-gray-400">
                     <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
               </div>
               
               {/* AI Core Layer */}
-              <div className="w-full py-3 px-4 bg-lg-accent/15 rounded-lg border border-lg-accent/20 text-center mb-6 relative">
+              <div className="w-full py-3 px-4 bg-lg-accent/15 rounded-lg border border-lg-accent/20 text-center mb-8 relative">
                 <h4 className="text-sm font-semibold text-lg-accent">AI ASSISTANT CORE (MCP SYSTEM)</h4>
                 <div className="grid grid-cols-3 gap-3 px-4 mt-2">
                   <div className="p-2 bg-white/70 rounded shadow-sm text-xs text-center">
@@ -122,9 +124,10 @@ const ArchitectureSection = () => {
                     <span>Reporting Generator</span>
                   </div>
                 </div>
+                
                 {/* Connecting arrow */}
-                <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-gray-300">
+                <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 z-10">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-gray-400">
                     <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
@@ -150,9 +153,14 @@ const ArchitectureSection = () => {
                 </div>
               </div>
               
-              {/* Animated dots to show data flow */}
-              <div className="absolute left-1/2 top-1/3 w-0.5 h-1/3 bg-gray-200 overflow-hidden">
-                <div className="w-1.5 h-1.5 bg-lg-accent rounded-full absolute animate-pulse" style={{ animation: "flow 2s infinite" }}></div>
+              {/* Static connection paths */}
+              <div className="absolute inset-0 pointer-events-none">
+                {/* Vertical center line */}
+                <div className="absolute left-1/2 top-[10%] w-0.5 h-[80%] bg-gray-200"></div>
+                
+                {/* Lateral connections */}
+                <div className="absolute left-1/4 right-1/4 top-[40%] h-0.5 bg-gray-200"></div>
+                <div className="absolute left-1/4 right-1/4 top-[65%] h-0.5 bg-gray-200"></div>
               </div>
             </div>
           </div>
@@ -182,6 +190,15 @@ const ArchitectureSection = () => {
             <path d="M200 300 L600 300" stroke="#E2E8F0" strokeWidth="2" strokeDasharray="6 4" />
             <path d="M200 200 L600 400" stroke="#E2E8F0" strokeWidth="2" strokeDasharray="6 4" />
             <path d="M200 400 L600 200" stroke="#E2E8F0" strokeWidth="2" strokeDasharray="6 4" />
+            
+            {/* Connection points */}
+            <circle cx="400" cy="100" r="3" fill="#275E91" opacity="0.5" />
+            <circle cx="400" cy="300" r="3" fill="#7A8D79" opacity="0.5" />
+            <circle cx="400" cy="400" r="3" fill="#C9D4DC" opacity="0.5" />
+            <circle cx="200" cy="200" r="3" fill="#275E91" opacity="0.5" />
+            <circle cx="200" cy="400" r="3" fill="#7A8D79" opacity="0.5" />
+            <circle cx="600" cy="200" r="3" fill="#7A8D79" opacity="0.5" />
+            <circle cx="600" cy="400" r="3" fill="#275E91" opacity="0.5" />
           </svg>
         </div>
       </div>
