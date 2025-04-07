@@ -10,18 +10,14 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
   const isPrototypePage = location.pathname === '/prototype';
-  // Get tab state from context if on prototype page
   const tabContext = isPrototypePage ? useContext(TabContext) : null;
   
-  // Determine active section based on URL hash
   const [activeSection, setActiveSection] = useState("");
   
   useEffect(() => {
     const handleScroll = () => {
-      // Get all sections
       const sections = document.querySelectorAll('section[id]');
       
-      // Find the section closest to the top of the viewport
       let current = "";
       sections.forEach((section) => {
         const sectionTop = (section as HTMLElement).offsetTop;
@@ -35,7 +31,6 @@ const Header = () => {
     
     if (!isPrototypePage) {
       window.addEventListener('scroll', handleScroll);
-      // Initial check
       handleScroll();
     }
     
@@ -45,10 +40,9 @@ const Header = () => {
   }, [isPrototypePage]);
 
   return (
-    <header className={`fixed w-full backdrop-blur-sm shadow-md ${isPrototypePage ? 'z-10' : 'z-50'} transition-shadow duration-300 ease-in-out sticky top-0`} style={{ backgroundColor: '#F8F5F0' }}>
+    <header className={`fixed w-full backdrop-blur-sm shadow-md ${isPrototypePage ? 'z-10' : 'z-50'} transition-shadow duration-300 ease-in-out sticky top-0`} style={{ backgroundColor: '#F9F9F8' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center py-4 md:justify-start md:space-x-10">
-          {/* Logo */}
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <a href="/" className="flex items-center">
               <img 
@@ -59,7 +53,6 @@ const Header = () => {
             </a>
           </div>
           
-          {/* Mobile menu button */}
           <div className="md:hidden">
             <button
               type="button"
@@ -74,7 +67,6 @@ const Header = () => {
             </button>
           </div>
           
-          {/* Desktop nav */}
           <nav className="hidden md:flex space-x-10">
             {isPrototypePage ? (
               <></>
@@ -149,7 +141,6 @@ const Header = () => {
             )}
           </nav>
           
-          {/* CTA button */}
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
             {isPrototypePage ? (
               <a href="/" className="transform hover:scale-105 transition-transform duration-300">
@@ -168,13 +159,12 @@ const Header = () => {
         </div>
       </div>
       
-      {/* Mobile menu */}
       <div
         className={cn(
           "md:hidden absolute top-[72px] inset-x-0 shadow-lg transition-all duration-300 ease-in-out",
           mobileMenuOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0 overflow-hidden"
         )}
-        style={{ backgroundColor: '#F8F5F0' }}
+        style={{ backgroundColor: '#F9F9F8' }}
       >
         <div className="px-4 pt-2 pb-4 space-y-4">
           {isPrototypePage ? (
