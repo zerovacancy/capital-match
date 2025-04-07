@@ -49,7 +49,7 @@ const ArchitectureSection = () => {
       
       <div className="relative max-w-4xl mx-auto">
         {/* Architecture Diagram Visualization - Using uploaded image with zoom functionality */}
-        <div className="card-bg-primary rounded-xl shadow-lg p-6 md:p-8 mb-12 border border-lg-border/60">
+        <div className="rounded-xl shadow-lg p-6 md:p-8 mb-12 border border-lg-border/60 bg-transparent">
           <div className="flex justify-between items-center mb-4">
             <h3 className="text-lg font-semibold text-lg-blue font-display">System Architecture Overview</h3>
             <button 
@@ -77,7 +77,7 @@ const ArchitectureSection = () => {
         {/* Architecture Components */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {architectureComponents.map((component, index) => (
-            <Card key={index} className={`overflow-hidden shadow-md border-lg-border/60 ${index % 2 === 0 ? 'card-bg-primary' : 'card-bg-secondary'}`}>
+            <Card key={index} className={`overflow-hidden shadow-md border-lg-border/60 ${index % 2 === 0 ? 'bg-transparent' : 'bg-transparent'}`}>
               <div className={`${component.color} p-4`}>
                 <div className="flex items-center space-x-4">
                   {component.icon}
