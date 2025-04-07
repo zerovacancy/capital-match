@@ -272,7 +272,7 @@ const CapabilitiesSection = () => {
   };
 
   return (
-    <section id="capabilities" className="section-container overflow-hidden relative py-20">
+    <section id="capabilities" className="section-container overflow-hidden relative py-20 bg-transparent">
       <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-[#275E91]/10 to-[#C9D4DC]/5 blur-3xl"></div>
       <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-[#7A8D79]/10 to-[#C9D4DC]/10 blur-3xl"></div>
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNDOUQ0REMiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0aC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptMC02aC0yVjhoMnY0em0wIDMwaC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptLTYgMTJoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0eiIvPjwvZz48L2c+PC9zdmc+')] opacity-30"></div>
@@ -302,7 +302,7 @@ const CapabilitiesSection = () => {
               activeCard === index ? 
                 "ring-2 ring-[#275E91]/60 shadow-xl translate-y-[-2px]" : 
                 "border border-lg-border/40",
-              "before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-br before:from-footer/80 before:to-footer/40 before:backdrop-blur-sm before:border before:border-lg-border/40"
+              "before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-br before:from-white/90 before:to-[#F9FAFB]/80 before:backdrop-blur-sm before:border before:border-lg-border/40"
             )}
             onClick={() => setActiveCard(index === activeCard ? null : index)}
             data-aos="fade-up"

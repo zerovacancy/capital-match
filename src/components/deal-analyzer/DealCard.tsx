@@ -33,7 +33,7 @@ export function DealCard({ deal, onClick, selected = false }: DealCardProps) {
   return (
     <Card 
       className={`cursor-pointer hover:shadow-lg transition-all border-lg-border/60 shadow-md ${
-        selected ? 'border-2 border-primary' : ''
+        selected ? 'border-2 border-primary bg-white' : 'card-bg-tertiary'
       }`}
       onClick={onClick}
     >

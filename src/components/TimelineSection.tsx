@@ -38,7 +38,7 @@ const TimelineSection = () => {
   ];
 
   return (
-    <section id="timeline" className="section-container">
+    <section id="timeline" className="section-container bg-transparent">
       <div className="mb-16 text-center">
         <h2 className="section-title">Implementation Timeline</h2>
         <p className="section-subtitle mx-auto">
@@ -62,7 +62,7 @@ const TimelineSection = () => {
                 </div>
                 
                 {/* Content card */}
-                <div className="bg-footer rounded-lg shadow-md p-6 border border-highlight/30 h-full">
+                <div className="card-bg-primary rounded-lg shadow-md p-6 border border-lg-border/30 h-full">
                   <div className="text-xs font-semibold text-lg-accent mb-2">{step.phase}</div>
                   <h3 className="text-xl font-bold text-lg-blue-dark mb-3 font-display tracking-tight">{step.title}</h3>
                   <p className="text-base text-lg-gray mb-4 leading-relaxed">{step.description}</p>
@@ -97,7 +97,7 @@ const TimelineSection = () => {
                 </div>
                 
                 {/* Content card */}
-                <div className="bg-footer rounded-lg shadow-md p-6 border border-highlight/30">
+                <div className="card-bg-secondary rounded-lg shadow-md p-6 border border-lg-border/30">
                   <div className="text-xs font-semibold text-lg-accent mb-2">{step.phase}</div>
                   <h3 className="text-xl font-bold text-lg-blue-dark mb-3 font-display tracking-tight">{step.title}</h3>
                   <p className="text-base text-lg-gray mb-4 leading-relaxed">{step.description}</p>

@@ -55,7 +55,7 @@ const ValueSection = () => {
       
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
-          <div className="bg-footer rounded-xl shadow-lg border border-lg-border/60 p-6 h-full">
+          <div className="card-bg-primary rounded-xl shadow-lg border border-lg-border/60 p-6 h-full">
             <h3 className="h3 mb-6">Performance Metrics</h3>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -79,7 +79,7 @@ const ValueSection = () => {
         </div>
         
         <div>
-          <div className="bg-footer rounded-xl shadow-lg border border-lg-border/60 p-6 h-full">
+          <div className="card-bg-primary rounded-xl shadow-lg border border-lg-border/60 p-6 h-full">
             <h3 className="h3 mb-6">Key Benefits</h3>
             
             <ul className="space-y-4">

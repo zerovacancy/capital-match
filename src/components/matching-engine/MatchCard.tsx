@@ -19,7 +19,7 @@ export function MatchCard({ match, onClick, selected = false }: MatchCardProps) 
 
   return (
     <Card 
-      className={`cursor-pointer hover:shadow-lg transition-all ${selected ? 'border-2 border-lg-blue' : 'border border-lg-border/60 shadow-md'}`}
+      className={`cursor-pointer hover:shadow-lg transition-all ${selected ? 'border-2 border-lg-blue bg-white' : 'border border-lg-border/60 shadow-md card-bg-secondary'}`}
       onClick={onClick}
     >
       <CardHeader className="py-2 px-3 flex flex-row items-center justify-between bg-lg-highlight/10 border-b border-lg-border/30">

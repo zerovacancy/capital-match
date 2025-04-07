@@ -22,7 +22,7 @@ export function LPProfileCard({ lp, onClick, selected = false }: LPProfileCardPr
     <Card 
       className={`cursor-pointer hover:shadow-lg transition-all border-lg-border/60 shadow-md ${
         selected ? 'border-2 border-lg-blue' : ''
-      }`}
+      } card-bg-primary`}
       onClick={onClick}
     >
       <CardHeader className="py-2 px-3 border-b border-lg-border/30">

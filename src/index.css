@@ -330,6 +330,23 @@
     background: linear-gradient(to bottom right, #275E91, #7A8D79, #C9D4DC);
   }
   
+  /* Section background variations */
+  .section-primary {
+    background-color: #ECEDE3; /* Main background color */
+  }
+  
+  .section-secondary {
+    background-color: #F5F5EF; /* Slightly different off-white */
+  }
+  
+  .section-tertiary {
+    background-color: #F8F8F2; /* Very light cream */
+  }
+  
+  .section-alternate {
+    background-color: #F0F2F2; /* Very light gray with hint of blue */
+  }
+  
   /* Section with highlight background */
   .section-highlight {
     background-color: #C9D4DC; /* Section Highlight color */
@@ -338,6 +355,19 @@
   /* Footer section */
   .footer-bg {
     background-color: #F5F5EF; /* Footer Background */
+  }
+  
+  /* Card background variations */
+  .card-bg-primary {
+    background-color: #FFFFFF; /* Pure white */
+  }
+  
+  .card-bg-secondary {
+    background-color: #F9FAFB; /* Very light gray */
+  }
+  
+  .card-bg-tertiary {
+    background-color: #F5F7FA; /* Light gray with hint of blue */
   }
   
   /* Enhanced form elements with focus states */

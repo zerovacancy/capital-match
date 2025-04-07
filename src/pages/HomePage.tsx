@@ -18,12 +18,24 @@ const HomePage = () => {
       <BreadcrumbNav />
       <main>
         <HeroSection />
-        <CapabilitiesSection />
-        <ArchitectureSection />
-        <TimelineSection />
-        <IntegrationsSection />
-        <ValueSection />
-        <ContactSection />
+        <div className="section-secondary">
+          <CapabilitiesSection />
+        </div>
+        <div className="section-tertiary">
+          <ArchitectureSection />
+        </div>
+        <div className="section-alternate">
+          <TimelineSection />
+        </div>
+        <div className="section-secondary">
+          <IntegrationsSection />
+        </div>
+        <div className="section-tertiary">
+          <ValueSection />
+        </div>
+        <div className="section-alternate">
+          <ContactSection />
+        </div>
       </main>
       <Footer />
     </div>
