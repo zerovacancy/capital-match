@@ -30,19 +30,56 @@ export function MonthlyProgressChart() {
   
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
+      const targetValue = payload.find(p => p.dataKey === 'target')?.value || 0;
+      
+      const getBarColor = (dataKey: string) => {
+        switch(dataKey) {
+          case "actual": return "#275E91"; // lg-blue
+          case "projected": return "#7A8D79"; // lg-green
+          default: return "#C9D4DC"; // lg-highlight
+        }
+      };
+      
       return (
-        <div className="bg-lg-footer border border-lg-highlight p-3 text-sm shadow-md rounded">
-          <p className="font-semibold text-lg-blue mb-1">{label}</p>
-          {payload.map((entry: any, index: number) => (
-            <p key={index} className="flex items-center gap-2 py-0.5">
-              <span className={`h-3 w-3 rounded-full ${
-                entry.dataKey === "actual" ? "bg-lg-blue" : 
-                entry.dataKey === "projected" ? "bg-lg-green" : "bg-lg-highlight"
-              }`}></span>
-              <span className="capitalize text-lg-text">{entry.dataKey}:</span>
-              <span className="font-semibold text-lg-text">{formatCurrency(entry.value)}</span>
-            </p>
-          ))}
+        <div className="bg-lg-footer border border-lg-highlight p-4 text-sm shadow-md rounded-md">
+          <div className="flex items-center justify-between mb-2">
+            <p className="font-semibold text-lg-blue">{label}</p>
+            <span className="text-xs text-lg-text bg-lg-highlight/20 px-2 py-0.5 rounded">
+              Monthly data
+            </span>
+          </div>
+          <div className="space-y-2 pt-1">
+            {payload.map((entry: any, index: number) => {
+              const percentage = targetValue ? Math.round((entry.value / targetValue) * 100) : 0;
+              const barColor = getBarColor(entry.dataKey);
+              
+              return (
+                <div key={index} className="flex flex-col gap-1">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <span 
+                        className="h-3 w-3 rounded-full"
+                        style={{ backgroundColor: barColor }}
+                      ></span>
+                      <span className="capitalize text-xs text-lg-text">{entry.dataKey}:</span>
+                    </div>
+                    <span className="font-semibold text-lg-blue">{formatCurrency(entry.value)}</span>
+                  </div>
+                  {entry.dataKey !== 'target' && (
+                    <div className="w-full h-1.5 bg-lg-highlight/20 rounded-full overflow-hidden">
+                      <div 
+                        className="h-full rounded-full" 
+                        style={{ 
+                          width: `${percentage}%`,
+                          backgroundColor: barColor
+                        }}
+                      ></div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
       );
     }
@@ -105,33 +142,47 @@ export function MonthlyProgressChart() {
   );
 
   return (
-    <div className="flex flex-col">
-      <div className="flex justify-between items-center mb-4">
-        <div className="flex items-center gap-4">
-          <div className="flex items-center p-3 bg-lg-background rounded-md border border-lg-highlight/10 shadow-sm">
-            <div className="px-3 border-r border-lg-highlight/20">
+    <div className="flex flex-col h-full">
+      <div className="grid grid-cols-12 gap-4 mb-4">
+        <div className="col-span-6 md:col-span-4 lg:col-span-3">
+          <div className="flex items-center p-3 bg-lg-background rounded-md border border-lg-highlight/10 shadow-sm h-full">
+            <div className="w-full">
               <p className="text-xs text-lg-text font-medium">YTD Raised</p>
               <p className="text-lg font-bold text-lg-blue">{formatCurrency(totalRaised)}</p>
             </div>
-            <div className="px-3">
+          </div>
+        </div>
+        <div className="col-span-6 md:col-span-4 lg:col-span-3">
+          <div className="flex items-center p-3 bg-lg-background rounded-md border border-lg-highlight/10 shadow-sm h-full">
+            <div className="w-full">
               <p className="text-xs text-lg-text font-medium">Annual Goal</p>
               <p className="text-lg font-bold text-lg-blue">{formatCurrency(annualTarget)}</p>
             </div>
           </div>
-          <div className="flex items-center p-3 bg-lg-background rounded-md border border-lg-highlight/10 shadow-sm">
-            <div className="px-3">
+        </div>
+        <div className="col-span-6 md:col-span-4 lg:col-span-3">
+          <div className="flex items-center p-3 bg-lg-background rounded-md border border-lg-highlight/10 shadow-sm h-full">
+            <div className="w-full">
               <p className="text-xs text-lg-text font-medium">Progress</p>
-              <p className="text-lg font-bold text-lg-blue">{Math.round((totalRaised / annualTarget) * 100)}%</p>
+              <div className="flex items-center gap-2">
+                <p className="text-lg font-bold text-lg-blue">{Math.round((totalRaised / annualTarget) * 100)}%</p>
+                <div className="w-full h-2 bg-lg-highlight/20 rounded-full overflow-hidden">
+                  <div 
+                    className="h-full rounded-full bg-lg-blue" 
+                    style={{ width: `${Math.min(100, Math.round((totalRaised / annualTarget) * 100))}%` }}
+                  ></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
       
-      <div className="bg-lg-highlight/5 rounded-lg p-4 h-[300px] shadow-sm border border-lg-highlight/10">
-        <ResponsiveContainer width="100%" height="100%">
+      <div className="bg-lg-highlight/5 rounded-lg p-5 flex-1 shadow-sm border border-lg-highlight/10">
+        <ResponsiveContainer width="100%" height={300}>
           <BarChart
             data={monthlyProgress}
-            margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+            margin={{ top: 10, right: 30, left: 20, bottom: 20 }}
           >
             <defs>
               {actualBarGradient}
@@ -142,6 +193,7 @@ export function MonthlyProgressChart() {
               dataKey="month" 
               axisLine={{ stroke: '#C9D4DC', strokeOpacity: 0.5 }}
               tick={{ fill: '#1C1C1C', fontSize: 12 }}
+              dy={10}
             />
             <YAxis 
               tickFormatter={(value) => `$${(value / 1000)}k`}
@@ -169,14 +221,14 @@ export function MonthlyProgressChart() {
               fill="#C9D4DC" 
               name="Target" 
               radius={[2, 2, 0, 0]}
-              barSize={20}
+              barSize={22}
             />
             <Bar 
               dataKey="actual" 
               fill="url(#actualBarGradient)" 
               name="Actual" 
               radius={[2, 2, 0, 0]}
-              barSize={20}
+              barSize={22}
               animationDuration={1500}
               animationEasing="ease-out"
             />
@@ -185,7 +237,7 @@ export function MonthlyProgressChart() {
               fill="url(#projectedBarGradient)" 
               name="Projected" 
               radius={[2, 2, 0, 0]}
-              barSize={20}
+              barSize={22}
               animationDuration={1500}
               animationEasing="ease-out"
               strokeDasharray="4 2"

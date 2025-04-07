@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Header from '@/components/Header';
+import BreadcrumbNav from '@/components/BreadcrumbNav';
 
 const NotFound = () => {
   const location = useLocation();
@@ -15,6 +16,7 @@ const NotFound = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gray-100">
       <Header />
+      <BreadcrumbNav extraItems={[{ label: "Page Not Found" }]} />
       <div className="flex-1 flex items-center justify-center">
         <div className="text-center">
           <h1 className="h1 mb-4">404</h1>

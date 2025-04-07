@@ -5,6 +5,7 @@ import { DealAnalyzer } from '@/components/deal-analyzer';
 import { MatchingEngine } from '@/components/matching-engine';
 import { Dashboard } from '@/components/dashboard';
 import Header from '@/components/Header';
+import BreadcrumbNav from '@/components/BreadcrumbNav';
 
 // Create a context to share the tab state
 export const TabContext = createContext({
@@ -15,11 +16,22 @@ export const TabContext = createContext({
 const PrototypePage = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
 
+  const getActiveTabLabel = () => {
+    const tabLabels: Record<string, string> = {
+      "dashboard": "Dashboard",
+      "lp-profiles": "LP Profiles",
+      "deal-analyzer": "Deal Analyzer",
+      "matching-engine": "Matching Engine"
+    };
+    return tabLabels[activeTab] || "";
+  };
+
   return (
     <TabContext.Provider value={{ activeTab, setActiveTab }}>
       <div className="min-h-screen h-full flex flex-col">
         <Header />
-        <div className="container mx-auto pt-24 pb-6 flex-1 flex flex-col">
+        <BreadcrumbNav extraItems={[{ label: getActiveTabLabel() }]} />
+        <div className="container mx-auto pb-6 flex-1 flex flex-col">
       <div className="mb-6">
         <h1 className="text-3xl font-bold font-display">Capital Match AI Platform</h1>
         <p className="text-muted-foreground">AI-powered capital raising for LG Development</p>

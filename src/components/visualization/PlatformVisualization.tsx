@@ -1,13 +1,47 @@
 
 import React, { useEffect, useState, useRef } from 'react';
-import { ArrowRight, UserRound, LineChart, ArrowDownRight, ArrowUpRight, Search, CheckCircle2, Building2 } from 'lucide-react';
+import { 
+  ArrowRight, UserRound, LineChart, ArrowDownRight, ArrowUpRight, 
+  Search, CheckCircle2, Building2, DollarSign, Target,
+  Filter, X, ChevronDown, MapPin, Building, Users, BarChart3,
+  HelpCircle, Play, PauseCircle, ChevronRight
+} from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface PlatformVisualizationProps {
   className?: string;
+  capitalGoal?: number;
+  capitalRaised?: number;
+  targetDate?: string;
+  lpName?: string;
+  lpCommitment?: number;
+  dealName?: string;
+  dealCapitalNeed?: number;
+  showFilters?: boolean;
+  onFilterChange?: (filters: {
+    dealSize?: [number, number];
+    location?: string[];
+    investorType?: string[];
+    assetClass?: string[];
+    returnProfile?: string[];
+  }) => void;
 }
 
-const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({ className }) => {
+const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({ 
+  className,
+  capitalGoal = 150,
+  capitalRaised = 42,
+  targetDate = "Q3 2025",
+  lpName = "Walton Street Capital",
+  lpCommitment = 42,
+  dealName = "Triangle Square",
+  dealCapitalNeed = 68,
+  showFilters = false,
+  onFilterChange
+}) => {
+  // Guided tour state
+  const [showGuidedTour, setShowGuidedTour] = useState(false);
+  const [tourStep, setTourStep] = useState(0);
   // Animation states
   const [animationStep, setAnimationStep] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
@@ -135,6 +169,25 @@ const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({ className
     };
   }, []);
 
+  // Filtering state
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const [filters, setFilters] = useState({
+    dealSize: [10, 100] as [number, number],
+    location: ["Chicago"] as string[],
+    investorType: ["Institutional"] as string[],
+    assetClass: ["Multifamily"] as string[],
+    returnProfile: ["Value-Add"] as string[]
+  });
+
+  // Handle filter changes
+  const handleFilterChange = (key: string, value: any) => {
+    const newFilters = { ...filters, [key]: value };
+    setFilters(newFilters);
+    if (onFilterChange) {
+      onFilterChange(newFilters);
+    }
+  };
+
   // Pause animation when hovered
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -160,6 +213,26 @@ const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({ className
       ))}
     </div>
   );
+  
+  // Tour control handlers
+  const startTour = () => {
+    setTourStep(1);
+    setShowGuidedTour(true);
+  };
+  
+  const nextTourStep = () => {
+    if (tourStep < 4) {
+      setTourStep(tourStep + 1);
+    } else {
+      setShowGuidedTour(false);
+      setTourStep(0);
+    }
+  };
+  
+  const endTour = () => {
+    setShowGuidedTour(false);
+    setTourStep(0);
+  };
 
   return (
     <div 
@@ -223,9 +296,39 @@ const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({ className
           <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-white/60 to-transparent"></div>
         </div>
         
-        <p className="max-w-md text-center text-white/90 mb-6 text-sm md:text-base leading-relaxed drop-shadow">
-          AI-powered matching algorithm that aligns investor criteria with development opportunities in real-time.
+        <p className="max-w-md text-center text-white/90 mb-2 text-sm md:text-base leading-relaxed drop-shadow">
+          Leading capital formation for <span className="text-amber-200 font-medium">Chicago's</span> most promising developments
         </p>
+        
+        {/* Capital Goal Progress Tracker */}
+        <div className="w-full max-w-md mx-auto mb-4 px-4">
+          <div className="flex justify-between items-center mb-1">
+            <div className="flex items-center gap-1">
+              <DollarSign className="w-4 h-4 text-amber-200" />
+              <span className="text-sm font-medium text-amber-200">Capital Raise Progress</span>
+            </div>
+            <div className="flex items-center text-sm">
+              <span className="text-white font-bold">${capitalRaised}M</span>
+              <span className="text-white/70 mx-1">/</span>
+              <span className="text-white/70">${capitalGoal}M</span>
+            </div>
+          </div>
+          <div className="h-2 w-full bg-white/20 rounded-full overflow-hidden">
+            <div 
+              className="h-full bg-gradient-to-r from-amber-200 to-amber-400 rounded-full"
+              style={{ width: `${(capitalRaised / capitalGoal) * 100}%` }}
+            >
+              <div className="h-full w-full bg-white/30 animate-pulse"></div>
+            </div>
+          </div>
+          <div className="flex justify-between text-xs text-white/70 mt-1">
+            <div className="flex items-center gap-1">
+              <Target className="w-3 h-3" />
+              <span>Target: {targetDate}</span>
+            </div>
+            <div>{Math.round((capitalRaised / capitalGoal) * 100)}% Complete</div>
+          </div>
+        </div>
         
         {/* Enhanced interactive visualization */}
         <div className="w-full flex-1 flex flex-col md:flex-row items-center justify-between gap-3 md:gap-6 relative">
@@ -285,7 +388,10 @@ const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({ className
                 </div>
                 <div className="flex items-center gap-1 justify-center">
                   <Building2 className="w-3 h-3" />
-                  <span>BTR Focus</span>
+                  <span>{lpName}</span>
+                </div>
+                <div className="flex items-center gap-1 justify-center text-amber-200">
+                  <span>${lpCommitment}M committed</span>
                 </div>
               </div>
             </div>
@@ -486,6 +592,10 @@ const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({ className
             )}>
               <div className="px-2 py-1 rounded bg-[#C9D4DC]/20 text-[10px] md:text-xs text-center backdrop-blur-sm border border-white/10 shadow">
                 <div className="flex items-center gap-1 justify-center">
+                  <Building2 className="w-3 h-3" />
+                  <span>{dealName}</span>
+                </div>
+                <div className="flex items-center gap-1 justify-center">
                   <ArrowDownRight className="w-3 h-3 text-red-400" />
                   <span>Risk: Low</span>
                 </div>
@@ -502,6 +612,9 @@ const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({ className
                     ) : "Calculating..."}
                   </span>
                 </div>
+                <div className="flex items-center gap-1 justify-center text-amber-200 mt-1">
+                  <span>${dealCapitalNeed}M capital need</span>
+                </div>
               </div>
             </div>
           </div>
@@ -517,41 +630,326 @@ const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({ className
               animationStep === 0 ? "opacity-100" : "opacity-0 absolute inset-0"
             )}>
               <span className="inline-block w-2 h-2 bg-[#C9D4DC] rounded-full animate-pulse"></span>
-              Initializing platform matching...
+              Initializing LG Development's capital matching platform...
             </p>
             <p className={cn(
               "text-sm font-medium transition-all duration-1000 relative z-10 flex items-center justify-center gap-2",
               animationStep === 1 ? "opacity-100" : "opacity-0 absolute inset-0"
             )}>
               <span className="inline-block w-2 h-2 bg-[#275E91] rounded-full animate-pulse"></span>
-              Processing investor criteria and preferences...
+              Processing <span className="text-amber-200 font-medium">Walton Street Capital</span> investment criteria...
             </p>
             <p className={cn(
               "text-sm font-medium transition-all duration-1000 relative z-10 flex items-center justify-center gap-2",
               animationStep === 2 ? "opacity-100" : "opacity-0 absolute inset-0"
             )}>
               <span className="inline-block w-2 h-2 bg-[#275E91] rounded-full animate-pulse"></span>
-              Running match algorithm with <span className="text-[#275E91] font-bold">128</span> parameters...
+              Matching to <span className="text-amber-200 font-medium">Chicago properties</span> with <span className="text-[#275E91] font-bold">128</span> parameters...
             </p>
             <p className={cn(
               "text-sm font-medium transition-all duration-1000 relative z-10 flex items-center justify-center gap-2",
               animationStep === 3 ? "opacity-100" : "opacity-0 absolute inset-0"
             )}>
               <span className="inline-block w-2 h-2 bg-[#7A8D79] rounded-full animate-pulse"></span>
-              Calculating risk profile and match strength...
+              Analyzing <span className="text-amber-200 font-medium">Triangle Square</span> risk and return profile...
             </p>
             <p className={cn(
               "text-sm font-medium transition-all duration-1000 relative z-10 flex items-center justify-center gap-2",
               animationStep === 4 ? "opacity-100" : "opacity-0 absolute inset-0"
             )}>
               <span className="inline-block w-2 h-2 bg-[#2E7D32] rounded-full animate-pulse"></span>
-              Match found! <span className="text-[#2E7D32] font-bold">98%</span> alignment with investor criteria
+              Perfect match! <span className="text-[#2E7D32] font-bold">98%</span> alignment with <span className="text-amber-200 font-medium">LG Development's strategic goals</span>
             </p>
           </div>
         </div>
         
         {/* Progress indicator */}
         <ProgressIndicator />
+
+        {/* Guided Tour Button */}
+        <div className="absolute right-3 top-3 z-20">
+          <button 
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-xs font-medium text-white transition-all hover:bg-white/15"
+            onClick={startTour}
+          >
+            <HelpCircle className="w-3 h-3" />
+            Guided Tour
+          </button>
+          
+          {/* Tour Overlay */}
+          {showGuidedTour && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center">
+              <div className="absolute inset-0 bg-black/70" onClick={endTour}></div>
+              
+              {/* Tour Content */}
+              <div className="max-w-md w-full bg-[#1E2F45]/95 backdrop-blur-md rounded-lg shadow-2xl border border-white/10 p-5 relative z-10 text-white">
+                <div className="absolute -top-2 -right-2">
+                  <button 
+                    className="w-6 h-6 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                    onClick={endTour}
+                  >
+                    <X className="w-3 h-3" />
+                  </button>
+                </div>
+                
+                <h3 className="text-lg font-bold mb-2 flex items-center gap-2">
+                  <Play className="w-4 h-4 text-amber-200" />
+                  {tourStep === 1 && "Step 1: LP Profiles"}
+                  {tourStep === 2 && "Step 2: AI Matching Engine"}
+                  {tourStep === 3 && "Step 3: Deal Analysis"}
+                  {tourStep === 4 && "Step 4: Match Confirmation"}
+                </h3>
+                
+                <div className="mb-4">
+                  {tourStep === 1 && (
+                    <p className="text-sm">
+                      The Capital Match platform starts by analyzing <span className="text-amber-200 font-medium">LP profiles</span>. 
+                      We've collected detailed investment criteria from {lpName}, 
+                      including their focus on Chicago properties and $42M commitment.
+                    </p>
+                  )}
+                  
+                  {tourStep === 2 && (
+                    <p className="text-sm">
+                      Our <span className="text-amber-200 font-medium">AI Matching Engine</span> processes over 128 data points 
+                      from each property and investor profile. This includes location preferences, 
+                      risk tolerance, return expectations, asset types, and historical investment patterns.
+                    </p>
+                  )}
+                  
+                  {tourStep === 3 && (
+                    <p className="text-sm">
+                      The platform identifies <span className="text-amber-200 font-medium">{dealName}</span> as a potential match 
+                      based on its alignment with {lpName}'s investment criteria. 
+                      Our algorithm evaluates risk factors and capital requirements in real-time.
+                    </p>
+                  )}
+                  
+                  {tourStep === 4 && (
+                    <p className="text-sm">
+                      The platform confirms a <span className="text-amber-200 font-medium">98% match score</span>, indicating 
+                      exceptional alignment between investor criteria and project characteristics. 
+                      This level of precision allows LG Development to approach investors with 
+                      opportunities tailored to their exact specifications.
+                    </p>
+                  )}
+                </div>
+                
+                <div className="flex items-center justify-between">
+                  <div className="flex gap-1">
+                    {[1, 2, 3, 4].map(step => (
+                      <div 
+                        key={step}
+                        className={cn(
+                          "w-2 h-2 rounded-full",
+                          tourStep >= step ? "bg-amber-200" : "bg-white/30"
+                        )}
+                      />
+                    ))}
+                  </div>
+                  
+                  <button 
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-200/20 backdrop-blur-sm border border-amber-200/30 text-xs font-medium text-white transition-all hover:bg-amber-200/30"
+                    onClick={nextTourStep}
+                  >
+                    {tourStep < 4 ? (
+                      <>
+                        Next <ChevronRight className="w-3 h-3" />
+                      </>
+                    ) : (
+                      "Finish Tour"
+                    )}
+                  </button>
+                </div>
+              </div>
+              
+              {/* Highlight Indicators */}
+              {tourStep === 1 && (
+                <div className="absolute top-1/3 left-1/4 transform -translate-x-1/2 -translate-y-1/2 w-36 h-36 rounded-full border-2 border-amber-200 animate-pulse z-20"></div>
+              )}
+              
+              {tourStep === 2 && (
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-36 h-36 rounded-lg border-2 border-amber-200 animate-pulse z-20"></div>
+              )}
+              
+              {tourStep === 3 && (
+                <div className="absolute top-1/3 right-1/4 transform translate-x-1/2 -translate-y-1/2 w-36 h-36 rounded-lg border-2 border-amber-200 animate-pulse z-20"></div>
+              )}
+              
+              {tourStep === 4 && (
+                <div className="absolute bottom-1/4 left-1/2 transform -translate-x-1/2 w-[80%] h-16 rounded-lg border-2 border-amber-200 animate-pulse z-20"></div>
+              )}
+            </div>
+          )}
+        </div>
+        
+        {/* Filtering Controls */}
+        {showFilters && (
+          <div className="absolute left-3 top-3 z-20">
+            <button 
+              className={cn(
+                "flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-xs font-medium text-white transition-all",
+                filtersOpen ? "bg-white/20 shadow-lg" : "hover:bg-white/15"
+              )}
+              onClick={() => setFiltersOpen(!filtersOpen)}
+            >
+              <Filter className="w-3 h-3" />
+              Filters
+              {filtersOpen ? (
+                <X className="w-3 h-3" />
+              ) : (
+                <ChevronDown className="w-3 h-3" />
+              )}
+            </button>
+            
+            {filtersOpen && (
+              <div className="absolute top-full left-0 mt-2 w-64 p-3 rounded-md bg-[#1E2F45]/95 backdrop-blur-md shadow-xl border border-white/10 text-white text-xs animate-in slide-in-from-top-2 duration-200">
+                {/* Deal Size Filter */}
+                <div className="mb-3">
+                  <div className="flex items-center mb-1.5 font-medium">
+                    <DollarSign className="w-3 h-3 mr-1 text-amber-200" />
+                    Deal Size ($ millions)
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <input
+                      type="range"
+                      min="10"
+                      max="200"
+                      value={filters.dealSize[0]}
+                      onChange={(e) => handleFilterChange('dealSize', [parseInt(e.target.value), filters.dealSize[1]])}
+                      className="w-24 accent-amber-200"
+                    />
+                    <span className="text-amber-200 font-medium">${filters.dealSize[0]}M - ${filters.dealSize[1]}M</span>
+                    <input
+                      type="range"
+                      min="10"
+                      max="200"
+                      value={filters.dealSize[1]}
+                      onChange={(e) => handleFilterChange('dealSize', [filters.dealSize[0], parseInt(e.target.value)])}
+                      className="w-24 accent-amber-200"
+                    />
+                  </div>
+                </div>
+                
+                {/* Location Filter */}
+                <div className="mb-3">
+                  <div className="flex items-center mb-1.5 font-medium">
+                    <MapPin className="w-3 h-3 mr-1 text-amber-200" />
+                    Location
+                  </div>
+                  <div className="flex flex-wrap gap-1.5">
+                    {["Chicago", "Milwaukee", "Indianapolis", "Detroit"].map((city) => (
+                      <button
+                        key={city}
+                        className={cn(
+                          "px-2 py-1 rounded-full text-[10px] font-medium border transition-colors",
+                          filters.location.includes(city) 
+                            ? "bg-amber-200/20 border-amber-200/40 text-white" 
+                            : "bg-white/5 border-white/10 text-white/70 hover:bg-white/10"
+                        )}
+                        onClick={() => {
+                          const newLocations = filters.location.includes(city)
+                            ? filters.location.filter(c => c !== city)
+                            : [...filters.location, city];
+                          handleFilterChange('location', newLocations);
+                        }}
+                      >
+                        {city}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Investor Type Filter */}
+                <div className="mb-3">
+                  <div className="flex items-center mb-1.5 font-medium">
+                    <Users className="w-3 h-3 mr-1 text-amber-200" />
+                    Investor Type
+                  </div>
+                  <div className="flex flex-wrap gap-1.5">
+                    {["Institutional", "Family Office", "Private Equity", "HNWI"].map((type) => (
+                      <button
+                        key={type}
+                        className={cn(
+                          "px-2 py-1 rounded-full text-[10px] font-medium border transition-colors",
+                          filters.investorType.includes(type) 
+                            ? "bg-amber-200/20 border-amber-200/40 text-white" 
+                            : "bg-white/5 border-white/10 text-white/70 hover:bg-white/10"
+                        )}
+                        onClick={() => {
+                          const newTypes = filters.investorType.includes(type)
+                            ? filters.investorType.filter(t => t !== type)
+                            : [...filters.investorType, type];
+                          handleFilterChange('investorType', newTypes);
+                        }}
+                      >
+                        {type}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Asset Class Filter */}
+                <div className="mb-3">
+                  <div className="flex items-center mb-1.5 font-medium">
+                    <Building className="w-3 h-3 mr-1 text-amber-200" />
+                    Asset Class
+                  </div>
+                  <div className="flex flex-wrap gap-1.5">
+                    {["Multifamily", "Mixed-Use", "Office", "Retail", "Industrial"].map((asset) => (
+                      <button
+                        key={asset}
+                        className={cn(
+                          "px-2 py-1 rounded-full text-[10px] font-medium border transition-colors",
+                          filters.assetClass.includes(asset) 
+                            ? "bg-amber-200/20 border-amber-200/40 text-white" 
+                            : "bg-white/5 border-white/10 text-white/70 hover:bg-white/10"
+                        )}
+                        onClick={() => {
+                          const newAssets = filters.assetClass.includes(asset)
+                            ? filters.assetClass.filter(a => a !== asset)
+                            : [...filters.assetClass, asset];
+                          handleFilterChange('assetClass', newAssets);
+                        }}
+                      >
+                        {asset}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Return Profile Filter */}
+                <div>
+                  <div className="flex items-center mb-1.5 font-medium">
+                    <BarChart3 className="w-3 h-3 mr-1 text-amber-200" />
+                    Return Profile
+                  </div>
+                  <div className="flex flex-wrap gap-1.5">
+                    {["Core", "Core-Plus", "Value-Add", "Opportunistic"].map((profile) => (
+                      <button
+                        key={profile}
+                        className={cn(
+                          "px-2 py-1 rounded-full text-[10px] font-medium border transition-colors",
+                          filters.returnProfile.includes(profile) 
+                            ? "bg-amber-200/20 border-amber-200/40 text-white" 
+                            : "bg-white/5 border-white/10 text-white/70 hover:bg-white/10"
+                        )}
+                        onClick={() => {
+                          const newProfiles = filters.returnProfile.includes(profile)
+                            ? filters.returnProfile.filter(p => p !== profile)
+                            : [...filters.returnProfile, profile];
+                          handleFilterChange('returnProfile', newProfiles);
+                        }}
+                      >
+                        {profile}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -61,10 +61,7 @@ const HeroSection = () => {
         <div className="large-text md:text-2xl mb-8 max-w-3xl relative">
           <div className="absolute -left-2 top-0 w-1 h-full bg-gradient-to-b from-[#7A8D79] to-transparent opacity-60 rounded-full"></div>
           <p className="text-[#1C1C1C] leading-relaxed">
-            Automating the alignment of investor criteria with development opportunities through 
-            <span className="text-[#275E91] font-medium"> advanced AI </span> 
-            and 
-            <span className="text-[#7A8D79] font-medium"> machine learning</span>.
+            AI-powered matching algorithm that aligns LG Development's projects with investor criteria in real-time, accelerating capital formation for future developments.
           </p>
         </div>
         
@@ -75,7 +72,7 @@ const HeroSection = () => {
         
         {/* Enhanced CTA buttons with Primary Blue to 5B7B9C gradient */}
         <div className="flex flex-col sm:flex-row gap-4 mb-16 animate-fade-in animation-delay-500">
-          <a href="/prototype" className="transition-transform hover:scale-105 focus:scale-105 group">
+          <a href="/platform" className="transition-transform hover:scale-105 focus:scale-105 group">
             <Button className="bg-gradient-to-r from-[#275E91] to-[#5B7B9C] hover:from-[#275E91] hover:to-[#7A8D79] transition-all duration-300 px-8 py-6 text-lg rounded-md font-semibold text-white shadow-lg hover:shadow-xl flex items-center gap-2 group-hover:gap-3 relative overflow-hidden">
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#275E91]/80 to-[#5B7B9C]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
               <span className="relative z-10 flex items-center gap-2 group-hover:gap-3">

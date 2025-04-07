@@ -5,6 +5,7 @@ export interface Match {
   dealId: string;
   dealName: string;
   confidenceScore: number; // 0-100
+  date: string; // ISO date string
   factors: {
     factor: string;
     weight: number; // 0-10
@@ -24,6 +25,7 @@ export const matches: Match[] = [
     dealId: "deal2",
     dealName: "Highlands Villas",
     confidenceScore: 87,
+    date: "2025-03-15T14:30:00Z",
     factors: [
       {
         factor: "Geographic Alignment",
@@ -73,6 +75,7 @@ export const matches: Match[] = [
     dealId: "deal1",
     dealName: "Waterfront Heights",
     confidenceScore: 92,
+    date: "2025-03-28T10:15:00Z",
     factors: [
       {
         factor: "Geographic Alignment",
@@ -122,6 +125,7 @@ export const matches: Match[] = [
     dealId: "deal3",
     dealName: "Midtown Square",
     confidenceScore: 84,
+    date: "2025-03-25T15:45:00Z",
     factors: [
       {
         factor: "Geographic Alignment",
@@ -171,6 +175,7 @@ export const matches: Match[] = [
     dealId: "deal4",
     dealName: "Riverside Commons",
     confidenceScore: 78,
+    date: "2025-03-22T09:30:00Z",
     factors: [
       {
         factor: "Geographic Alignment",
@@ -220,6 +225,7 @@ export const matches: Match[] = [
     dealId: "deal2",
     dealName: "Highlands Villas",
     confidenceScore: 89,
+    date: "2025-04-01T11:00:00Z",
     factors: [
       {
         factor: "Geographic Alignment",
