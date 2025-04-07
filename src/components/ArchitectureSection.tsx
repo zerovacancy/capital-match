@@ -1,9 +1,16 @@
 
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Database, Server, Cpu, CloudCog } from "lucide-react";
+import { Database, Server, Cpu, CloudCog, ZoomIn, ZoomOut } from "lucide-react";
+import { useState } from 'react';
 
 const ArchitectureSection = () => {
+  const [isZoomed, setIsZoomed] = useState(false);
+
+  const toggleZoom = () => {
+    setIsZoomed(!isZoomed);
+  };
+
   const architectureComponents = [
     {
       title: "Data Ingestion Layer",
@@ -41,15 +48,26 @@ const ArchitectureSection = () => {
       </div>
       
       <div className="relative max-w-4xl mx-auto">
-        {/* Architecture Diagram Visualization - Using uploaded image */}
+        {/* Architecture Diagram Visualization - Using uploaded image with zoom functionality */}
         <div className="card-bg-primary rounded-xl shadow-lg p-6 md:p-8 mb-12 border border-lg-border/60">
-          <h3 className="text-lg font-semibold text-lg-blue mb-4 text-center font-display">System Architecture Overview</h3>
-          <div className="rounded-lg overflow-hidden shadow-md border border-lg-border/50">
-            <img 
-              src="/assets/images/home/architecture/data-sources/System Architecture Overview.webp" 
-              alt="System Architecture Diagram"
-              className="w-full h-auto object-contain"
-            />
+          <div className="flex justify-between items-center mb-4">
+            <h3 className="text-lg font-semibold text-lg-blue font-display">System Architecture Overview</h3>
+            <button 
+              onClick={toggleZoom} 
+              className="flex items-center gap-1 px-3 py-1.5 rounded-md bg-lg-blue/10 text-lg-blue hover:bg-lg-blue/20 transition-colors"
+            >
+              {isZoomed ? <ZoomOut className="w-4 h-4" /> : <ZoomIn className="w-4 h-4" />}
+              <span className="text-sm">{isZoomed ? 'Zoom Out' : 'Zoom In'}</span>
+            </button>
+          </div>
+          <div className={`rounded-lg overflow-hidden shadow-md border border-lg-border/50 transition-all duration-300 ${isZoomed ? 'h-[500px] overflow-auto' : ''}`}>
+            <div className={`transition-transform duration-300 ${isZoomed ? 'scale-150 transform-origin-top-left p-8' : ''}`}>
+              <img 
+                src="/assets/images/home/architecture/data-sources/System Architecture Overview.webp" 
+                alt="System Architecture Diagram"
+                className="w-full h-auto object-contain"
+              />
+            </div>
           </div>
           <div className="mt-6 text-base text-lg-gray text-center max-w-3xl mx-auto leading-relaxed">
             <p>Our comprehensive architecture integrates data sources, security layers, and AI components through a scalable, multi-tiered approach.</p>
