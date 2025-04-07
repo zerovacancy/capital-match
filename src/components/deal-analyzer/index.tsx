@@ -27,23 +27,31 @@ export function DealAnalyzer() {
   });
 
   return (
-    <div className="bg-card rounded-lg border shadow-sm flex flex-col h-full">
-      <div className="p-4 border-b">
-        <h2 className="text-2xl font-bold">Deal Analysis Engine</h2>
-        <p className="text-muted-foreground">Analyze and standardize deal metrics for consistent evaluation</p>
+    <div className="bg-white rounded-xl border border-gray-200 shadow-sm flex flex-col h-full">
+      <div className="p-6 border-b border-gray-100">
+        <div className="flex items-center mb-1">
+          <div className="p-2 bg-[#F8F5F0] rounded-md mr-3">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#275E91]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+          </div>
+          <h2 className="text-xl font-semibold text-gray-900">Deal Analysis Engine</h2>
+        </div>
+        <p className="text-gray-500 ml-10">Analyze and standardize deal metrics for consistent evaluation</p>
       </div>
       
-      <div className="p-4 grid grid-cols-12 gap-4 h-[calc(100%-4rem)]">
+      <div className="p-6 grid grid-cols-12 gap-6 h-[calc(100%-5rem)]">
         <div className="col-span-12 md:col-span-5 flex flex-col h-full">
-          <div className="flex gap-2 mb-4">
+          <div className="flex gap-3 mb-5">
             <Input 
               placeholder="Search deals..." 
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="flex-1"
+              className="flex-1 border-gray-200 focus:border-[#275E91] focus:ring-[#275E91]/20"
             />
             <Select value={filter} onValueChange={setFilter}>
-              <SelectTrigger className="w-[150px]">
+              <SelectTrigger className="w-[150px] border-gray-200 text-gray-700 hover:border-gray-300 focus:border-[#275E91] focus:ring-[#275E91]/20">
                 <SelectValue placeholder="Filter" />
               </SelectTrigger>
               <SelectContent>
@@ -58,25 +66,34 @@ export function DealAnalyzer() {
             </Select>
           </div>
           
-          <ScrollArea className="flex-1">
-            <div className="space-y-3 pr-4">
-              {filteredDeals.map(deal => (
-                <DealCard 
-                  key={deal.id}
-                  deal={deal}
-                  selected={selectedDeal.id === deal.id}
-                  onClick={() => setSelectedDeal(deal)}
-                />
-              ))}
-              {filteredDeals.length === 0 && (
-                <p className="text-center text-muted-foreground py-8">No deals found matching your search criteria.</p>
-              )}
+          <div className="rounded-xl border border-gray-200 shadow-sm overflow-hidden flex-1">
+            <div className="bg-gray-50 p-3 border-b border-gray-100 flex justify-between items-center">
+              <span className="text-sm font-medium text-gray-700">Deal Pipeline</span>
+              <span className="text-xs bg-[#F8F5F0] text-[#275E91] py-1 px-2 rounded-full">{filteredDeals.length} results</span>
             </div>
-          </ScrollArea>
+            <ScrollArea className="h-[calc(100%-3rem)]">
+              <div className="space-y-0 divide-y divide-gray-100">
+                {filteredDeals.map(deal => (
+                  <div key={deal.id} className={`hover:bg-gray-50 transition-colors ${selectedDeal.id === deal.id ? 'bg-[#F8F5F0]' : ''}`}>
+                    <DealCard 
+                      deal={deal}
+                      selected={selectedDeal.id === deal.id}
+                      onClick={() => setSelectedDeal(deal)}
+                    />
+                  </div>
+                ))}
+                {filteredDeals.length === 0 && (
+                  <p className="text-center text-gray-500 py-8">No deals found matching your search criteria.</p>
+                )}
+              </div>
+            </ScrollArea>
+          </div>
         </div>
         
         <div className="col-span-12 md:col-span-7 h-full">
-          <DealDetail deal={selectedDeal} />
+          <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-5 h-full">
+            <DealDetail deal={selectedDeal} />
+          </div>
         </div>
       </div>
     </div>

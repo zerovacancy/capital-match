@@ -3,6 +3,7 @@ import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Database, Server, Cpu, CloudCog, ZoomIn, ZoomOut, AlertCircle } from "lucide-react";
 import { useState } from 'react';
+import ArchitectureDiagram from './visualization/ArchitectureDiagram';
 
 const ArchitectureSection = () => {
   const [isZoomed, setIsZoomed] = useState(false);
@@ -34,13 +35,13 @@ const ArchitectureSection = () => {
       title: "AI Engine",
       description: "Proprietary algorithms and machine learning models that power the matching logic and predictive analytics.",
       icon: <CloudCog className="w-10 h-10 text-white" />,
-      color: "bg-lg-blue-light"
+      color: "bg-lg-accent" 
     },
     {
       title: "API & Integration Layer",
       description: "Secure endpoints for exchanging data with external systems and presenting information to users.",
       icon: <Server className="w-10 h-10 text-white" />,
-      color: "bg-lg-gray"
+      color: "bg-lg-blue"
     }
   ];
 
@@ -54,38 +55,33 @@ const ArchitectureSection = () => {
       </div>
       
       <div className="relative max-w-4xl mx-auto">
-        {/* Architecture Diagram Visualization - Using uploaded image with zoom functionality */}
-        <div className="rounded-xl shadow-lg p-6 md:p-8 mb-12 border border-lg-border/60 bg-transparent">
-          <div className="flex justify-between items-center mb-4">
-            <h3 className="text-lg font-semibold text-lg-blue font-display">System Architecture Overview</h3>
+        {/* Architecture Diagram Visualization */}
+        <div className="mb-16">
+          {/* Diagram container with border including title and description */}
+          <div className={`border-2 border-lg-blue/20 rounded-xl p-6 relative ${isZoomed ? 'max-h-[650px] overflow-auto' : ''}`}>
+            {/* Zoom button */}
             <button 
               onClick={toggleZoom} 
-              className="flex items-center gap-1 px-3 py-1.5 rounded-md bg-lg-blue/10 text-lg-blue hover:bg-lg-blue/20 transition-colors"
+              className="absolute top-3 right-3 z-10 flex items-center gap-1 px-3 py-1.5 rounded-md bg-lg-blue/10 text-lg-blue hover:bg-lg-blue/20 transition-colors"
             >
               {isZoomed ? <ZoomOut className="w-4 h-4" /> : <ZoomIn className="w-4 h-4" />}
               <span className="text-sm">{isZoomed ? 'Zoom Out' : 'Zoom In'}</span>
             </button>
-          </div>
-          <div className={`rounded-lg overflow-hidden shadow-md border border-lg-border/50 transition-all duration-300 bg-white/5 ${isZoomed ? 'h-[500px] overflow-auto' : 'min-h-[300px]'}`}>
-            {imageError ? (
-              <div className="flex flex-col items-center justify-center h-full min-h-[300px] p-8 bg-lg-border/10">
-                <AlertCircle className="w-12 h-12 text-lg-gray mb-4" />
-                <p className="text-lg-gray text-center">Could not load architecture diagram</p>
+            
+            {/* Centered title and description */}
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-semibold text-lg-blue font-display mb-3">System Architecture Overview</h3>
+              <p className="text-base text-lg-gray max-w-3xl mx-auto leading-relaxed">
+                Our comprehensive architecture integrates data sources, security layers, and AI components through a scalable, multi-tiered approach.
+              </p>
+            </div>
+            
+            {/* Diagram */}
+            <div className={`transition-all duration-300 ${isZoomed ? 'min-h-[350px]' : 'min-h-[350px]'}`}>
+              <div className={`transition-transform duration-300 ${isZoomed ? 'scale-125 transform-origin-top-left' : ''}`}>
+                <ArchitectureDiagram className="w-full h-auto" />
               </div>
-            ) : (
-              <div className={`transition-transform duration-300 ${isZoomed ? 'scale-150 transform-origin-top-left p-8' : 'p-4'}`}>
-                <img 
-                  src="/assets/images/home/architecture/data-sources/System Architecture Overview.webp" 
-                  alt="System Architecture Diagram"
-                  className="w-full h-auto object-contain min-h-[250px]"
-                  style={{ display: 'block', margin: '0 auto' }}
-                  onError={handleImageError}
-                />
-              </div>
-            )}
-          </div>
-          <div className="mt-6 text-base text-lg-gray text-center max-w-3xl mx-auto leading-relaxed">
-            <p>Our comprehensive architecture integrates data sources, security layers, and AI components through a scalable, multi-tiered approach.</p>
+            </div>
           </div>
         </div>
         

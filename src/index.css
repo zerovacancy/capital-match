@@ -153,30 +153,30 @@
 }
 
 @layer components {
-  /* Enhanced section containers with responsive behavior */
+  /* Enhanced section containers with consistent spacing */
   .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-24;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20;
     background-color: #ECEDE3; /* Main background color */
   }
   
   /* Mobile-friendly section with better spacing */
   .section-container-mobile {
-    @apply max-w-7xl mx-auto px-4 py-8 sm:py-12;
+    @apply max-w-7xl mx-auto px-4 py-8 sm:py-10;
     background-color: #ECEDE3; /* Main background color */
   }
   
-  /* Enhanced section title with better responsive behavior */
+  /* Improved section title with better typography */
   .section-title {
-    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 font-display tracking-tight;
+    @apply text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 font-display tracking-tight;
     letter-spacing: -0.01em;
-    color: #275E91; /* Primary Blue */
+    color: #1C1C1C; /* Text color instead of blue for better readability */
   }
   
-  /* Enhanced section subtitle with better responsive behavior */
+  /* Improved section subtitle with better spacing */
   .section-subtitle {
-    @apply text-base sm:text-lg md:text-xl mb-6 sm:mb-10 max-w-3xl font-sans leading-relaxed;
+    @apply text-base sm:text-lg mb-6 sm:mb-8 max-w-3xl font-sans leading-relaxed;
     line-height: 1.5;
-    color: #1C1C1C; /* Text color */
+    color: #4B5563; /* Lighter text color for better hierarchy */
   }
   
   /* Section dividers with Section Highlight color */
@@ -208,10 +208,32 @@
     @apply px-4 py-4 sm:px-6 sm:py-6;
   }
   
-  .feature-card {
-    @apply rounded-lg shadow-lg p-6 transition-all duration-300 hover:shadow-xl border;
+  /* Card system with multiple variants */
+  .card {
+    @apply rounded-lg border shadow-sm transition-all duration-300;
     background-color: white;
-    border-color: #D0D0D0; /* Border color */
+    border-color: #E5E7EB;
+  }
+  
+  .card-header {
+    @apply p-4 border-b;
+    border-color: #F3F4F6;
+  }
+  
+  .card-content {
+    @apply p-4;
+  }
+  
+  .card-footer {
+    @apply p-4 border-t;
+    border-color: #F3F4F6;
+  }
+  
+  /* Feature card with improved spacing */
+  .feature-card {
+    @apply rounded-lg shadow-sm p-5 transition-all duration-300 hover:shadow-md border;
+    background-color: white;
+    border-color: #E5E7EB;
   }
   
   .timeline-item {
@@ -230,22 +252,20 @@
   
   /* Enhanced button styles with accessibility improvements */
   
-  /* Primary button - Primary Blue */
+  /* Simpler button system with better accessibility */
   .btn-primary {
-    @apply px-6 py-3 text-white rounded-md font-semibold transition-all duration-300 relative;
+    @apply px-4 py-2 text-white rounded-md font-medium transition-all duration-200 relative flex items-center justify-center;
     background-color: #275E91; /* Primary Blue */
-    min-height: 44px; /* Larger touch target for mobile */
+    min-height: 40px; /* Accessible touch target */
   }
   
   .btn-primary:hover {
     background-color: #1A4D80; /* Primary Blue hover */
-    transform: translateY(-1px);
-    box-shadow: 0 4px 6px -1px rgba(39, 94, 145, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
   .btn-primary:active {
     background-color: #134770; /* Primary Blue active */
-    transform: translateY(0);
   }
   
   .btn-primary:focus-visible {
@@ -644,10 +664,38 @@
     @apply text-xs uppercase tracking-wider text-[#1C1C1C] font-medium;
   }
   
+  /* Card system for data display */
+  .data-card {
+    @apply p-4 rounded-lg bg-white shadow-sm border border-gray-200;
+  }
+  
+  .data-card-header {
+    @apply flex justify-between items-center mb-3 pb-2 border-b border-gray-100;
+  }
+  
+  .data-card-title {
+    @apply text-lg font-medium text-gray-800;
+  }
+  
+  .data-card-content {
+    @apply space-y-3;
+  }
+  
+  .data-row {
+    @apply flex justify-between items-center py-1.5;
+  }
+  
+  .data-label {
+    @apply text-sm text-gray-500;
+  }
+  
+  .data-value {
+    @apply text-sm font-medium text-gray-900;
+  }
+  
   /* Mobile-first card with proper spacing and touch targets */
   .mobile-card {
-    @apply p-4 sm:p-6 rounded-lg bg-white shadow-md;
-    border: 1px solid #C9D4DC; /* Section Highlight */
+    @apply p-4 sm:p-5 rounded-lg bg-white shadow-sm border border-gray-200;
   }
   
   /* Focus outline for interactive elements */

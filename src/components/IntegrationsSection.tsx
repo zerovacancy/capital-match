@@ -81,48 +81,23 @@ const IntegrationsSection = () => {
       </div>
       
       <div className="max-w-6xl mx-auto">
-        {/* Header explaining platform integration */}
-        <div className="mb-12 bg-footer rounded-xl p-6 shadow-md text-center border border-highlight/30">
-          <div className="w-20 h-20 mx-auto bg-gradient-to-br from-lg-blue-dark via-lg-blue to-lg-accent rounded-full flex items-center justify-center mb-4">
-            <div className="text-white font-bold text-xl">LG AI</div>
-          </div>
-          <h3 className="h3 mb-2">Capital Match AI Platform</h3>
-          <p className="max-w-2xl mx-auto">
+        {/* Main section content */}
+        <div className="mb-12 max-w-3xl mx-auto text-center">
+          <p className="text-lg text-lg-text">
             Our platform seamlessly integrates with your existing technology stack to provide a unified experience across all your tools and systems.
           </p>
         </div>
         
-        {/* Integration cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {integrations.map((integration, index) => (
-            <div key={index} className="bg-footer rounded-lg shadow-md p-6 border border-highlight/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-              <div className="flex flex-col items-center text-center">
-                <div className="w-24 h-24 flex items-center justify-center mb-4 transition-all duration-300">
-                  <img 
-                    src={integration.logo} 
-                    alt={`${integration.name} logo`} 
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <h3 className="h4 mb-1">{integration.name}</h3>
-                <div className="text-xs font-medium text-lg-accent mb-2">{integration.category}</div>
-                <p className="small-text">{integration.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-        
-        {/* Visual representation of system connections */}
-        <div className="mt-16 bg-footer rounded-xl p-8 shadow-md border border-highlight/30">
-          <h3 className="h3 mb-6 text-center">Integration Architecture</h3>
-          <div className="relative w-full" style={{ height: "400px" }}>
+        {/* Integration Architecture Visualization - Simplified design without redundancy */}
+        <div className="relative mb-0">
+          <div className="relative w-full mx-auto max-w-3xl" style={{ height: "450px" }}>
             {/* Center platform */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-gradient-to-br from-lg-blue-dark via-lg-blue to-lg-accent rounded-lg flex items-center justify-center z-30 shadow-lg">
-              <div className="text-white text-center px-1">
-                <p className="font-bold text-xs">Capital Match</p>
-                <p className="text-[10px]">AI Platform</p>
-                <div className="w-full h-0.5 bg-white/20 my-0.5"></div>
-                <p className="text-[8px]">Integration Hub</p>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-br from-lg-blue-dark via-lg-blue to-lg-accent rounded-lg flex items-center justify-center z-30 shadow-lg">
+              <div className="text-white text-center px-2">
+                <p className="font-bold text-base">Capital Match</p>
+                <p className="text-sm">AI Platform</p>
+                <div className="w-full h-0.5 bg-white/20 my-1.5"></div>
+                <p className="text-xs">Integration Hub</p>
               </div>
             </div>
             
@@ -131,14 +106,14 @@ const IntegrationsSection = () => {
               // Calculate position in a circle
               const totalItems = integrations.length;
               const angle = (Math.PI * 2 * index) / totalItems;
-              const radius = 180; // Increased radius to prevent overlap
+              const radius = 180; // Radius for circle placement
               const x = Math.cos(angle) * radius; 
               const y = Math.sin(angle) * radius;
               
               return (
                 <div 
                   key={index} 
-                  className="absolute w-20 h-20 bg-footer rounded-full shadow-md flex items-center justify-center border border-highlight/40 z-20"
+                  className="absolute w-20 h-20 bg-white rounded-full shadow-md flex flex-col items-center justify-center z-20 transition-all duration-300 hover:scale-110 hover:shadow-lg group"
                   style={{ 
                     left: `calc(50% + ${x}px - 40px)`, 
                     top: `calc(50% + ${y}px - 40px)`,
@@ -147,18 +122,11 @@ const IntegrationsSection = () => {
                   <img 
                     src={integration.logo} 
                     alt={`${integration.name} logo`} 
-                    className="w-12 h-12 object-contain"
+                    className="w-12 h-12 object-contain mb-1"
                   />
-                  
-                  {/* Label - position dynamically based on position in circle */}
-                  <div 
-                    className={`absolute whitespace-nowrap text-xs font-medium bg-footer px-2 py-1 rounded shadow-sm z-40 ${
-                      // Position labels based on which quadrant they're in
-                      y < 0 ? '-bottom-8' : 'top-[-32px]'
-                    }`}
-                  >
+                  <span className="text-[10px] font-medium opacity-0 group-hover:opacity-100 transition-opacity text-lg-blue">
                     {integration.name}
-                  </div>
+                  </span>
                 </div>
               );
             })}
@@ -168,7 +136,7 @@ const IntegrationsSection = () => {
               {integrations.map((_, index) => {
                 const totalItems = integrations.length;
                 const angle = (Math.PI * 2 * index) / totalItems;
-                const innerRadius = 6; // Central platform radius in %
+                const innerRadius = 8; // Central platform radius in %
                 const outerRadius = 36; // Outer circle radius in %
                 
                 // Calculate start and end points
@@ -181,9 +149,9 @@ const IntegrationsSection = () => {
                   <path 
                     key={index}
                     d={`M${innerX} ${innerY} L${outerX} ${outerY}`} 
-                    stroke="#C9D4DC" 
-                    strokeWidth="0.5" 
-                    strokeDasharray="2 1"
+                    stroke="#275E91" 
+                    strokeWidth="0.75" 
+                    strokeDasharray="3 2"
                   />
                 );
               })}
