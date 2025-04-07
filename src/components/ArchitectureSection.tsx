@@ -63,13 +63,9 @@ const ArchitectureSection = () => {
               <div className={`${component.color} p-4`}>
                 <div className="flex items-center space-x-4">
                   {component.icon}
-                  {component.title === "AI Engine" ? (
-                    <div className="bg-gray-300/80 rounded px-4 py-1">
-                      <h3 className="text-lg font-semibold text-white font-display">{component.title}</h3>
-                    </div>
-                  ) : (
+                  <div className="bg-black/20 rounded px-4 py-1">
                     <h3 className="text-lg font-semibold text-white font-display">{component.title}</h3>
-                  )}
+                  </div>
                 </div>
               </div>
               <CardContent className="p-4">
