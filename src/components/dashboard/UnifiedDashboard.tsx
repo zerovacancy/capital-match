@@ -123,14 +123,26 @@ export function UnifiedDashboard() {
             {/* Top LPs, Deals and Matches */}
             <div className="grid grid-cols-12 gap-6 mb-8">
               <div className="col-span-12 md:col-span-4">
-                <Card className="h-[420px]">
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-lg">Top Investors</CardTitle>
-                    <CardDescription>By commitment size</CardDescription>
+                <Card className="h-[420px] border-lg-highlight/30 shadow-sm overflow-hidden">
+                  <CardHeader className="py-3 px-4 border-b border-lg-highlight/10">
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <CardTitle className="text-lg-blue text-lg flex items-center gap-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-lg-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                          </svg>
+                          Top Investors
+                        </CardTitle>
+                        <CardDescription className="text-lg-text mt-1">By commitment size</CardDescription>
+                      </div>
+                    </div>
                   </CardHeader>
                   <CardContent className="p-0">
                     <ScrollArea className="h-[340px]">
-                      <div className="px-4 py-3 space-y-4">
+                      <div className="px-4 py-3 space-y-3">
                         {topLPs.map(lp => (
                           <LPProfileCard
                             key={lp.id}
@@ -139,8 +151,8 @@ export function UnifiedDashboard() {
                             onClick={() => setSelectedLP(lp)}
                           />
                         ))}
-                        <div className="pt-3">
-                          <Button variant="ghost" size="sm" className="w-full flex justify-between items-center text-xs">
+                        <div className="pt-2">
+                          <Button variant="ghost" size="sm" className="w-full flex justify-between items-center text-xs text-lg-blue">
                             View all investors
                             <ChevronRight className="h-3 w-3" />
                           </Button>
@@ -152,14 +164,24 @@ export function UnifiedDashboard() {
               </div>
               
               <div className="col-span-12 md:col-span-4">
-                <Card className="h-[420px]">
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-lg">Top Deals</CardTitle>
-                    <CardDescription>By match probability</CardDescription>
+                <Card className="h-[420px] border-lg-highlight/30 shadow-sm overflow-hidden">
+                  <CardHeader className="py-3 px-4 border-b border-lg-highlight/10">
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <CardTitle className="text-lg-blue text-lg flex items-center gap-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-lg-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                          </svg>
+                          Top Deals
+                        </CardTitle>
+                        <CardDescription className="text-lg-text mt-1">By match probability</CardDescription>
+                      </div>
+                    </div>
                   </CardHeader>
                   <CardContent className="p-0">
                     <ScrollArea className="h-[340px]">
-                      <div className="px-4 py-3 space-y-4">
+                      <div className="px-4 py-3 space-y-3">
                         {topDeals.map(deal => (
                           <DealCard
                             key={deal.id}
@@ -168,8 +190,8 @@ export function UnifiedDashboard() {
                             onClick={() => setSelectedDeal(deal)}
                           />
                         ))}
-                        <div className="pt-3">
-                          <Button variant="ghost" size="sm" className="w-full flex justify-between items-center text-xs">
+                        <div className="pt-2">
+                          <Button variant="ghost" size="sm" className="w-full flex justify-between items-center text-xs text-lg-blue">
                             View all deals
                             <ChevronRight className="h-3 w-3" />
                           </Button>
@@ -181,14 +203,23 @@ export function UnifiedDashboard() {
               </div>
               
               <div className="col-span-12 md:col-span-4">
-                <Card className="h-[420px]">
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-lg">Recent Matches</CardTitle>
-                    <CardDescription>Investor-deal pairings</CardDescription>
+                <Card className="h-[420px] border-lg-highlight/30 shadow-sm overflow-hidden">
+                  <CardHeader className="py-3 px-4 border-b border-lg-highlight/10">
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <CardTitle className="text-lg-blue text-lg flex items-center gap-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-lg-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                          </svg>
+                          Recent Matches
+                        </CardTitle>
+                        <CardDescription className="text-lg-text mt-1">Investor-deal pairings</CardDescription>
+                      </div>
+                    </div>
                   </CardHeader>
                   <CardContent className="p-0">
                     <ScrollArea className="h-[340px]">
-                      <div className="px-4 py-3 space-y-4">
+                      <div className="px-4 py-3 space-y-3">
                         {recentMatches.map(match => (
                           <MatchCard
                             key={match.id}
@@ -197,8 +228,8 @@ export function UnifiedDashboard() {
                             onClick={() => {}}
                           />
                         ))}
-                        <div className="pt-3">
-                          <Button variant="ghost" size="sm" className="w-full flex justify-between items-center text-xs">
+                        <div className="pt-2">
+                          <Button variant="ghost" size="sm" className="w-full flex justify-between items-center text-xs text-lg-blue">
                             View all matches
                             <ChevronRight className="h-3 w-3" />
                           </Button>
