@@ -52,10 +52,10 @@ export function UnifiedDashboard() {
   const [selectedDeal, setSelectedDeal] = useState(deals[0]);
   
   // Top 3 LPs by commitment size
-  const topLPs = [...lps].sort((a, b) => b.commitmentSize - a.commitmentSize).slice(0, 3);
+  const topLPs = [...lps].sort((a, b) => ((b as any).commitmentSize || 0) - ((a as any).commitmentSize || 0)).slice(0, 3);
   
   // Top 3 deals by match score
-  const topDeals = [...deals].sort((a, b) => b.matchScore - a.matchScore).slice(0, 3);
+  const topDeals = [...deals].sort((a, b) => ((b as any).matchScore || 0) - ((a as any).matchScore || 0)).slice(0, 3);
   
   // Most recent matches
   const recentMatches = [...matches].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()).slice(0, 3);
