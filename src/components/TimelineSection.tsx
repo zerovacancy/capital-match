@@ -61,22 +61,33 @@ const TimelineSection = () => {
                   <span className="font-bold text-lg-accent">{index + 1}</span>
                 </div>
                 
-                {/* Content card */}
-                <div className="card-bg-primary rounded-lg shadow-md p-6 border border-lg-border/30 h-full">
-                  <div className="text-xs font-semibold text-lg-accent mb-2">{step.phase}</div>
-                  <h3 className="text-xl font-bold text-lg-blue-dark mb-3 font-display tracking-tight">{step.title}</h3>
-                  <p className="text-base text-lg-gray mb-4 leading-relaxed">{step.description}</p>
-                  <div className="mb-4">
-                    <ul className="text-xs space-y-1">
-                      {step.tasks.map((task, i) => (
-                        <li key={i} className="flex items-start">
-                          <span className="w-1.5 h-1.5 bg-lg-blue rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
-                          <span className="text-lg-gray-dark leading-relaxed">{task}</span>
-                        </li>
-                      ))}
-                    </ul>
+                {/* Content card with consistent spacing and alignment */}
+                <div className="card-bg-primary rounded-lg shadow-md border border-lg-border/30 h-full flex flex-col">
+                  {/* Card header with consistent left alignment */}
+                  <div className="p-6 pb-3">
+                    <div className="text-xs font-semibold text-lg-accent mb-2">{step.phase}</div>
+                    <h3 className="text-xl font-bold text-lg-blue-dark font-display tracking-tight">{step.title}</h3>
                   </div>
-                  <div className="mt-auto pt-2 border-t border-highlight/20 flex justify-between items-center">
+                  
+                  {/* Card body with proper text justification */}
+                  <div className="px-6 flex-grow flex flex-col">
+                    <p className="text-base text-lg-gray leading-relaxed mb-4 text-justify">{step.description}</p>
+                    
+                    {/* Bullet points with vertical alignment */}
+                    <div className="mb-auto">
+                      <ul className="space-y-2.5">
+                        {step.tasks.map((task, i) => (
+                          <li key={i} className="flex items-start">
+                            <span className="w-1.5 h-1.5 bg-lg-blue rounded-full mt-1.5 mr-3 flex-shrink-0"></span>
+                            <span className="text-sm text-lg-gray-dark leading-relaxed">{task}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                  
+                  {/* Card footer with timeline and status on same line */}
+                  <div className="p-6 pt-4 mt-auto border-t border-highlight/20 flex justify-between items-center">
                     <span className="text-xs font-medium text-lg-gray">{step.timeline}</span>
                     <span className="text-xs py-1 px-2 bg-lg-blue/10 text-lg-blue rounded-full">{step.status}</span>
                   </div>
@@ -96,22 +107,33 @@ const TimelineSection = () => {
                   <span className="font-bold text-lg-accent">{index + 1}</span>
                 </div>
                 
-                {/* Content card */}
-                <div className="card-bg-secondary rounded-lg shadow-md p-6 border border-lg-border/30">
-                  <div className="text-xs font-semibold text-lg-accent mb-2">{step.phase}</div>
-                  <h3 className="text-xl font-bold text-lg-blue-dark mb-3 font-display tracking-tight">{step.title}</h3>
-                  <p className="text-base text-lg-gray mb-4 leading-relaxed">{step.description}</p>
-                  <div className="mb-4">
-                    <ul className="text-xs space-y-1">
-                      {step.tasks.map((task, i) => (
-                        <li key={i} className="flex items-start">
-                          <span className="w-1.5 h-1.5 bg-lg-blue rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
-                          <span className="text-lg-gray-dark leading-relaxed">{task}</span>
-                        </li>
-                      ))}
-                    </ul>
+                {/* Content card with consistent spacing and alignment */}
+                <div className="card-bg-secondary rounded-lg shadow-md border border-lg-border/30 flex flex-col">
+                  {/* Card header with consistent left alignment */}
+                  <div className="p-6 pb-3">
+                    <div className="text-xs font-semibold text-lg-accent mb-2">{step.phase}</div>
+                    <h3 className="text-xl font-bold text-lg-blue-dark font-display tracking-tight">{step.title}</h3>
                   </div>
-                  <div className="mt-auto pt-2 border-t border-highlight/20 flex justify-between items-center">
+                  
+                  {/* Card body with proper text justification */}
+                  <div className="px-6 flex-grow flex flex-col">
+                    <p className="text-base text-lg-gray leading-relaxed mb-4 text-justify">{step.description}</p>
+                    
+                    {/* Bullet points with vertical alignment */}
+                    <div className="mb-auto">
+                      <ul className="space-y-2.5">
+                        {step.tasks.map((task, i) => (
+                          <li key={i} className="flex items-start">
+                            <span className="w-1.5 h-1.5 bg-lg-blue rounded-full mt-1.5 mr-3 flex-shrink-0"></span>
+                            <span className="text-sm text-lg-gray-dark leading-relaxed">{task}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                  
+                  {/* Card footer with timeline and status on same line */}
+                  <div className="p-6 pt-4 mt-auto border-t border-highlight/20 flex justify-between items-center">
                     <span className="text-xs font-medium text-lg-gray">{step.timeline}</span>
                     <span className="text-xs py-1 px-2 bg-lg-blue/10 text-lg-blue rounded-full">{step.status}</span>
                   </div>
