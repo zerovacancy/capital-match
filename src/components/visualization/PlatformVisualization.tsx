@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState, useRef } from 'react';
 import { 
   ArrowRight, UserRound, LineChart, ArrowDownRight, ArrowUpRight, 
@@ -256,28 +255,28 @@ const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Enhanced background with modern gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#1A365D] via-[#275E91] to-[#2D3748] opacity-95" />
+      {/* Updated background with colors matching the site's palette */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#275E91]/90 via-[#5B7B9C]/85 to-[#7A8D79]/80 opacity-95" />
       
-      {/* Subtle grid pattern for depth */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wOCI+PHBhdGggZD0iTTM2IDM0aC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptMC02aC0yVjhoMnY0em0wIDMwaC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptLTYgMTJoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0eiIvPjwvZz48L2c+PC9zdmc+')]} opacity-15" />
+      {/* Subtle grid pattern for depth with adjusted opacity */}
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wOCI+PHBhdGggZD0iTTM2IDM0aC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptMC02aC0yVjhoMnY0em0wIDMwaC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptLTYgMTJoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0eiIvPjwvZz48L2c+PC9zdmc+')]} opacity-10" />
       
-      {/* Lens flare effect in top right */}
-      <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-[#89CFF0]/10 blur-3xl"></div>
+      {/* Updated lens flare effect with site's highlight color */}
+      <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-[#C9D4DC]/15 blur-3xl"></div>
       
       {/* Subtle vignette effect */}
-      <div className="absolute inset-0 bg-gradient-radial from-transparent to-black/30 opacity-60"></div>
+      <div className="absolute inset-0 bg-gradient-radial from-transparent to-background/30 opacity-60"></div>
       
       {/* Content container with enhanced layout */}
       <div className="absolute inset-0 flex flex-col items-center text-white p-6 md:p-8 drop-shadow-sm">
         {/* Enhanced header with professional typography */}
         <div className="relative mb-4">
           <h3 className="text-xl md:text-2xl font-bold text-white/95 tracking-tight relative z-10 flex items-center gap-2">
-            <div className="w-1 h-6 bg-gradient-to-b from-amber-200 to-amber-500 rounded-full mr-1"></div>
+            <div className="w-1 h-6 bg-gradient-to-b from-[#C9D4DC] to-[#7A8D79] rounded-full mr-1"></div>
             Capital Match Platform
             <div className="ml-2 relative">
-              <div className="absolute -top-1 -right-1 w-2 h-2 bg-amber-400 rounded-full animate-ping opacity-75"></div>
-              <div className="w-2 h-2 bg-amber-300 rounded-full"></div>
+              <div className="absolute -top-1 -right-1 w-2 h-2 bg-[#7A8D79] rounded-full animate-ping opacity-75"></div>
+              <div className="w-2 h-2 bg-[#C9D4DC] rounded-full"></div>
             </div>
           </h3>
           <div className="absolute -bottom-2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
@@ -287,10 +286,10 @@ const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({
         <div className="w-full max-w-md mx-auto mb-6 px-4">
           <div className="flex justify-between items-center mb-2">
             <div className="flex items-center gap-1.5">
-              <div className="flex justify-center items-center w-4 h-4 rounded-full bg-amber-400/20">
-                <DollarSign className="w-2.5 h-2.5 text-amber-300" />
+              <div className="flex justify-center items-center w-4 h-4 rounded-full bg-[#C9D4DC]/20">
+                <DollarSign className="w-2.5 h-2.5 text-[#C9D4DC]" />
               </div>
-              <span className="text-sm font-medium text-amber-200/90">Capital Progress</span>
+              <span className="text-sm font-medium text-[#C9D4DC]/90">Capital Progress</span>
             </div>
             <div className="flex items-center text-sm">
               <span className="text-white font-bold">${capitalRaised}M</span>
@@ -303,7 +302,7 @@ const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({
               className="h-full rounded-full"
               style={{ 
                 width: `${(capitalRaised / capitalGoal) * 100}%`,
-                background: "linear-gradient(90deg, rgba(251,191,36,0.7) 0%, rgba(245,158,11,0.8) 100%)"
+                background: "linear-gradient(90deg, rgba(122,141,121,0.7) 0%, rgba(122,141,121,0.8) 100%)"
               }}
             >
               <div className="absolute inset-0 bg-white/5 animate-pulse"></div>
@@ -328,23 +327,23 @@ const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({
           )}>
             <div className={cn(
               "w-16 h-16 md:w-20 md:h-20 rounded-full mb-3 flex items-center justify-center transition-all duration-500 relative",
-              animationStep === 1 ? "ring-2 ring-amber-200/50 shadow-[0_0_15px_rgba(245,158,11,0.3)] scale-110" : "",
+              animationStep === 1 ? "ring-2 ring-[#C9D4DC]/50 shadow-[0_0_15px_rgba(201,212,220,0.3)] scale-110" : "",
             )}>
               <div className="w-full h-full rounded-full bg-gradient-to-br from-white/10 to-white/5 backdrop-filter backdrop-blur-sm backdrop-saturate-150 border border-white/20 overflow-hidden flex items-center justify-center">
                 <UserRound className="w-8 h-8 md:w-10 md:h-10 text-white/90 drop-shadow" />
                 
-                {/* Data flow indicator */}
+                {/* Data flow indicator with updated color */}
                 {animationStep === 1 && (
-                  <div className="absolute -right-1 -top-1 w-5 h-5 bg-gradient-to-br from-amber-300 to-amber-500 rounded-full flex items-center justify-center shadow-lg">
+                  <div className="absolute -right-1 -top-1 w-5 h-5 bg-gradient-to-br from-[#7A8D79] to-[#5B7B9C] rounded-full flex items-center justify-center shadow-lg">
                     <ArrowRight className="w-3 h-3 text-white" />
                   </div>
                 )}
               </div>
               
-              {/* Enhanced pulse effect */}
+              {/* Enhanced pulse effect with site colors */}
               {animationStep === 1 && (
                 <>
-                  <div className="absolute inset-0 rounded-full bg-amber-400/5 blur-xl animate-pulse-slow"></div>
+                  <div className="absolute inset-0 rounded-full bg-[#7A8D79]/10 blur-xl animate-pulse-slow"></div>
                   <div className="absolute inset-0 rounded-full bg-white/5 animate-ping opacity-30 duration-1000"></div>
                 </>
               )}
@@ -357,34 +356,34 @@ const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({
               LP Profiles
             </span>
             
-            {/* Refined data indicators */}
+            {/* Refined data indicators with secondary color */}
             <div className="flex flex-col gap-1 mb-2 w-24 md:w-28">
               <div className={cn(
                 "h-1 w-full rounded-full transition-all duration-500",
-                animationStep === 1 ? "bg-gradient-to-r from-amber-200 to-amber-400" : "bg-white/20"
+                animationStep === 1 ? "bg-gradient-to-r from-[#7A8D79] to-[#5B7B9C]" : "bg-white/20"
               )}></div>
               <div className={cn(
                 "h-1 w-3/4 rounded-full transition-all duration-500 delay-75",
-                animationStep === 1 ? "bg-gradient-to-r from-amber-200 to-amber-400" : "bg-white/20"
+                animationStep === 1 ? "bg-gradient-to-r from-[#7A8D79] to-[#5B7B9C]" : "bg-white/20"
               )}></div>
               <div className={cn(
                 "h-1 w-5/6 rounded-full transition-all duration-500 delay-150",
-                animationStep === 1 ? "bg-gradient-to-r from-amber-200 to-amber-400" : "bg-white/20"
+                animationStep === 1 ? "bg-gradient-to-r from-[#7A8D79] to-[#5B7B9C]" : "bg-white/20"
               )}></div>
             </div>
             
-            {/* LP details card with refined design */}
+            {/* LP details card with refined design using site colors */}
             <div className={cn(
               "mt-1 opacity-0 transition-all duration-500 transform scale-95",
               animationStep === 1 ? "opacity-100 translate-y-0 scale-100" : "translate-y-4"
             )}>
-              <div className="px-3 py-2 rounded-lg bg-black/20 backdrop-blur-md border border-white/10 shadow-xl">
+              <div className="px-3 py-2 rounded-lg bg-[#F5F5EF]/10 backdrop-blur-md border border-white/10 shadow-xl">
                 <div className="flex items-center gap-1 justify-center text-xs">
-                  <ArrowUpRight className="w-3 h-3 text-emerald-400" />
-                  <span className="text-emerald-300 font-medium">IRR: 18%+</span>
+                  <ArrowUpRight className="w-3 h-3 text-[#2E7D32]" />
+                  <span className="text-[#2E7D32] font-medium">IRR: 18%+</span>
                 </div>
                 <div className="text-[11px] mt-1 font-medium">{lpName}</div>
-                <div className="flex items-center justify-center gap-1 text-[10px] text-amber-200 mt-1 font-medium">
+                <div className="flex items-center justify-center gap-1 text-[10px] text-[#C9D4DC] mt-1 font-medium">
                   <DollarSign className="w-2.5 h-2.5" />
                   <span>${lpCommitment}M committed</span>
                 </div>
@@ -392,29 +391,29 @@ const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({
             </div>
           </div>
           
-          {/* Connection line 1 with enhanced particles */}
+          {/* Connection line 1 with colors that match the site */}
           <div className="flex-1 flex items-center justify-center py-2">
             <div className="w-full h-1 bg-white/10 relative rounded-full overflow-hidden shadow-inner">
               {connection1Active && (
                 <>
-                  <div className="absolute left-0 top-0 h-full bg-gradient-to-r from-amber-200 to-amber-400 animate-[grow_3s_ease-in-out_infinite]"></div>
+                  <div className="absolute left-0 top-0 h-full bg-gradient-to-r from-[#C9D4DC] to-[#7A8D79] animate-[grow_3s_ease-in-out_infinite]"></div>
                   <div className="absolute inset-0 bg-white/5 animate-pulse"></div>
                 </>
               )}
               
-              {/* Enhanced data particles */}
+              {/* Enhanced data particles with site's colors */}
               {dataParticles
                 .filter(p => p.direction === 'right')
                 .map(particle => (
                   <div 
                     key={particle.id}
-                    className="absolute top-1/2 -translate-y-1/2 rounded-full shadow-[0_0_5px_rgba(251,191,36,0.7)]"
+                    className="absolute top-1/2 -translate-y-1/2 rounded-full shadow-[0_0_5px_rgba(122,141,121,0.7)]"
                     style={{
                       left: `${particle.position}%`,
                       width: Math.max(2, 6 * (1 - Math.abs(particle.position - 50) / 100)),
                       height: Math.max(2, 6 * (1 - Math.abs(particle.position - 50) / 100)),
                       opacity: Math.min(1, (100 - Math.abs(particle.position - 50)) / 40),
-                      background: "linear-gradient(90deg, rgba(251,191,36,0.8) 0%, rgba(245,158,11,0.9) 100%)"
+                      background: "linear-gradient(90deg, rgba(201,212,220,0.8) 0%, rgba(122,141,121,0.9) 100%)"
                     }}
                   />
                 ))
@@ -422,24 +421,24 @@ const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({
             </div>
           </div>
           
-          {/* AI Engine with enhanced visuals */}
+          {/* AI Engine with site's primary blue */}
           <div className={cn(
             "flex flex-col items-center transition-all duration-500",
             animationStep >= 2 ? "opacity-100" : "opacity-70"
           )}>
             <div className={cn(
               "w-20 h-20 md:w-24 md:h-24 rounded-lg mb-3 flex items-center justify-center transition-all duration-500 relative overflow-hidden",
-              animationStep === 2 ? "ring-2 ring-[#3B82F6]/40 shadow-[0_0_15px_rgba(59,130,246,0.3)] scale-110" : ""
+              animationStep === 2 ? "ring-2 ring-[#275E91]/40 shadow-[0_0_15px_rgba(39,94,145,0.3)] scale-110" : ""
             )}>
-              <div className="absolute inset-0 bg-gradient-to-br from-[#3B82F6]/20 to-[#2563EB]/10 backdrop-blur-sm"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-[#275E91]/20 to-[#5B7B9C]/10 backdrop-blur-sm"></div>
               
               {/* Enhanced grid background */}
               <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMCAwaDIwdjIwSDB6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-30"></div>
               
-              {/* Light effect */}
+              {/* Light effect with primary blue */}
               <div className="absolute inset-0 z-0 opacity-30">
                 <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/20 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#2563EB]/30 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#275E91]/30 to-transparent"></div>
               </div>
               
               <div className="relative z-10 flex items-center justify-center">
@@ -449,19 +448,19 @@ const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({
                 )} />
               </div>
               
-              {/* Enhanced processing animation */}
+              {/* Enhanced processing animation with primary blue */}
               {aiProcessing && (
                 <>
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-full h-full rounded-lg border border-[#3B82F6]/30 animate-[pulse_3s_ease-in-out_infinite]"></div>
-                    <div className="absolute inset-0 border-2 border-transparent border-t-[#3B82F6]/40 rounded-lg animate-spin duration-3000"></div>
+                    <div className="w-full h-full rounded-lg border border-[#275E91]/30 animate-[pulse_3s_ease-in-out_infinite]"></div>
+                    <div className="absolute inset-0 border-2 border-transparent border-t-[#275E91]/40 rounded-lg animate-spin duration-3000"></div>
                   </div>
-                  <div className="absolute inset-0 bg-[#3B82F6]/5 animate-pulse"></div>
+                  <div className="absolute inset-0 bg-[#275E91]/5 animate-pulse"></div>
                   <div className="absolute inset-0 grid grid-cols-3 grid-rows-3 gap-0.5 p-2 z-20 opacity-80">
                     {[...Array(9)].map((_, i) => (
                       <div 
                         key={i}
-                        className={`rounded-sm shadow-inner ${i % 3 === 1 ? 'bg-[#3B82F6]/30' : i % 2 === 0 ? 'bg-white/20' : 'bg-white/10'}`}
+                        className={`rounded-sm shadow-inner ${i % 3 === 1 ? 'bg-[#275E91]/30' : i % 2 === 0 ? 'bg-white/20' : 'bg-white/10'}`}
                         style={{
                           animationName: 'pulse',
                           animationDuration: '1.5s',
@@ -483,65 +482,65 @@ const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({
               AI Matching Engine
             </span>
             
-            {/* Enhanced algorithm indicators */}
+            {/* Enhanced algorithm indicators with site colors */}
             <div className="grid grid-cols-3 gap-1 mb-2 w-28">
               <div className={cn(
                 "h-1 rounded-full transition-all duration-500",
-                aiProcessing ? "bg-gradient-to-r from-emerald-400 to-emerald-500" : "bg-emerald-400/40"
+                aiProcessing ? "bg-gradient-to-r from-[#2E7D32] to-[#7A8D79]" : "bg-[#2E7D32]/40"
               )}></div>
               <div className={cn(
                 "h-1 rounded-full transition-all duration-500 delay-75",
-                aiProcessing ? "bg-gradient-to-r from-[#3B82F6] to-[#2563EB]" : "bg-[#3B82F6]/40"
+                aiProcessing ? "bg-gradient-to-r from-[#275E91] to-[#5B7B9C]" : "bg-[#275E91]/40"
               )}></div>
               <div className={cn(
                 "h-1 rounded-full transition-all duration-500 delay-150",
-                aiProcessing ? "bg-gradient-to-r from-amber-400 to-amber-500" : "bg-amber-400/40"
+                aiProcessing ? "bg-gradient-to-r from-[#C9D4DC] to-white" : "bg-[#C9D4DC]/40"
               )}></div>
             </div>
             
-            {/* Algorithm details with refined design */}
+            {/* Algorithm details with site colors */}
             <div className={cn(
               "mt-1 opacity-0 transition-all duration-500 transform scale-95",
               animationStep === 2 ? "opacity-100 translate-y-0 scale-100" : "translate-y-4"
             )}>
-              <div className="px-3 py-2 rounded-lg bg-black/20 backdrop-blur-md border border-white/10 shadow-xl">
+              <div className="px-3 py-2 rounded-lg bg-[#F5F5EF]/10 backdrop-blur-md border border-white/10 shadow-xl">
                 <div className="flex items-center gap-1.5 text-xs">
-                  <div className="w-3 h-3 rounded-full bg-[#3B82F6]/30 flex items-center justify-center">
-                    <Search className="w-2 h-2 text-[#60A5FA]" />
+                  <div className="w-3 h-3 rounded-full bg-[#275E91]/30 flex items-center justify-center">
+                    <Search className="w-2 h-2 text-[#275E91]" />
                   </div>
-                  <span className="text-[#60A5FA]">Analyzing criteria</span>
+                  <span className="text-[#C9D4DC]">Analyzing criteria</span>
                 </div>
                 <div className="flex items-center gap-1 mt-1.5 text-[10px] text-white/70">
-                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-400/60 animate-pulse"></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#2E7D32]/60 animate-pulse"></div>
                   <span>128 parameters processed</span>
                 </div>
               </div>
             </div>
           </div>
           
-          {/* Connection line 2 with enhanced particles */}
+          {/* Connection line 2 with success/strong indicator color */}
           <div className="flex-1 flex items-center justify-center py-2">
             <div className="w-full h-1 bg-white/10 relative rounded-full overflow-hidden shadow-inner">
               {connection2Active && (
                 <>
-                  <div className="absolute right-0 top-0 h-full bg-gradient-to-l from-emerald-400 to-emerald-600 animate-[grow-reverse_3s_ease-in-out_infinite]"></div>
+                  <div className="absolute right-0 top-0 h-full bg-gradient-to-l from-[#2E7D32] to-[#7A8D79] animate-[grow-reverse_3s_ease-in-out_infinite]"></div>
                   <div className="absolute inset-0 bg-white/5 animate-pulse"></div>
                 </>
               )}
               
-              {/* Enhanced data particles */}
+              {/* Enhanced data particles with success color */}
               {dataParticles
                 .filter(p => p.direction === 'left')
                 .map(particle => (
                   <div 
                     key={particle.id}
-                    className="absolute top-1/2 -translate-y-1/2 rounded-full shadow-[0_0_5px_rgba(52,211,153,0.7)]"
+                    className="absolute top-1/2 -translate-y-1/2 rounded-full shadow-[0_0_5px_rgba(46,125,50,0.7)]"
                     style={{
                       left: `${particle.position}%`,
                       width: Math.max(2, 6 * (1 - Math.abs(particle.position - 50) / 100)),
                       height: Math.max(2, 6 * (1 - Math.abs(particle.position - 50) / 100)),
                       opacity: Math.min(1, (100 - Math.abs(particle.position - 50)) / 40),
-                      background: "linear-gradient(90deg, rgba(52,211,153,0.8) 0%, rgba(16,185,129,0.9) 100%)"
+                      background: "linear-gradient(90deg, rgba(122,141,121,0.8) 0%, rgba(46,125,50,0.9) 100%)"
                     }}
                   />
                 ))
@@ -549,36 +548,36 @@ const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({
             </div>
           </div>
           
-          {/* Deals visualizer with enhanced design */}
+          {/* Deals visualizer with success/strong color */}
           <div className={cn(
             "flex flex-col items-center transition-all duration-500",
             animationStep >= 3 ? "opacity-100" : "opacity-70"
           )}>
             <div className={cn(
               "w-16 h-16 md:w-20 md:h-20 rounded-lg mb-3 flex items-center justify-center transition-all duration-500 relative overflow-hidden",
-              animationStep === 3 || animationStep === 4 ? "ring-2 ring-emerald-400/40 shadow-[0_0_15px_rgba(52,211,153,0.3)] scale-110" : ""
+              animationStep === 3 || animationStep === 4 ? "ring-2 ring-[#2E7D32]/40 shadow-[0_0_15px_rgba(46,125,50,0.3)] scale-110" : ""
             )}>
               <div className={cn(
                 "w-full h-full flex items-center justify-center relative backdrop-blur-sm border border-white/10 bg-gradient-to-br",
                 dealMatched 
-                  ? "from-emerald-500/20 to-emerald-600/10" 
+                  ? "from-[#2E7D32]/20 to-[#7A8D79]/10" 
                   : "from-white/10 to-white/5"
               )}>
                 <Building2 className="w-8 h-8 md:w-10 md:h-10 text-white/90 drop-shadow" />
                 
-                {/* Success indicator */}
+                {/* Success indicator with strong color */}
                 {dealMatched && (
-                  <div className="absolute -right-1 -top-1 w-5 h-5 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-full flex items-center justify-center shadow-lg">
+                  <div className="absolute -right-1 -top-1 w-5 h-5 bg-gradient-to-br from-[#2E7D32] to-[#7A8D79] rounded-full flex items-center justify-center shadow-lg">
                     <CheckCircle2 className="w-3 h-3 text-white" />
                   </div>
                 )}
               </div>
               
-              {/* Success effect */}
+              {/* Success effect with strong color */}
               {dealMatched && (
                 <>
-                  <div className="absolute inset-0 rounded-lg bg-emerald-400/5 blur-xl animate-pulse-slow"></div>
-                  <div className="absolute inset-0 rounded-lg bg-emerald-500/5 animate-ping opacity-30 duration-1000"></div>
+                  <div className="absolute inset-0 rounded-lg bg-[#2E7D32]/5 blur-xl animate-pulse-slow"></div>
+                  <div className="absolute inset-0 rounded-lg bg-[#2E7D32]/5 animate-ping opacity-30 duration-1000"></div>
                 </>
               )}
             </div>
@@ -590,428 +589,21 @@ const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({
               Deal Proposals
             </span>
             
-            {/* Refined deal indicators */}
+            {/* Refined deal indicators with success color */}
             <div className="flex flex-col gap-1 mb-2 w-24 md:w-28">
               <div className={cn(
                 "h-1 w-full rounded-full transition-all duration-500",
-                dealMatched ? "bg-gradient-to-r from-emerald-400 to-emerald-500" : animationStep === 3 ? "bg-white/70" : "bg-white/20" 
+                dealMatched ? "bg-gradient-to-r from-[#2E7D32] to-[#7A8D79]" : animationStep === 3 ? "bg-white/70" : "bg-white/20" 
               )}></div>
               <div className={cn(
                 "h-1 w-4/5 rounded-full transition-all duration-500 delay-75",
-                dealMatched ? "bg-gradient-to-r from-emerald-400 to-emerald-500" : animationStep === 3 ? "bg-white/70" : "bg-white/20"
+                dealMatched ? "bg-gradient-to-r from-[#2E7D32] to-[#7A8D79]" : animationStep === 3 ? "bg-white/70" : "bg-white/20"
               )}></div>
               <div className={cn(
                 "h-1 w-2/3 rounded-full transition-all duration-500 delay-150",
-                dealMatched ? "bg-gradient-to-r from-emerald-400 to-emerald-500" : animationStep === 3 ? "bg-white/70" : "bg-white/20"
+                dealMatched ? "bg-gradient-to-r from-[#2E7D32] to-[#7A8D79]" : animationStep === 3 ? "bg-white/70" : "bg-white/20"
               )}></div>
             </div>
             
-            {/* Deal details with refined design */}
-            <div className={cn(
-              "mt-1 opacity-0 transition-all duration-500 transform scale-95",
-              animationStep >= 3 ? "opacity-100 translate-y-0 scale-100" : "translate-y-4"
-            )}>
-              <div className="px-3 py-2 rounded-lg bg-black/20 backdrop-blur-md border border-white/10 shadow-xl">
-                <div className="text-[11px] font-medium mb-1">{dealName}</div>
-                <div className="flex items-center gap-1 justify-center text-xs">
-                  <ArrowDownRight className="w-3 h-3 text-emerald-400" />
-                  <span className="text-emerald-300">Low Risk</span>
-                </div>
-                <div className="flex items-center justify-center gap-1 text-[11px] mt-1">
-                  <span className={cn(
-                    "transition-all duration-500 font-medium",
-                    dealMatched ? "text-emerald-400" : "text-white/70"
-                  )}>
-                    Match: {dealMatched ? (
-                      <span className="relative">
-                        98%
-                        <span className="absolute -top-1 -right-2 w-1.5 h-1.5 bg-emerald-400 rounded-full animate-ping"></span>
-                      </span>
-                    ) : "..."}
-                  </span>
-                </div>
-                <div className="flex items-center gap-1 justify-center text-[10px] text-amber-200 mt-1 font-medium">
-                  <DollarSign className="w-2.5 h-2.5" />
-                  <span>${dealCapitalNeed}M needed</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        {/* Enhanced status panel with modern design */}
-        <div className="mt-3 h-10 relative w-full max-w-md mx-auto">
-          <div className="absolute inset-x-0 -top-4 h-4 bg-gradient-to-b from-transparent to-[#1A365D]/70"></div>
-          <Card className="bg-black/30 backdrop-blur-md border-white/5 shadow-lg h-full relative overflow-hidden">
-            <div className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-amber-300/70 via-[#3B82F6]/70 to-emerald-400/70"></div>
-            <div className="h-full flex items-center px-4">
-              <p className={cn(
-                "text-xs font-medium transition-all duration-1000 relative z-10 flex items-center gap-2 w-full justify-center",
-                animationStep === 0 ? "opacity-100" : "opacity-0 absolute inset-0 items-center"
-              )}>
-                <span className="w-1.5 h-1.5 bg-[#3B82F6] rounded-full animate-pulse"></span>
-                <span className="text-white/90">Initializing capital matching algorithm...</span>
-              </p>
-              <p className={cn(
-                "text-xs font-medium transition-all duration-1000 relative z-10 flex items-center gap-2 w-full justify-center",
-                animationStep === 1 ? "opacity-100" : "opacity-0 absolute inset-0 items-center"
-              )}>
-                <span className="w-1.5 h-1.5 bg-amber-400 rounded-full animate-pulse"></span>
-                <span className="text-white/90">Processing <span className="text-amber-300 font-semibold">Walton Street Capital</span> investment criteria</span>
-              </p>
-              <p className={cn(
-                "text-xs font-medium transition-all duration-1000 relative z-10 flex items-center gap-2 w-full justify-center",
-                animationStep === 2 ? "opacity-100" : "opacity-0 absolute inset-0 items-center"
-              )}>
-                <span className="w-1.5 h-1.5 bg-[#3B82F6] rounded-full animate-pulse"></span>
-                <span className="text-white/90">Matching to <span className="text-amber-300 font-semibold">Chicago properties</span> with <span className="text-[#60A5FA] font-bold">128</span> parameters</span>
-              </p>
-              <p className={cn(
-                "text-xs font-medium transition-all duration-1000 relative z-10 flex items-center gap-2 w-full justify-center",
-                animationStep === 3 ? "opacity-100" : "opacity-0 absolute inset-0 items-center"
-              )}>
-                <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></span>
-                <span className="text-white/90">Analyzing <span className="text-amber-300 font-semibold">Triangle Square</span> risk & return profile</span>
-              </p>
-              <p className={cn(
-                "text-xs font-medium transition-all duration-1000 relative z-10 flex items-center gap-2 w-full justify-center",
-                animationStep === 4 ? "opacity-100" : "opacity-0 absolute inset-0 items-center"
-              )}>
-                <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></span>
-                <span className="text-white/90">
-                  <span className="text-emerald-400 font-semibold">98% match</span> aligned with <span className="text-amber-300 font-semibold">LG Development's</span> goals
-                </span>
-              </p>
-            </div>
-          </Card>
-        </div>
-        
-        {/* Progress indicator */}
-        <ProgressIndicator />
-
-        {/* Controls */}
-        <div className="absolute right-3 top-3 z-20 flex items-center gap-2">
-          <button
-            onClick={togglePause}
-            className="flex items-center justify-center w-8 h-8 rounded-full bg-black/30 backdrop-blur-sm border border-white/10 text-white/80 transition-all hover:bg-black/40 hover:text-white"
-            title={isPaused ? "Resume Animation" : "Pause Animation"}
-          >
-            {isPaused ? (
-              <Play className="w-4 h-4 ml-0.5" />
-            ) : (
-              <PauseCircle className="w-4 h-4" />
-            )}
-          </button>
-          
-          <button 
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/30 backdrop-blur-sm border border-white/10 text-xs font-medium text-white/80 transition-all hover:bg-black/40 hover:text-white"
-            onClick={startTour}
-          >
-            <HelpCircle className="w-3 h-3" />
-            Guided Tour
-          </button>
-          
-          {/* Tour Overlay with enhanced design */}
-          {showGuidedTour && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center">
-              <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={endTour}></div>
-              
-              {/* Tour Content with refined design */}
-              <div className="max-w-md w-full bg-gradient-to-br from-[#1A365D]/95 to-[#1E3A8A]/95 backdrop-blur-md rounded-xl shadow-2xl border border-white/10 p-5 relative z-10 text-white">
-                <div className="absolute -top-2 -right-2">
-                  <button 
-                    className="w-6 h-6 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-colors shadow-lg"
-                    onClick={endTour}
-                  >
-                    <X className="w-3 h-3" />
-                  </button>
-                </div>
-                
-                <h3 className="text-lg font-bold mb-3 flex items-center gap-2">
-                  <div className="flex items-center justify-center w-5 h-5 rounded-full bg-amber-400/20">
-                    <Play className="w-3 h-3 text-amber-300 ml-0.5" />
-                  </div>
-                  {tourStep === 1 && "LP Investment Profiles"}
-                  {tourStep === 2 && "AI Matching Algorithm"}
-                  {tourStep === 3 && "Deal Analysis"}
-                  {tourStep === 4 && "Match Confirmation"}
-                </h3>
-                
-                <div className="mb-4 text-sm text-white/80 bg-white/5 p-3 rounded-lg border border-white/10">
-                  {tourStep === 1 && (
-                    <p>
-                      Our Capital Match platform begins by analyzing sophisticated <span className="text-amber-300 font-medium">LP profiles</span>. 
-                      The system processes detailed investment criteria from {lpName}, 
-                      including Chicago market preference and a substantial ${lpCommitment}M commitment allocation.
-                    </p>
-                  )}
-                  
-                  {tourStep === 2 && (
-                    <p>
-                      The <span className="text-[#60A5FA] font-medium">AI Matching Engine</span> processes over 128 data points 
-                      from each property and investor profile. This includes comprehensive location analytics, 
-                      risk tolerance assessments, return expectations, asset class preferences, and historical investment patterns.
-                    </p>
-                  )}
-                  
-                  {tourStep === 3 && (
-                    <p>
-                      Our platform identifies <span className="text-amber-300 font-medium">{dealName}</span> as a potential match 
-                      based on precise alignment with {lpName}'s investment criteria. 
-                      The algorithm evaluates multiple risk factors and capital requirements in real-time through our proprietary assessment model.
-                    </p>
-                  )}
-                  
-                  {tourStep === 4 && (
-                    <p>
-                      The platform confirms a <span className="text-emerald-400 font-medium">98% match score</span>, indicating 
-                      exceptional alignment between investor criteria and project characteristics. 
-                      This precise matching enables LG Development to approach investors with 
-                      opportunities specifically calibrated to their investment parameters.
-                    </p>
-                  )}
-                </div>
-                
-                <div className="flex items-center justify-between">
-                  <div className="flex gap-1">
-                    {[1, 2, 3, 4].map(step => (
-                      <div 
-                        key={step}
-                        className={cn(
-                          "w-2 h-2 rounded-full",
-                          tourStep >= step 
-                            ? "bg-amber-400" 
-                            : "bg-white/20"
-                        )}
-                      />
-                    ))}
-                  </div>
-                  
-                  <button 
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-amber-400/20 to-amber-500/20 backdrop-blur-sm border border-amber-400/30 text-xs font-medium text-white transition-all hover:bg-amber-400/30 shadow-lg"
-                    onClick={nextTourStep}
-                  >
-                    {tourStep < 4 ? (
-                      <>
-                        Next <ChevronRight className="w-3 h-3" />
-                      </>
-                    ) : (
-                      "Complete Tour"
-                    )}
-                  </button>
-                </div>
-              </div>
-              
-              {/* Highlight Indicators */}
-              {tourStep === 1 && (
-                <div className="absolute top-1/3 left-1/4 transform -translate-x-1/2 -translate-y-1/2 w-36 h-36 rounded-full border-2 border-amber-300 animate-pulse z-20"></div>
-              )}
-              
-              {tourStep === 2 && (
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-36 h-36 rounded-lg border-2 border-[#60A5FA] animate-pulse z-20"></div>
-              )}
-              
-              {tourStep === 3 && (
-                <div className="absolute top-1/3 right-1/4 transform translate-x-1/2 -translate-y-1/2 w-36 h-36 rounded-lg border-2 border-amber-300 animate-pulse z-20"></div>
-              )}
-              
-              {tourStep === 4 && (
-                <div className="absolute bottom-1/4 left-1/2 transform -translate-x-1/2 w-[80%] h-16 rounded-lg border-2 border-emerald-400 animate-pulse z-20"></div>
-              )}
-            </div>
-          )}
-        </div>
-        
-        {/* Filtering Controls with enhanced design */}
-        {showFilters && (
-          <div className="absolute left-3 top-3 z-20">
-            <button 
-              className={cn(
-                "flex items-center gap-1.5 px-3 py-1.5 rounded-full backdrop-blur-sm border text-xs font-medium transition-all",
-                filtersOpen 
-                  ? "bg-black/40 border-white/20 text-white shadow-lg" 
-                  : "bg-black/30 border-white/10 text-white/80 hover:bg-black/40 hover:text-white"
-              )}
-              onClick={() => setFiltersOpen(!filtersOpen)}
-            >
-              <Filter className="w-3 h-3" />
-              Filters
-              {filtersOpen ? (
-                <X className="w-3 h-3" />
-              ) : (
-                <ChevronDown className="w-3 h-3" />
-              )}
-            </button>
-            
-            {filtersOpen && (
-              <div className="absolute top-full left-0 mt-2 w-64 p-3 rounded-lg bg-[#1A365D]/95 backdrop-blur-md shadow-xl border border-white/10 text-white text-xs animate-in slide-in-from-top-2 duration-200">
-                {/* Deal Size Filter */}
-                <div className="mb-3">
-                  <div className="flex items-center mb-1.5 font-medium">
-                    <div className="w-4 h-4 rounded-full bg-amber-400/20 flex items-center justify-center mr-1.5">
-                      <DollarSign className="w-2.5 h-2.5 text-amber-300" />
-                    </div>
-                    Deal Size ($ millions)
-                  </div>
-                  <div className="flex items-center justify-between bg-black/20 p-2 rounded-lg">
-                    <input
-                      type="range"
-                      min="10"
-                      max="200"
-                      value={filters.dealSize[0]}
-                      onChange={(e) => handleFilterChange('dealSize', [parseInt(e.target.value), filters.dealSize[1]])}
-                      className="w-24 accent-amber-400"
-                    />
-                    <span className="text-amber-300 font-medium">${filters.dealSize[0]}M - ${filters.dealSize[1]}M</span>
-                    <input
-                      type="range"
-                      min="10"
-                      max="200"
-                      value={filters.dealSize[1]}
-                      onChange={(e) => handleFilterChange('dealSize', [filters.dealSize[0], parseInt(e.target.value)])}
-                      className="w-24 accent-amber-400"
-                    />
-                  </div>
-                </div>
-                
-                {/* Location Filter */}
-                <div className="mb-3">
-                  <div className="flex items-center mb-1.5 font-medium">
-                    <div className="w-4 h-4 rounded-full bg-amber-400/20 flex items-center justify-center mr-1.5">
-                      <MapPin className="w-2.5 h-2.5 text-amber-300" />
-                    </div>
-                    Location
-                  </div>
-                  <div className="flex flex-wrap gap-1.5 bg-black/20 p-2 rounded-lg">
-                    {["Chicago", "Milwaukee", "Indianapolis", "Detroit"].map((city) => (
-                      <button
-                        key={city}
-                        className={cn(
-                          "px-2 py-1 rounded-full text-[10px] font-medium border transition-colors",
-                          filters.location.includes(city) 
-                            ? "bg-amber-400/20 border-amber-400/40 text-white" 
-                            : "bg-black/30 border-white/10 text-white/70 hover:bg-black/40"
-                        )}
-                        onClick={() => {
-                          const newLocations = filters.location.includes(city)
-                            ? filters.location.filter(c => c !== city)
-                            : [...filters.location, city];
-                          handleFilterChange('location', newLocations);
-                        }}
-                      >
-                        {city}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-                
-                {/* Investor Type Filter */}
-                <div className="mb-3">
-                  <div className="flex items-center mb-1.5 font-medium">
-                    <div className="w-4 h-4 rounded-full bg-amber-400/20 flex items-center justify-center mr-1.5">
-                      <Users className="w-2.5 h-2.5 text-amber-300" />
-                    </div>
-                    Investor Type
-                  </div>
-                  <div className="flex flex-wrap gap-1.5 bg-black/20 p-2 rounded-lg">
-                    {["Institutional", "Family Office", "Private Equity", "HNWI"].map((type) => (
-                      <button
-                        key={type}
-                        className={cn(
-                          "px-2 py-1 rounded-full text-[10px] font-medium border transition-colors",
-                          filters.investorType.includes(type) 
-                            ? "bg-amber-400/20 border-amber-400/40 text-white" 
-                            : "bg-black/30 border-white/10 text-white/70 hover:bg-black/40"
-                        )}
-                        onClick={() => {
-                          const newTypes = filters.investorType.includes(type)
-                            ? filters.investorType.filter(t => t !== type)
-                            : [...filters.investorType, type];
-                          handleFilterChange('investorType', newTypes);
-                        }}
-                      >
-                        {type}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-                
-                {/* Asset Class Filter */}
-                <div className="mb-3">
-                  <div className="flex items-center mb-1.5 font-medium">
-                    <div className="w-4 h-4 rounded-full bg-amber-400/20 flex items-center justify-center mr-1.5">
-                      <Building className="w-2.5 h-2.5 text-amber-300" />
-                    </div>
-                    Asset Class
-                  </div>
-                  <div className="flex flex-wrap gap-1.5 bg-black/20 p-2 rounded-lg">
-                    {["Multifamily", "Mixed-Use", "Office", "Retail", "Industrial"].map((asset) => (
-                      <button
-                        key={asset}
-                        className={cn(
-                          "px-2 py-1 rounded-full text-[10px] font-medium border transition-colors",
-                          filters.assetClass.includes(asset) 
-                            ? "bg-amber-400/20 border-amber-400/40 text-white" 
-                            : "bg-black/30 border-white/10 text-white/70 hover:bg-black/40"
-                        )}
-                        onClick={() => {
-                          const newAssets = filters.assetClass.includes(asset)
-                            ? filters.assetClass.filter(a => a !== asset)
-                            : [...filters.assetClass, asset];
-                          handleFilterChange('assetClass', newAssets);
-                        }}
-                      >
-                        {asset}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-                
-                {/* Return Profile Filter */}
-                <div>
-                  <div className="flex items-center mb-1.5 font-medium">
-                    <div className="w-4 h-4 rounded-full bg-amber-400/20 flex items-center justify-center mr-1.5">
-                      <BarChart3 className="w-2.5 h-2.5 text-amber-300" />
-                    </div>
-                    Return Profile
-                  </div>
-                  <div className="flex flex-wrap gap-1.5 bg-black/20 p-2 rounded-lg">
-                    {["Core", "Core-Plus", "Value-Add", "Opportunistic"].map((profile) => (
-                      <button
-                        key={profile}
-                        className={cn(
-                          "px-2 py-1 rounded-full text-[10px] font-medium border transition-colors",
-                          filters.returnProfile.includes(profile) 
-                            ? "bg-amber-400/20 border-amber-400/40 text-white" 
-                            : "bg-black/30 border-white/10 text-white/70 hover:bg-black/40"
-                        )}
-                        onClick={() => {
-                          const newProfiles = filters.returnProfile.includes(profile)
-                            ? filters.returnProfile.filter(p => p !== profile)
-                            : [...filters.returnProfile, profile];
-                          handleFilterChange('returnProfile', newProfiles);
-                        }}
-                      >
-                        {profile}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
-
-export default PlatformVisualization;
-
-// Define these animations in src/index.css:
-// @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
-// @keyframes grow { from { width: 0; } to { width: 100%; } }
-// @keyframes grow-reverse { from { width: 0; } to { width: 100%; } }
-// @keyframes pulse { 0% { opacity: 0.6; } 50% { opacity: 1; } 100% { opacity: 0.6; } }
-// @keyframes pulse-slow { 0% { opacity: 0.4; } 50% { opacity: 0.8; } 100% { opacity: 0.4; } }
-
+            {/* Deal details with site colors */}
+            <div className={cn
