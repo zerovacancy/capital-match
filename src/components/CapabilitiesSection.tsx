@@ -297,12 +297,12 @@ const CapabilitiesSection = () => {
             key={index} 
             className={cn(
               "h-full overflow-hidden transition-all duration-500 relative group border-transparent rounded-2xl",
-              "backdrop-blur-md shadow-lg hover:shadow-xl",
+              "backdrop-blur-md shadow-lg hover:shadow-[0_4px_16px_rgba(0,0,0,0.1)]",
               "hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(201,212,220,0.4)]",
               activeCard === index ? 
                 "ring-2 ring-[#275E91]/60 shadow-xl translate-y-[-2px]" : 
-                "border border-[#C9D4DC]/20",
-              "before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-br before:from-footer/80 before:to-footer/40 before:backdrop-blur-sm"
+                "border border-lg-border/40",
+              "before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-br before:from-footer/80 before:to-footer/40 before:backdrop-blur-sm before:border before:border-lg-border/40"
             )}
             onClick={() => setActiveCard(index === activeCard ? null : index)}
             data-aos="fade-up"

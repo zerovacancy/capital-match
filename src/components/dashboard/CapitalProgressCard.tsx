@@ -106,7 +106,7 @@ export function CapitalProgressCard({ metrics }: CapitalProgressCardProps) {
       </div>
       
       <div className="pt-2 grid grid-cols-2 gap-4">
-        <div className="bg-lg-background rounded-lg p-3 shadow-sm border border-lg-highlight/10">
+        <div className="bg-lg-background rounded-lg p-3 shadow-md border border-lg-border/30">
           <div className="flex items-center mb-2 gap-1.5">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#275E91" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="12" cy="12" r="10"/>
@@ -119,7 +119,7 @@ export function CapitalProgressCard({ metrics }: CapitalProgressCardProps) {
             <span className="text-xs text-lg-text pb-1">until target date</span>
           </div>
         </div>
-        <div className="bg-lg-background rounded-lg p-3 shadow-sm border border-lg-highlight/10">
+        <div className="bg-lg-background rounded-lg p-3 shadow-md border border-lg-border/30">
           <div className="flex items-center mb-2 gap-1.5">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#275E91" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>

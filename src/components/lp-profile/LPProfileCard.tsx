@@ -20,12 +20,12 @@ export function LPProfileCard({ lp, onClick, selected = false }: LPProfileCardPr
 
   return (
     <Card 
-      className={`cursor-pointer hover:shadow-md transition-all border-lg-highlight/30 shadow-sm ${
+      className={`cursor-pointer hover:shadow-lg transition-all border-lg-border/60 shadow-md ${
         selected ? 'border-2 border-lg-blue' : ''
       }`}
       onClick={onClick}
     >
-      <CardHeader className="py-2 px-3 border-b border-lg-highlight/10">
+      <CardHeader className="py-2 px-3 border-b border-lg-border/30">
         <div className="flex justify-between items-start gap-2">
           <div>
             <CardTitle className="text-lg-blue text-base">{lp.name}</CardTitle>
@@ -83,7 +83,7 @@ export function LPProfileCard({ lp, onClick, selected = false }: LPProfileCardPr
             </svg>
             Investment Parameters
           </h4>
-          <div className="grid grid-cols-2 gap-x-3 gap-y-1.5 text-sm bg-lg-background rounded-md p-2 border border-lg-highlight/10">
+          <div className="grid grid-cols-2 gap-x-3 gap-y-1.5 text-sm bg-lg-background rounded-md p-2 border border-lg-border/30 shadow-sm">
             <div className="flex flex-col">
               <span className="text-lg-text text-[10px]">Target IRR</span>
               <span className="font-semibold text-lg-blue text-xs">{lp.investmentParameters.targetIRR}%</span>
@@ -110,7 +110,7 @@ export function LPProfileCard({ lp, onClick, selected = false }: LPProfileCardPr
             </svg>
             Contact Info
           </h4>
-          <div className="grid grid-cols-2 gap-x-3 gap-y-1.5 text-sm bg-lg-background rounded-md p-2 border border-lg-highlight/10">
+          <div className="grid grid-cols-2 gap-x-3 gap-y-1.5 text-sm bg-lg-background rounded-md p-2 border border-lg-border/30 shadow-sm">
             <div className="flex flex-col">
               <span className="text-lg-text text-[10px]">Preferred Method</span>
               <span className="font-semibold text-lg-blue text-xs">{lp.preferredContact}</span>

@@ -41,7 +41,7 @@ const Header = () => {
   }, [isPrototypePage]);
 
   return (
-    <header className={`fixed w-full backdrop-blur-sm shadow-md ${isPrototypePage ? 'z-10' : 'z-50'} transition-shadow duration-300 ease-in-out top-0`} style={{ backgroundColor: '#F9F9F8' }}>
+    <header className={`fixed w-full backdrop-blur-sm shadow-lg border-b border-lg-border/40 ${isPrototypePage ? 'z-10' : 'z-50'} transition-shadow duration-300 ease-in-out top-0`} style={{ backgroundColor: '#F9F9F8' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-3 items-center py-4">
           {/* Left: Logo */}
@@ -166,7 +166,7 @@ const Header = () => {
       
       <div
         className={cn(
-          "md:hidden absolute top-[72px] inset-x-0 shadow-lg transition-all duration-300 ease-in-out",
+          "md:hidden absolute top-[72px] inset-x-0 shadow-lg border-b border-lg-border/40 transition-all duration-300 ease-in-out",
           mobileMenuOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0 overflow-hidden"
         )}
         style={{ backgroundColor: '#F9F9F8' }}

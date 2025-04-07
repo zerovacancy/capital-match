@@ -32,12 +32,12 @@ export function DealCard({ deal, onClick, selected = false }: DealCardProps) {
 
   return (
     <Card 
-      className={`cursor-pointer hover:shadow-md transition-all border-lg-highlight/30 shadow-sm ${
+      className={`cursor-pointer hover:shadow-lg transition-all border-lg-border/60 shadow-md ${
         selected ? 'border-2 border-primary' : ''
       }`}
       onClick={onClick}
     >
-      <CardHeader className="pb-2 px-3 pt-3 border-b border-lg-highlight/10">
+      <CardHeader className="pb-2 px-3 pt-3 border-b border-lg-border/30">
         <div className="flex justify-between items-start gap-2">
           <div>
             <CardTitle className="text-lg-blue text-base">{deal.name}</CardTitle>
@@ -78,7 +78,7 @@ export function DealCard({ deal, onClick, selected = false }: DealCardProps) {
             </svg>
             Financial Metrics
           </h4>
-          <div className="grid grid-cols-2 gap-x-3 gap-y-1.5 text-sm bg-lg-background rounded-md p-2 border border-lg-highlight/10">
+          <div className="grid grid-cols-2 gap-x-3 gap-y-1.5 text-sm bg-lg-background rounded-md p-2 border border-lg-border/30 shadow-sm">
             <div className="flex flex-col">
               <span className="text-lg-text text-[10px]">IRR</span>
               <span className="font-semibold text-lg-blue text-xs">{deal.financialMetrics.projectedIRR}%</span>
@@ -110,7 +110,7 @@ export function DealCard({ deal, onClick, selected = false }: DealCardProps) {
             </svg>
             Capital Requirements
           </h4>
-          <div className="grid grid-cols-2 gap-x-3 gap-y-1.5 text-sm bg-lg-background rounded-md p-2 border border-lg-highlight/10">
+          <div className="grid grid-cols-2 gap-x-3 gap-y-1.5 text-sm bg-lg-background rounded-md p-2 border border-lg-border/30 shadow-sm">
             <div className="flex flex-col">
               <span className="text-lg-text text-[10px]">Equity Required</span>
               <span className="font-semibold text-lg-blue text-xs">{formatCurrency(deal.capitalRequirements.equityRequired)}</span>

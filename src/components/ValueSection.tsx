@@ -55,7 +55,7 @@ const ValueSection = () => {
       
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
-          <div className="bg-footer rounded-lg shadow-lg border border-gray-100 p-6 h-full">
+          <div className="bg-footer rounded-xl shadow-lg border border-lg-border/60 p-6 h-full">
             <h3 className="h3 mb-6">Performance Metrics</h3>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -79,7 +79,7 @@ const ValueSection = () => {
         </div>
         
         <div>
-          <div className="bg-footer rounded-lg shadow-lg border border-gray-100 p-6 h-full">
+          <div className="bg-footer rounded-xl shadow-lg border border-lg-border/60 p-6 h-full">
             <h3 className="h3 mb-6">Key Benefits</h3>
             
             <ul className="space-y-4">
@@ -91,7 +91,7 @@ const ValueSection = () => {
               ))}
             </ul>
             
-            <div className="mt-8 p-4 rounded-lg bg-lg-blue/5 border border-lg-blue/10">
+            <div className="mt-8 p-4 rounded-lg bg-lg-blue/5 border border-lg-blue/20 shadow-md">
               <h4 className="h5 mb-2">ROI Projection</h4>
               <p className="small-text mb-3">
                 Based on current metrics, projected ROI within the first year of implementation:

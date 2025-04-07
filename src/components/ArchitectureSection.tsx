@@ -42,9 +42,9 @@ const ArchitectureSection = () => {
       
       <div className="relative max-w-4xl mx-auto">
         {/* Architecture Diagram Visualization - Using uploaded image */}
-        <div className="bg-footer rounded-xl shadow-lg p-6 md:p-8 mb-12 border border-highlight/30">
+        <div className="bg-footer rounded-xl shadow-lg p-6 md:p-8 mb-12 border border-lg-border/60">
           <h3 className="text-lg font-semibold text-lg-blue mb-4 text-center font-display">System Architecture Overview</h3>
-          <div className="rounded-lg overflow-hidden shadow-sm border border-highlight/40">
+          <div className="rounded-lg overflow-hidden shadow-md border border-lg-border/50">
             <img 
               src="/assets/images/home/architecture/data-sources/System Architecture Overview.webp" 
               alt="System Architecture Diagram"
@@ -59,7 +59,7 @@ const ArchitectureSection = () => {
         {/* Architecture Components */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {architectureComponents.map((component, index) => (
-            <Card key={index} className="overflow-hidden shadow-md bg-footer border-highlight/30">
+            <Card key={index} className="overflow-hidden shadow-md bg-footer border-lg-border/60">
               <div className={`${component.color} p-4`}>
                 <div className="flex items-center space-x-4">
                   {component.icon}
