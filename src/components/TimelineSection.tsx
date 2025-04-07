@@ -69,9 +69,9 @@ const TimelineSection = () => {
                     <h3 className="text-xl font-bold text-lg-blue-dark font-display tracking-tight">{step.title}</h3>
                   </div>
                   
-                  {/* Card body with proper text justification */}
+                  {/* Card body with clean text formatting */}
                   <div className="px-6 flex-grow flex flex-col">
-                    <p className="text-base text-lg-gray leading-relaxed mb-4 text-justify">{step.description}</p>
+                    <p className="text-base text-lg-gray leading-relaxed mb-4">{step.description}</p>
                     
                     {/* Bullet points with vertical alignment */}
                     <div className="mb-auto">
@@ -115,9 +115,9 @@ const TimelineSection = () => {
                     <h3 className="text-xl font-bold text-lg-blue-dark font-display tracking-tight">{step.title}</h3>
                   </div>
                   
-                  {/* Card body with proper text justification */}
+                  {/* Card body with clean text formatting */}
                   <div className="px-6 flex-grow flex flex-col">
-                    <p className="text-base text-lg-gray leading-relaxed mb-4 text-justify">{step.description}</p>
+                    <p className="text-base text-lg-gray leading-relaxed mb-4">{step.description}</p>
                     
                     {/* Bullet points with vertical alignment */}
                     <div className="mb-auto">
