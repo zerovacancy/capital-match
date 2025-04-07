@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState, useRef } from 'react';
 import { 
   ArrowRight, UserRound, LineChart, ArrowDownRight, ArrowUpRight, 
@@ -416,8 +417,7 @@ const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({
                       background: "linear-gradient(90deg, rgba(201,212,220,0.8) 0%, rgba(122,141,121,0.9) 100%)"
                     }}
                   />
-                ))
-              }
+                ))}
             </div>
           </div>
           
@@ -543,8 +543,7 @@ const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({
                       background: "linear-gradient(90deg, rgba(122,141,121,0.8) 0%, rgba(46,125,50,0.9) 100%)"
                     }}
                   />
-                ))
-              }
+                ))}
             </div>
           </div>
           
@@ -606,4 +605,145 @@ const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({
             </div>
             
             {/* Deal details with site colors */}
-            <div className={cn
+            <div className={cn(
+              "mt-1 opacity-0 transition-all duration-500 transform scale-95",
+              animationStep === 4 ? "opacity-100 translate-y-0 scale-100" : "translate-y-4"
+            )}>
+              <div className="px-3 py-2 rounded-lg bg-[#F5F5EF]/10 backdrop-blur-md border border-white/10 shadow-xl">
+                <div className="flex items-center gap-1.5 text-xs">
+                  <div className="w-3 h-3 rounded-full bg-[#2E7D32]/30 flex items-center justify-center">
+                    <CheckCircle2 className="w-2 h-2 text-[#2E7D32]" />
+                  </div>
+                  <span className="text-[#C9D4DC]">Deal Matched</span>
+                </div>
+                <div className="text-[11px] mt-1 font-medium">{dealName}</div>
+                <div className="flex items-center justify-center gap-1 text-[10px] text-white/70 mt-1">
+                  <DollarSign className="w-2.5 h-2.5" />
+                  <span>${dealCapitalNeed}M needed</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Controls and progress indicator */}
+        <div className="absolute bottom-2 right-2 flex items-center gap-2">
+          <button 
+            onClick={togglePause}
+            className="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all"
+          >
+            {isPaused ? (
+              <Play className="w-4 h-4 text-white" />
+            ) : (
+              <PauseCircle className="w-4 h-4 text-white" />
+            )}
+          </button>
+          <button
+            onClick={startTour}
+            className="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all"
+          >
+            <HelpCircle className="w-4 h-4 text-white" />
+          </button>
+        </div>
+        
+        {/* Tour guide overlay */}
+        {showGuidedTour && (
+          <div className="absolute inset-0 bg-black/60 z-20 flex items-center justify-center">
+            <div className="bg-background/95 rounded-lg p-6 max-w-md shadow-xl">
+              <div className="flex justify-between items-center mb-4">
+                <h4 className="text-lg font-bold text-[#275E91]">Platform Tour</h4>
+                <button onClick={endTour} className="text-gray-500 hover:text-gray-700">
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+              
+              <div className="mb-6">
+                {tourStep === 1 && (
+                  <div className="space-y-2">
+                    <h5 className="font-semibold text-[#275E91]">Step 1: LP Profiles</h5>
+                    <p className="text-sm text-gray-700">The system analyzes detailed LP profiles with investment criteria and preferences.</p>
+                  </div>
+                )}
+                
+                {tourStep === 2 && (
+                  <div className="space-y-2">
+                    <h5 className="font-semibold text-[#275E91]">Step 2: AI Processing</h5>
+                    <p className="text-sm text-gray-700">The AI engine processes LP criteria and matches them against available deals.</p>
+                  </div>
+                )}
+                
+                {tourStep === 3 && (
+                  <div className="space-y-2">
+                    <h5 className="font-semibold text-[#275E91]">Step 3: Deal Analysis</h5>
+                    <p className="text-sm text-gray-700">All potential deals are analyzed against the LP criteria for optimal matching.</p>
+                  </div>
+                )}
+                
+                {tourStep === 4 && (
+                  <div className="space-y-2">
+                    <h5 className="font-semibold text-[#275E91]">Step 4: Match Success</h5>
+                    <p className="text-sm text-gray-700">The system identifies the best matching opportunities for both LPs and deals.</p>
+                  </div>
+                )}
+              </div>
+              
+              <div className="flex justify-between items-center">
+                <div className="flex gap-1.5">
+                  {[1, 2, 3, 4].map(step => (
+                    <div 
+                      key={step}
+                      className={`w-2 h-2 rounded-full ${tourStep >= step ? 'bg-[#275E91]' : 'bg-gray-300'}`}
+                    ></div>
+                  ))}
+                </div>
+                <button 
+                  onClick={nextTourStep}
+                  className="px-4 py-2 bg-[#275E91] text-white rounded flex items-center gap-1 text-sm hover:bg-[#275E91]/90"
+                >
+                  {tourStep < 4 ? 'Next' : 'Finish'}
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+        
+        {/* Progress indicator at bottom */}
+        <ProgressIndicator />
+        
+        {/* Filter section (conditionally shown) */}
+        {showFilters && (
+          <div className={`absolute top-0 right-0 h-full p-3 bg-[#F5F5EF]/95 transition-all duration-300 shadow-lg z-10 ${filtersOpen ? 'w-72' : 'w-12'}`}>
+            <button 
+              className="absolute top-3 left-3 w-7 h-7 flex items-center justify-center"
+              onClick={() => setFiltersOpen(!filtersOpen)}
+            >
+              {filtersOpen ? (
+                <X className="w-5 h-5 text-[#275E91]" />
+              ) : (
+                <Filter className="w-5 h-5 text-[#275E91]" />
+              )}
+            </button>
+            
+            {filtersOpen && (
+              <div className="pt-10 overflow-y-auto h-full">
+                <h4 className="text-sm font-bold text-[#275E91] mb-4">Filter Matches</h4>
+                
+                {/* Filter sections would go here */}
+                <div className="space-y-4">
+                  {/* Deal size slider */}
+                  {/* Location checkboxes */}
+                  {/* Investor type options */}
+                  {/* Asset class options */}
+                  {/* Return profile options */}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default PlatformVisualization;
