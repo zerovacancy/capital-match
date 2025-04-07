@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Building, ChevronRight, Menu, X } from "lucide-react";
@@ -48,7 +49,7 @@ const Header = () => {
               <img 
                 src="/assets/images/global/logos/lg-logo.png" 
                 alt="Capital Match Logo" 
-                className="h-16 w-auto object-contain"
+                className="h-20 w-auto object-contain"
               />
             </a>
           </div>
