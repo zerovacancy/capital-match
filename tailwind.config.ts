@@ -64,48 +64,78 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				lg: {
-					// Primary Colors
+					// Primary Colors - Reduced palette
 					blue: {
 						DEFAULT: '#275E91',
-						hover: '#1A4D80',
-						active: '#134770'
+						50: '#EEF4FF',
+						100: '#D1E0FF',
+						200: '#A3C1F8',
+						300: '#75A2F0',
+						400: '#4783E7',
+						500: '#275E91',
+						600: '#1A4D80',
+						700: '#134770',
+						800: '#0C3A61',
+						900: '#062C52'
 					},
 					green: {
-						DEFAULT: '#7A8D79', 
-						hover: '#697B68',
-						active: '#586957'
+						DEFAULT: '#7A8D79',
+						50: '#EEF6F0',
+						100: '#D1E6D9',
+						200: '#A3CCB3',
+						300: '#75B38D',
+						400: '#569A67',
+						500: '#7A8D79',
+						600: '#697B68',
+						700: '#586957',
+						800: '#476945',
+						900: '#365A34'
 					},
-					highlight: '#C9D4DC',
 					
-					// Text and Background Colors
-					text: '#1C1C1C',
-					background: '#ECEDE3',
-					footer: '#F5F5EF',
+					// Text and UI Colors - Simplified scale
+					gray: {
+						50: '#F9FAFB',
+						100: '#F3F4F6',
+						200: '#E5E7EB',
+						300: '#D1D5DB',
+						400: '#9CA3AF',
+						500: '#6B7280',
+						600: '#4B5563',
+						700: '#374151',
+						800: '#1F2937',
+						900: '#111827'
+					},
 					
-					// Status/Indicator Colors
+					// Status Colors - Consistent system
 					success: {
 						DEFAULT: '#2E7D32',
-						light: '#E8F5E9'
+						50: '#F3FAEE',
+						100: '#E8F5E9',
+						500: '#2E7D32'
 					},
 					warning: {
 						DEFAULT: '#F57C00',
-						light: '#FFF3E0'
+						50: '#FFF8E6',
+						100: '#FFF3E0',
+						500: '#F57C00'
 					},
 					error: {
 						DEFAULT: '#C62828',
-						light: '#FFEBEE'
+						50: '#FFEAED',
+						100: '#FFEBEE',
+						500: '#C62828'
 					},
 					
-					// Additional UI Colors
-					border: '#D0D0D0',
-					disabled: 'rgba(28, 28, 28, 0.5)',
+					// Background Variations
+					background: '#F0F5FF',
+					paper: '#FFFFFF',
+					footer: '#F5F7FA',
 					
-					// Backward compatibility with existing code
-					gray: {
-						DEFAULT: '#4F5D75',
-						light: '#8D99AE',
-						dark: '#2B2D42'
-					},
+					// Backward compatibility
+					highlight: '#C9D4DC',
+					text: '#1C1C1C',
+					border: '#E5E7EB',
+					disabled: 'rgba(28, 28, 28, 0.4)',
 					accent: '#275E91'
 				}
 			},

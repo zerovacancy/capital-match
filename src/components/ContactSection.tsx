@@ -4,16 +4,19 @@ import { Building2, Mail, Phone, Linkedin, Github } from "lucide-react";
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="py-20 relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 gradient-bg opacity-95 -z-10"></div>
+    <section id="contact" className="py-20 relative overflow-hidden bg-[#1c4b7e]">
+      {/* Solid background */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-[#1c4b7e]"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-white/20 to-white/0"></div>
+      </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mx-auto max-w-2xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white font-display tracking-tight">
             LG Development AI Platform
           </h2>
-          <p className="text-xl opacity-90 mb-12 text-white">
+          <p className="text-xl mb-12 text-white/90">
             Custom-built for LG Development's strategic objectives
           </p>
           
