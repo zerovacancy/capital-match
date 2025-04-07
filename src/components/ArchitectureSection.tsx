@@ -1,14 +1,20 @@
 
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Database, Server, Cpu, CloudCog, ZoomIn, ZoomOut } from "lucide-react";
+import { Database, Server, Cpu, CloudCog, ZoomIn, ZoomOut, AlertCircle } from "lucide-react";
 import { useState } from 'react';
 
 const ArchitectureSection = () => {
   const [isZoomed, setIsZoomed] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   const toggleZoom = () => {
     setIsZoomed(!isZoomed);
+  };
+
+  const handleImageError = () => {
+    console.error("Failed to load architecture diagram image");
+    setImageError(true);
   };
 
   const architectureComponents = [
@@ -60,14 +66,23 @@ const ArchitectureSection = () => {
               <span className="text-sm">{isZoomed ? 'Zoom Out' : 'Zoom In'}</span>
             </button>
           </div>
-          <div className={`rounded-lg overflow-hidden shadow-md border border-lg-border/50 transition-all duration-300 ${isZoomed ? 'h-[500px] overflow-auto' : ''}`}>
-            <div className={`transition-transform duration-300 ${isZoomed ? 'scale-150 transform-origin-top-left p-8' : ''}`}>
-              <img 
-                src="/assets/images/home/architecture/data-sources/System Architecture Overview.webp" 
-                alt="System Architecture Diagram"
-                className="w-full h-auto object-contain"
-              />
-            </div>
+          <div className={`rounded-lg overflow-hidden shadow-md border border-lg-border/50 transition-all duration-300 bg-white/5 ${isZoomed ? 'h-[500px] overflow-auto' : 'min-h-[300px]'}`}>
+            {imageError ? (
+              <div className="flex flex-col items-center justify-center h-full min-h-[300px] p-8 bg-lg-border/10">
+                <AlertCircle className="w-12 h-12 text-lg-gray mb-4" />
+                <p className="text-lg-gray text-center">Could not load architecture diagram</p>
+              </div>
+            ) : (
+              <div className={`transition-transform duration-300 ${isZoomed ? 'scale-150 transform-origin-top-left p-8' : 'p-4'}`}>
+                <img 
+                  src="/assets/images/home/architecture/data-sources/System Architecture Overview.webp" 
+                  alt="System Architecture Diagram"
+                  className="w-full h-auto object-contain min-h-[250px]"
+                  style={{ display: 'block', margin: '0 auto' }}
+                  onError={handleImageError}
+                />
+              </div>
+            )}
           </div>
           <div className="mt-6 text-base text-lg-gray text-center max-w-3xl mx-auto leading-relaxed">
             <p>Our comprehensive architecture integrates data sources, security layers, and AI components through a scalable, multi-tiered approach.</p>
