@@ -11,7 +11,7 @@ const ContactSection = () => {
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-white/20 to-white/0"></div>
       </div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mx-auto max-w-2xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white font-display tracking-tight">
             LG Development AI Platform

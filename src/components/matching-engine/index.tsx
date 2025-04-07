@@ -35,7 +35,7 @@ export function MatchingEngine() {
     <div className="bg-white rounded-xl border border-gray-200 shadow-sm flex flex-col h-full">
       <div className="p-6 border-b border-gray-100">
         <div className="flex items-center mb-1">
-          <div className="p-2 bg-[#F8F5F0] rounded-md mr-3">
+          <div className="p-2 bg-[#F8F5F0] rounded-md mr-3 flex-shrink-0">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#275E91]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
             </svg>

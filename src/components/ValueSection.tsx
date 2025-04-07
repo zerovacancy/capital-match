@@ -49,14 +49,14 @@ const ValueSection = () => {
   ];
 
   return (
-    <section id="value" className="py-16 md:py-24 px-6">
-      <div className="max-w-7xl mx-auto">
+    <section id="value" className="section-container bg-transparent py-16 md:py-20">
+      <div className="relative z-10">
         <div className="mb-16 text-center">
           <div className="inline-block p-2 bg-[#F8F5F0] rounded-md mb-4">
             <TrendingUp className="w-6 h-6 text-[#275E91]" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-4">Value Proposition</h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <h2 className="section-title">Value Proposition</h2>
+          <p className="section-subtitle mx-auto">
             The tangible benefits and ROI our AI platform delivers to LG Development and its investment partners.
           </p>
         </div>
@@ -65,7 +65,7 @@ const ValueSection = () => {
           <div className="lg:col-span-2">
             <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 h-full">
               <div className="flex items-center mb-6">
-                <div className="p-2 bg-[#F8F5F0] rounded-md mr-3">
+                <div className="p-2 bg-[#F8F5F0] rounded-md mr-3 flex-shrink-0">
                   <TrendingUp className="w-5 h-5 text-[#275E91]" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900">Performance Metrics</h3>
@@ -108,7 +108,7 @@ const ValueSection = () => {
           <div>
             <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 h-full">
               <div className="flex items-center mb-6">
-                <div className="p-2 bg-[#F8F5F0] rounded-md mr-3">
+                <div className="p-2 bg-[#F8F5F0] rounded-md mr-3 flex-shrink-0">
                   <CircleCheckBig className="w-5 h-5 text-[#275E91]" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900">Key Benefits</h3>

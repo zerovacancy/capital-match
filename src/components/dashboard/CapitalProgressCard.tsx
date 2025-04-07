@@ -32,7 +32,7 @@ export function CapitalProgressCard({ metrics }: CapitalProgressCardProps) {
                            metrics.probabilityOfSuccess >= 60 ? 'text-lg-warning' : 'text-lg-error';
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-3 flex flex-col">
       <div className="flex justify-between items-center mb-2">
         <div className="flex items-center gap-2">
           <div className="flex items-center justify-center h-12 w-12 rounded-full bg-lg-blue/10 shadow-inner">
