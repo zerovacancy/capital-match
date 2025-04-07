@@ -139,8 +139,8 @@ export function CapitalSourceChart() {
     const orderedStatuses = statusPriority.filter(status => statusGroups[status]);
     
     return (
-      <div className="mt-4">
-        <div className="flex items-center justify-center mb-3 gap-1">
+      <div className="mt-1">
+        <div className="flex items-center justify-center mb-2 gap-1">
           <span className="text-sm text-lg-text font-medium">Commitment Status</span>
           <TooltipProvider>
             <UITooltip>
@@ -158,19 +158,19 @@ export function CapitalSourceChart() {
         </div>
         
         {/* Status Legend */}
-        <ul className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs mb-2">
+        <ul className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-xs mb-1">
           {orderedStatuses.map((status) => (
             <li 
               key={`status-${status}`} 
-              className="flex items-center gap-1.5 bg-lg-highlight/10 px-3 py-1.5 rounded-lg shadow-sm border border-lg-highlight/10"
+              className="flex items-center gap-1.5 bg-lg-highlight/10 px-2 py-1 rounded-lg shadow-sm border border-lg-highlight/10"
             >
               <span
-                className="inline-block h-3 w-3 rounded-full shadow-sm"
+                className="inline-block h-2.5 w-2.5 rounded-full shadow-sm"
                 style={{ backgroundColor: statusGroups[status].color }}
               ></span>
               <div className="flex flex-col">
-                <span className="text-lg-text font-medium">{status}</span>
-                <span className="text-lg-blue font-semibold">
+                <span className="text-lg-text font-medium text-xs">{status}</span>
+                <span className="text-lg-blue font-semibold text-xs">
                   {formatCurrency(statusGroups[status].totalAmount)}
                 </span>
                 <span className="text-lg-text text-xs">
@@ -182,17 +182,17 @@ export function CapitalSourceChart() {
         </ul>
         
         {/* Source Indicators - only shown on hover */}
-        <div className="text-center">
+        <div className="text-center mt-0.5">
           <TooltipProvider>
             <UITooltip>
               <TooltipTrigger asChild>
-                <span className="text-xs text-lg-text underline cursor-help inline-flex items-center gap-1">
+                <span className="text-xs text-lg-blue font-medium hover:text-lg-blue/80 cursor-help inline-flex items-center gap-1 px-2 py-0.5 rounded bg-lg-highlight/5 border border-lg-highlight/10">
                   View all sources <Info size={10} />
                 </span>
               </TooltipTrigger>
               <TooltipContent className="bg-lg-footer text-lg-text border-lg-highlight p-3 w-64">
                 <p className="text-xs mb-2 font-medium">Capital Sources by Investor</p>
-                <ul className="space-y-2">
+                <ul className="space-y-1.5">
                   {payload.map((entry: any, index: number) => {
                     const sourceData = capitalSourceBreakdown[index];
                     return (
@@ -220,16 +220,16 @@ export function CapitalSourceChart() {
   };
 
   return (
-    <div className="flex flex-col">
-      <div className="flex justify-between items-center mb-3">
+    <div className="flex flex-col h-full">
+      <div className="flex items-center mb-3">
         <div className="flex items-center p-2 bg-lg-background rounded-md border border-lg-highlight/10 shadow-sm">
           <p className="text-xs text-lg-text font-medium">Total Commitments: <span className="text-lg-blue font-bold">{formatCurrency(capitalSourceBreakdown.reduce((sum, item) => sum + item.amount, 0))}</span></p>
         </div>
       </div>
       
-      <div className="bg-lg-highlight/5 rounded-lg p-4 h-[280px] flex flex-col shadow-sm border border-lg-highlight/10">
-        <ResponsiveContainer width="100%" height="100%">
-          <PieChart>
+      <div className="bg-lg-highlight/5 rounded-lg p-4 flex-1 flex flex-col shadow-sm border border-lg-highlight/10">
+        <ResponsiveContainer width="100%" height={210}>
+          <PieChart margin={{ top: 0, right: 0, bottom: 0, left: 0 }}>
             <defs>
               {/* Subtle background pattern */}
               <pattern id="pieBackgroundPattern" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
@@ -237,7 +237,7 @@ export function CapitalSourceChart() {
                 <circle cx="5" cy="5" r="1" fill="#C9D4DC" fillOpacity="0.3" />
               </pattern>
             </defs>
-            <circle cx="50%" cy="50%" r="85" fill="url(#pieBackgroundPattern)" />
+            <circle cx="50%" cy="50%" r="70" fill="url(#pieBackgroundPattern)" />
             <Pie
               data={capitalSourceBreakdown}
               dataKey="amount"
@@ -245,9 +245,9 @@ export function CapitalSourceChart() {
               cx="50%"
               cy="50%"
               innerRadius={animation ? 30 : 0}
-              outerRadius={80}
+              outerRadius={70}
               paddingAngle={2}
-              label={({name, percent}) => `${(percent * 100).toFixed(0)}%`}
+              label={({percent}) => `${(percent * 100).toFixed(0)}%`}
               labelLine={false}
               activeIndex={activeIndex}
               activeShape={renderActiveShape}
@@ -264,12 +264,12 @@ export function CapitalSourceChart() {
                   fill={COLORS[index % COLORS.length]} 
                   stroke="#FFFFFF"
                   strokeWidth={1}
-                  className="transition-all duration-300"
+                  className="transition-all duration-300 cursor-pointer"
                 />
               ))}
             </Pie>
             <Tooltip content={<CustomTooltip />} />
-            <Legend content={<CustomLegend />} verticalAlign="bottom" />
+            <Legend content={<CustomLegend />} verticalAlign="bottom" height={10} />
           </PieChart>
         </ResponsiveContainer>
       </div>
