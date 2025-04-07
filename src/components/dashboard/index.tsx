@@ -5,8 +5,10 @@ import { CapitalProgressCard } from './CapitalProgressCard';
 import { MonthlyProgressChart } from './MonthlyProgressChart';
 import { CapitalSourceChart } from './CapitalSourceChart';
 import { CommitmentTable } from './CommitmentTable';
+import { UnifiedDashboard } from './UnifiedDashboard';
 
-export function Dashboard() {
+// Original dashboard component with separate panels
+export function OriginalDashboard() {
   return (
     <div className="bg-card rounded-lg border shadow-sm flex flex-col h-full w-full">
       <div className="p-4 border-b">
@@ -30,4 +32,9 @@ export function Dashboard() {
       </div>
     </div>
   );
+}
+
+// Default export is now the unified dashboard
+export function Dashboard() {
+  return <UnifiedDashboard />;
 }

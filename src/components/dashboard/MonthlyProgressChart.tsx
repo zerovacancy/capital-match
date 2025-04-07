@@ -53,54 +53,36 @@ export function MonthlyProgressChart() {
   const CustomLegend = (props: any) => {
     const { payload } = props;
     
+    // Define tooltips for each legend item
+    const tooltips = {
+      Target: "Monthly target of $850,000 based on Q2 capital raise goals.",
+      Actual: `Confirmed commitments received each month. Total to date: ${formatCurrency(totalRaised)}`,
+      Projected: "Estimated future commitments based on current pipeline and conversion rates."
+    };
+    
     return (
-      <div className="flex justify-center items-center gap-6 mt-2">
+      <div className="flex justify-center items-center gap-6 mt-4">
         {payload.map((entry: any, index: number) => (
-          <div key={`legend-${index}`} className="flex items-center gap-2">
+          <div 
+            key={`legend-${index}`} 
+            className="flex items-center gap-2 bg-lg-highlight/10 px-3 py-1.5 rounded-lg border border-lg-highlight/10 shadow-sm"
+          >
             <span 
               className="w-3 h-3 rounded-full"
               style={{ backgroundColor: entry.color }}
             ></span>
-            <span className="text-sm text-lg-text">{entry.value}</span>
+            <span className="text-sm font-medium text-lg-text">{entry.value}</span>
             
-            {entry.value === 'Target' && (
-              <TooltipProvider>
-                <UITooltip>
-                  <TooltipTrigger asChild>
-                    <Info size={14} className="text-lg-blue cursor-help" />
-                  </TooltipTrigger>
-                  <TooltipContent className="bg-lg-footer text-lg-text border-lg-highlight max-w-[220px] p-3">
-                    <p className="text-xs">Monthly target of {formatCurrency(850000)} based on Q2 capital raise goals.</p>
-                  </TooltipContent>
-                </UITooltip>
-              </TooltipProvider>
-            )}
-            
-            {entry.value === 'Actual' && (
-              <TooltipProvider>
-                <UITooltip>
-                  <TooltipTrigger asChild>
-                    <Info size={14} className="text-lg-blue cursor-help" />
-                  </TooltipTrigger>
-                  <TooltipContent className="bg-lg-footer text-lg-text border-lg-highlight max-w-[220px] p-3">
-                    <p className="text-xs">Confirmed commitments received each month. Total to date: {formatCurrency(totalRaised)}</p>
-                  </TooltipContent>
-                </UITooltip>
-              </TooltipProvider>
-            )}
-            
-            {entry.value === 'Projected' && (
-              <TooltipProvider>
-                <UITooltip>
-                  <TooltipTrigger asChild>
-                    <Info size={14} className="text-lg-blue cursor-help" />
-                  </TooltipTrigger>
-                  <TooltipContent className="bg-lg-footer text-lg-text border-lg-highlight max-w-[220px] p-3">
-                    <p className="text-xs">Estimated future commitments based on current pipeline and conversion rates.</p>
-                  </TooltipContent>
-                </UITooltip>
-              </TooltipProvider>
-            )}
+            <TooltipProvider>
+              <UITooltip>
+                <TooltipTrigger asChild>
+                  <Info size={14} className="text-lg-blue cursor-help" />
+                </TooltipTrigger>
+                <TooltipContent className="bg-lg-footer text-lg-text border-lg-highlight max-w-[220px] p-3">
+                  <p className="text-xs">{tooltips[entry.value as keyof typeof tooltips]}</p>
+                </TooltipContent>
+              </UITooltip>
+            </TooltipProvider>
           </div>
         ))}
       </div>
@@ -123,24 +105,10 @@ export function MonthlyProgressChart() {
   );
 
   return (
-    <Card className="col-span-2 border border-lg-highlight/30 shadow-md">
-      <CardHeader className="pb-2 border-b border-lg-highlight/20">
-        <div className="flex justify-between items-center">
-          <div>
-            <CardTitle className="text-lg-blue flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#275E91" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-                <line x1="6" y1="6" x2="6" y2="6"></line>
-                <line x1="6" y1="18" x2="6" y2="18"></line>
-              </svg>
-              Monthly Capital Raise Progress
-            </CardTitle>
-            <CardDescription className="text-lg-text">
-              Target vs. actual monthly capital velocity
-            </CardDescription>
-          </div>
-          <div className="flex items-center p-2 bg-lg-background rounded-md border border-lg-highlight/10 shadow-sm">
+    <div className="flex flex-col">
+      <div className="flex justify-between items-center mb-4">
+        <div className="flex items-center gap-4">
+          <div className="flex items-center p-3 bg-lg-background rounded-md border border-lg-highlight/10 shadow-sm">
             <div className="px-3 border-r border-lg-highlight/20">
               <p className="text-xs text-lg-text font-medium">YTD Raised</p>
               <p className="text-lg font-bold text-lg-blue">{formatCurrency(totalRaised)}</p>
@@ -150,13 +118,20 @@ export function MonthlyProgressChart() {
               <p className="text-lg font-bold text-lg-blue">{formatCurrency(annualTarget)}</p>
             </div>
           </div>
+          <div className="flex items-center p-3 bg-lg-background rounded-md border border-lg-highlight/10 shadow-sm">
+            <div className="px-3">
+              <p className="text-xs text-lg-text font-medium">Progress</p>
+              <p className="text-lg font-bold text-lg-blue">{Math.round((totalRaised / annualTarget) * 100)}%</p>
+            </div>
+          </div>
         </div>
-      </CardHeader>
-      <CardContent className="h-[300px] pt-6">
+      </div>
+      
+      <div className="bg-lg-highlight/5 rounded-lg p-4 h-[300px] shadow-sm border border-lg-highlight/10">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={monthlyProgress}
-            margin={{ top: 5, right: 20, left: 10, bottom: 5 }}
+            margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
           >
             <defs>
               {actualBarGradient}
@@ -166,13 +141,13 @@ export function MonthlyProgressChart() {
             <XAxis 
               dataKey="month" 
               axisLine={{ stroke: '#C9D4DC', strokeOpacity: 0.5 }}
-              tick={{ fill: '#1C1C1C' }}
+              tick={{ fill: '#1C1C1C', fontSize: 12 }}
             />
             <YAxis 
               tickFormatter={(value) => `$${(value / 1000)}k`}
               width={60}
               axisLine={{ stroke: '#C9D4DC', strokeOpacity: 0.5 }}
-              tick={{ fill: '#1C1C1C' }}
+              tick={{ fill: '#1C1C1C', fontSize: 12 }}
             />
             <Tooltip content={<CustomTooltip />} />
             <Legend content={<CustomLegend />} />
@@ -218,7 +193,7 @@ export function MonthlyProgressChart() {
             />
           </BarChart>
         </ResponsiveContainer>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 }

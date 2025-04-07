@@ -41,10 +41,11 @@ const Header = () => {
   }, [isPrototypePage]);
 
   return (
-    <header className={`fixed w-full backdrop-blur-sm shadow-md ${isPrototypePage ? 'z-10' : 'z-50'} transition-shadow duration-300 ease-in-out sticky top-0`} style={{ backgroundColor: '#F9F9F8' }}>
+    <header className={`fixed w-full backdrop-blur-sm shadow-md ${isPrototypePage ? 'z-10' : 'z-50'} transition-shadow duration-300 ease-in-out top-0`} style={{ backgroundColor: '#F9F9F8' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex justify-between items-center py-4 md:justify-start md:space-x-10">
-          <div className="flex justify-start lg:w-0 lg:flex-1">
+        <div className="grid grid-cols-3 items-center py-4">
+          {/* Left: Logo */}
+          <div className="flex justify-start">
             <a href="/" className="flex items-center">
               <img 
                 src="/assets/images/global/logos/lg-logo.png" 
@@ -54,7 +55,8 @@ const Header = () => {
             </a>
           </div>
           
-          <div className="md:hidden">
+          {/* Mobile menu button */}
+          <div className="md:hidden flex justify-end col-span-2">
             <button
               type="button"
               className="inline-flex items-center justify-center p-2 rounded-md text-lg-text hover:text-lg-blue focus:outline-none"
@@ -68,7 +70,8 @@ const Header = () => {
             </button>
           </div>
           
-          <nav className="hidden md:flex space-x-10">
+          {/* Center: Navigation */}
+          <nav className="hidden md:flex justify-center space-x-10 col-span-1">
             {isPrototypePage ? (
               <></>
             ) : (
@@ -142,16 +145,17 @@ const Header = () => {
             )}
           </nav>
           
-          <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+          {/* Right: CTA Button */}
+          <div className="hidden md:flex justify-end">
             {isPrototypePage ? (
               <a href="/" className="transform hover:scale-105 transition-transform duration-300">
-                <Button className="ml-8 btn-primary flex items-center gap-2 px-8 py-6 shadow-md hover:shadow-lg transition-all duration-300">
+                <Button className="btn-primary flex items-center gap-2 px-8 py-6 shadow-md hover:shadow-lg transition-all duration-300">
                   Back to Home <ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </Button>
               </a>
             ) : (
               <a href="/prototype" className="transform hover:scale-105 transition-transform duration-300">
-                <Button className="ml-8 btn-primary flex items-center gap-2 px-8 py-6 shadow-md hover:shadow-lg transition-all duration-300">
+                <Button className="btn-primary flex items-center gap-2 px-8 py-6 shadow-md hover:shadow-lg transition-all duration-300">
                   Explore Platform <ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </Button>
               </a>

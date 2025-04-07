@@ -118,10 +118,30 @@ export function CapitalSourceChart() {
   };
   
   const CustomLegend = ({ payload }: any) => {
+    // Group by status for a better organized legend
+    const statusGroups: {[key: string]: {color: string, sources: string[], totalAmount: number}} = {};
+    
+    payload.forEach((entry: any, index: number) => {
+      const sourceData = capitalSourceBreakdown[index];
+      if (!statusGroups[sourceData.status]) {
+        statusGroups[sourceData.status] = {
+          color: getStatusColor(sourceData.status),
+          sources: [],
+          totalAmount: 0
+        };
+      }
+      statusGroups[sourceData.status].sources.push(sourceData.source);
+      statusGroups[sourceData.status].totalAmount += sourceData.amount;
+    });
+    
+    // Order by status priority
+    const statusPriority = ["Hard Commit", "Soft Commit", "Reviewing", "Interested"];
+    const orderedStatuses = statusPriority.filter(status => statusGroups[status]);
+    
     return (
-      <div className="mt-2">
+      <div className="mt-4">
         <div className="flex items-center justify-center mb-3 gap-1">
-          <span className="text-xs text-lg-text font-medium">Commitment Status</span>
+          <span className="text-sm text-lg-text font-medium">Commitment Status</span>
           <TooltipProvider>
             <UITooltip>
               <TooltipTrigger asChild>
@@ -136,95 +156,123 @@ export function CapitalSourceChart() {
             </UITooltip>
           </TooltipProvider>
         </div>
-        <ul className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs">
-          {payload.map((entry: any, index: number) => {
-            const sourceData = capitalSourceBreakdown[index];
-            return (
-              <li key={`legend-${index}`} className="flex items-center gap-1.5 bg-lg-highlight/10 px-2 py-1 rounded-full">
-                <span
-                  className="inline-block h-2.5 w-2.5 rounded-full shadow-sm"
-                  style={{ backgroundColor: entry.color }}
-                ></span>
-                <span className="text-lg-text">{entry.value}</span>
-                <span className="text-lg-blue font-medium">
-                  ({formatCurrency(sourceData.amount)})
+        
+        {/* Status Legend */}
+        <ul className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs mb-2">
+          {orderedStatuses.map((status) => (
+            <li 
+              key={`status-${status}`} 
+              className="flex items-center gap-1.5 bg-lg-highlight/10 px-3 py-1.5 rounded-lg shadow-sm border border-lg-highlight/10"
+            >
+              <span
+                className="inline-block h-3 w-3 rounded-full shadow-sm"
+                style={{ backgroundColor: statusGroups[status].color }}
+              ></span>
+              <div className="flex flex-col">
+                <span className="text-lg-text font-medium">{status}</span>
+                <span className="text-lg-blue font-semibold">
+                  {formatCurrency(statusGroups[status].totalAmount)}
                 </span>
-              </li>
-            );
-          })}
+                <span className="text-lg-text text-xs">
+                  {((statusGroups[status].totalAmount / capitalSourceBreakdown.reduce((sum, item) => sum + item.amount, 0)) * 100).toFixed(1)}%
+                </span>
+              </div>
+            </li>
+          ))}
         </ul>
+        
+        {/* Source Indicators - only shown on hover */}
+        <div className="text-center">
+          <TooltipProvider>
+            <UITooltip>
+              <TooltipTrigger asChild>
+                <span className="text-xs text-lg-text underline cursor-help inline-flex items-center gap-1">
+                  View all sources <Info size={10} />
+                </span>
+              </TooltipTrigger>
+              <TooltipContent className="bg-lg-footer text-lg-text border-lg-highlight p-3 w-64">
+                <p className="text-xs mb-2 font-medium">Capital Sources by Investor</p>
+                <ul className="space-y-2">
+                  {payload.map((entry: any, index: number) => {
+                    const sourceData = capitalSourceBreakdown[index];
+                    return (
+                      <li key={`source-${index}`} className="flex items-center justify-between gap-1.5 text-xs">
+                        <div className="flex items-center gap-1.5">
+                          <span
+                            className="inline-block h-2 w-2 rounded-full"
+                            style={{ backgroundColor: entry.color }}
+                          ></span>
+                          <span className="text-lg-text">{entry.value}</span>
+                        </div>
+                        <span className="text-lg-blue font-medium">
+                          {formatCurrency(sourceData.amount)}
+                        </span>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </TooltipContent>
+            </UITooltip>
+          </TooltipProvider>
+        </div>
       </div>
     );
   };
 
   return (
-    <Card className="border border-lg-highlight/30 shadow-md">
-      <CardHeader className="pb-2 border-b border-lg-highlight/20">
-        <div className="flex justify-between items-center">
-          <div>
-            <CardTitle className="text-lg-blue flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#275E91" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-              </svg>
-              Capital Source Breakdown
-            </CardTitle>
-            <CardDescription className="text-lg-text">
-              Commitment status by LP
-            </CardDescription>
-          </div>
-          <div className="flex items-center p-2 bg-lg-background rounded-md border border-lg-highlight/10 shadow-sm">
-            <p className="text-xs text-lg-text font-medium">Total: <span className="text-lg-blue font-bold">{formatCurrency(capitalSourceBreakdown.reduce((sum, item) => sum + item.amount, 0))}</span></p>
-          </div>
+    <div className="flex flex-col">
+      <div className="flex justify-between items-center mb-3">
+        <div className="flex items-center p-2 bg-lg-background rounded-md border border-lg-highlight/10 shadow-sm">
+          <p className="text-xs text-lg-text font-medium">Total Commitments: <span className="text-lg-blue font-bold">{formatCurrency(capitalSourceBreakdown.reduce((sum, item) => sum + item.amount, 0))}</span></p>
         </div>
-      </CardHeader>
-      <CardContent className="h-[280px] pt-5">
-        <div className="bg-lg-highlight/5 rounded-lg p-4 h-full flex flex-col">
-          <ResponsiveContainer width="100%" height="100%">
-            <PieChart>
-              <defs>
-                {/* Subtle background pattern */}
-                <pattern id="pieBackgroundPattern" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
-                  <rect width="10" height="10" fill="#ECEDE3" />
-                  <circle cx="5" cy="5" r="1" fill="#C9D4DC" fillOpacity="0.3" />
-                </pattern>
-              </defs>
-              <circle cx="50%" cy="50%" r="85" fill="url(#pieBackgroundPattern)" />
-              <Pie
-                data={capitalSourceBreakdown}
-                dataKey="amount"
-                nameKey="source"
-                cx="50%"
-                cy="50%"
-                innerRadius={animation ? 30 : 0}
-                outerRadius={80}
-                paddingAngle={2}
-                label={({name, percent}) => `${(percent * 100).toFixed(0)}%`}
-                labelLine={false}
-                activeIndex={activeIndex}
-                activeShape={renderActiveShape}
-                onMouseEnter={onPieEnter}
-                onMouseLeave={onPieLeave}
-                animationBegin={0}
-                animationDuration={1500}
-                animationEasing="ease-out"
-                isAnimationActive={animation}
-              >
-                {capitalSourceBreakdown.map((entry, index) => (
-                  <Cell 
-                    key={`cell-${index}`} 
-                    fill={COLORS[index % COLORS.length]} 
-                    stroke="#FFFFFF"
-                    strokeWidth={1}
-                    className="transition-all duration-300"
-                  />
-                ))}
-              </Pie>
-              <Tooltip content={<CustomTooltip />} />
-              <Legend content={<CustomLegend />} verticalAlign="bottom" />
-            </PieChart>
-          </ResponsiveContainer>
-        </div>
-      </CardContent>
-    </Card>
+      </div>
+      
+      <div className="bg-lg-highlight/5 rounded-lg p-4 h-[280px] flex flex-col shadow-sm border border-lg-highlight/10">
+        <ResponsiveContainer width="100%" height="100%">
+          <PieChart>
+            <defs>
+              {/* Subtle background pattern */}
+              <pattern id="pieBackgroundPattern" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+                <rect width="10" height="10" fill="#ECEDE3" />
+                <circle cx="5" cy="5" r="1" fill="#C9D4DC" fillOpacity="0.3" />
+              </pattern>
+            </defs>
+            <circle cx="50%" cy="50%" r="85" fill="url(#pieBackgroundPattern)" />
+            <Pie
+              data={capitalSourceBreakdown}
+              dataKey="amount"
+              nameKey="source"
+              cx="50%"
+              cy="50%"
+              innerRadius={animation ? 30 : 0}
+              outerRadius={80}
+              paddingAngle={2}
+              label={({name, percent}) => `${(percent * 100).toFixed(0)}%`}
+              labelLine={false}
+              activeIndex={activeIndex}
+              activeShape={renderActiveShape}
+              onMouseEnter={onPieEnter}
+              onMouseLeave={onPieLeave}
+              animationBegin={0}
+              animationDuration={1500}
+              animationEasing="ease-out"
+              isAnimationActive={animation}
+            >
+              {capitalSourceBreakdown.map((entry, index) => (
+                <Cell 
+                  key={`cell-${index}`} 
+                  fill={COLORS[index % COLORS.length]} 
+                  stroke="#FFFFFF"
+                  strokeWidth={1}
+                  className="transition-all duration-300"
+                />
+              ))}
+            </Pie>
+            <Tooltip content={<CustomTooltip />} />
+            <Legend content={<CustomLegend />} verticalAlign="bottom" />
+          </PieChart>
+        </ResponsiveContainer>
+      </div>
+    </div>
   );
 }
