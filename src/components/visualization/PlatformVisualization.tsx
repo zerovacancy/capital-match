@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState, useRef } from 'react';
 import { 
   ArrowRight, UserRound, LineChart, ArrowDownRight, ArrowUpRight, 
@@ -296,11 +295,6 @@ const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({
           <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-white/60 to-transparent"></div>
         </div>
         
-        <p className="max-w-md text-center text-white/90 mb-2 text-sm md:text-base leading-relaxed drop-shadow">
-          Leading capital formation for <span className="text-amber-200 font-medium">Chicago's</span> most promising developments
-        </p>
-        
-        {/* Capital Goal Progress Tracker */}
         <div className="w-full max-w-md mx-auto mb-4 px-4">
           <div className="flex justify-between items-center mb-1">
             <div className="flex items-center gap-1">
@@ -352,7 +346,7 @@ const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({
               
               {/* LP Glow effect */}
               {animationStep === 1 && (
-                <div className="absolute inset-0 rounded-full bg-white/5 blur-sm animate-pulse"></div>
+                <div className="absolute inset-0 rounded-full bg-white/5 blur-xl animate-pulse"></div>
               )}
             </div>
             <span className={cn(
@@ -501,7 +495,7 @@ const PlatformVisualization: React.FC<PlatformVisualizationProps> = ({
               "mt-2 flex flex-col items-center opacity-0 transition-all duration-500 transform",
               animationStep === 2 ? "opacity-100 translate-y-0" : "translate-y-4"
             )}>
-              <div className="px-2 py-1 rounded bg-[#C9D4DC]/20 text-[10px] md:text-xs backdrop-blur-sm border border-white/10 shadow">
+              <div className="px-2 py-1 rounded bg-[#C9D4DC]/20 text-[10px] md:text-xs text-center backdrop-blur-sm border border-white/10 shadow">
                 <div className="flex items-center gap-1">
                   <Search className="w-3 h-3" />
                   <span>Analyzing criteria...</span>
