@@ -48,7 +48,7 @@ const Header = () => {
           <div className="flex justify-start">
             <a href="/" className="flex items-center">
               <img 
-                src="/assets/images/global/logos/lg-development/lg-logo.png" 
+                src="/assets/images/global/logos/lg-logo.png" 
                 alt="LG Development Logo" 
                 className="h-20 w-auto object-contain"
               />
